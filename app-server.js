@@ -13,6 +13,4 @@ app.use((req, res, next) => {
     next()
 })
 
-app.use
-
-app.use('api/users', require('./routes/api/users'))
+module.exports = app
