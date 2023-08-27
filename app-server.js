@@ -16,4 +16,3 @@ app.use((req, res, next) => {
 app.use
 
 app.use('api/users', require('./routes/api/users'))
-
