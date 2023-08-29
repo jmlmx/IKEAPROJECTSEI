@@ -17,6 +17,9 @@ app.use((req, res, next) => {
 
 app.use(cookieParser())
 
+app.use(require('./config/checkToken'))
+
+
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(path.join(__dirname, 'public', 'index.html')))
   })
