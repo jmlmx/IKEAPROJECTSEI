@@ -8,13 +8,21 @@ const SALT_ROUNDS = 5;
 //password(string) add mininum length and required
 //add timestamps to know when people sign in/up
 const userSchema = new Schema ({
-    username: {type: String, required: true},
-    email: {type: String, unique: true, required: true},
-    password: {type: String, minLength: 5, required: true},
-    isLoggedIn: {type: Boolean, required: true, default: false}
+
+    username: {type: String, unique: true, required: true},
+    email: {type: String, unique: true, trim: true, required: true},
+    password: {type: String, minLength: 5, trim: true, required: true},
+    isLoggedIn: {type: Boolean, required: false}
 }, {
-timestamps: true
-})
+timestamps: true,
+toJSON: {
+    transform: function(doc, ret) {
+        delete ret.password;
+        return ret;
+        }
+    } 
+});
+
 
 //add userschema save function
 userSchema.pre('save', async function(next) {
@@ -23,6 +31,7 @@ userSchema.pre('save', async function(next) {
     this.password = await bcrypt.hash(this.password);
     return next();
 })
+//stuff//
 
 //add export module at the end.
 module.exports = mongoose.model('User', userSchema);
