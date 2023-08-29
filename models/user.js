@@ -9,7 +9,7 @@ const SALT_ROUNDS = 5;
 //add timestamps to know when people sign in/up
 //add isLoggedin boolean and trim to user schema
 const userSchema = new Schema ({
-    username: {type: String, required: true},
+    username: {type: String, unique: true, required: true},
     email: {type: String, unique: true, trim: true, required: true},
     password: {type: String, minLength: 5, trim: true, required: true},
     isLoggedIn: {type: Boolean, required: false}
@@ -20,7 +20,7 @@ toJSON: {
         delete ret.password;
         return ret;
         }
-    }
+    } 
 });
 
 //add userschema save function
