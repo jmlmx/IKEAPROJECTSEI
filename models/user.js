@@ -23,10 +23,6 @@ toJSON: {
     } 
 });
 
-const guestSchema = new Schema ({
-    name: String
-})
-
 //add userschema save function
 userSchema.pre('save', async function(next) {
     if (!this.isModified('password')) return next();
@@ -37,5 +33,4 @@ userSchema.pre('save', async function(next) {
 
 //add export module at the end.
 module.exports = mongoose.model('User', userSchema);
-module.exports = mongoose.model('Guest', guestSchema);
 
