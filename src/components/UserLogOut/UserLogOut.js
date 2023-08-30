@@ -7,7 +7,7 @@ export default function UserLogOut({ user, createGuestUser, /*toggleShowUserSide
         logOut()
 
         // toggleShowUserSidePanel() would go here if we did add a side panel containing the users info
-        
+
         createGuestUser()// make a new guest user so they can enjoy none of the perks of membership
     }
 
@@ -15,7 +15,7 @@ export default function UserLogOut({ user, createGuestUser, /*toggleShowUserSide
         < div className={styles.UserLogOut}>
             <div>{user.name}</div>
             <div className={styles.email}>{user.email}</div>
-            <button className='logout btn' onClick={handleLogOut}>Log Out</button>
+            <button className='logout-btn' onClick={handleLogOut}>Log Out</button>
         </div>
     )
 }
