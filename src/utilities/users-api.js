@@ -9,3 +9,7 @@ export function signUp(userData) {
 export function login(credentials) {
     return sendRequest(`${BASE_URL}/login`, 'POST', credentials);
 }
+
+export function updateUser(updatedUserData, userId) {
+    return sendRequest(`${BASE_URL}/${userId}`, 'PUT', updatedUserData)
+}
