@@ -31,6 +31,16 @@ export function getToken() {
   return token;
 }
 
+export async function updateUser(updatedUserData) {
+    // get a new token with updated user info
+    const token = await usersAPI.updateUser(updatedUserData)
+    // remove the current token from localStorage
+    localStorage.removeItem('token');
+    // save new token to localStorage
+    localStorage.setItem('token', token)
+    return getUser()
+  }
+
 export function getUser() {
   const token = getToken();
   return token ? JSON.parse(atob(token.split('.')[1])).user : null;
