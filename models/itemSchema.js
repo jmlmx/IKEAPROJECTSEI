@@ -1,8 +1,8 @@
 // need Schema to require mongoose database
-const Schema = require('mongoose')
+const Schema = require('mongoose').Schema
 
 
-//const itemschema = new schema, that will need name(string) required true, picture(string), category(objectId), price(number) reqired true
+//const itemschema = new schema, that will need name(string) required true, picture(string), category(objectId), price(number) required true
 //add timestamp for the heck of it
 const itemSchema = new Schema ({
     name: {type: String, required: true}, 
