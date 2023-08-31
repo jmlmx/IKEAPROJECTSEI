@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const SALT_ROUNDS = 5;
 //user schema will need name (string) require this to be true and email (string) require to be true, and make it unique, so emails cant be the same
-//password(string) add mininum length and required
+//password(string) add minimum length and required
 //add timestamps to know when people sign in/up
 const userSchema = new Schema(
 	{
