@@ -13,4 +13,12 @@ app.use((req, res, next) => {
     next()
 })
 
+app.use(require('./config/checkToken'))
+app.use('/api/users', require('./routes/users'))
+
+
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(path.join(__dirname, 'public', 'index.html')))
+  })
+
 module.exports = app
