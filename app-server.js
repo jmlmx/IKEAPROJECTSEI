@@ -14,6 +14,7 @@ app.use((req, res, next) => {
 })
 
 app.use(require('./config/checkToken'))
+app.use('/api/users', require('./routes/users'))
 
 
 app.get('*', (req, res) => {
