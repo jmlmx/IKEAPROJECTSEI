@@ -7,6 +7,7 @@ const SALT_ROUNDS = 5;
 //user schema will need name (string) require this to be true and email (string) require to be true, and make it unique, so emails cant be the same
 //password(string) add minimum length and required
 //add timestamps to know when people sign in/up
+
 const userSchema = new Schema(
 	{
 		username: { type: String, required: true },
@@ -32,6 +33,7 @@ userSchema.pre('save', async function (next) {
 	this.password = await bcrypt.hash(this.password);
 	return next();
 });
+
 
 //add export module at the end.
 module.exports = mongoose.model('User', userSchema);

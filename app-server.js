@@ -13,7 +13,10 @@ app.use((req, res, next) => {
     next()
 })
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fc035c7ad227405ed168c93f2942133cf617bda8
 app.use(require('./config/checkToken'))
 app.use('/api/users', require('./routes/users'))
 
