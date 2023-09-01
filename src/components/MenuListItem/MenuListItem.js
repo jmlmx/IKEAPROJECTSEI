@@ -10,6 +10,7 @@ export default function MenuListItem({ menuItem, handleAddToOrder }) {
                 <button className='add-btn' onClick={() => handleAddToOrder(menuItem._id)}>
                     ADD
                 </button>
+                <checkbox>Like Box</checkbox>
             </div>
         </div>
     )
