@@ -4,12 +4,11 @@ const path = require('path');
 const logger = require('morgan');
 const { getPexelsData } = require('./pexel-server');
 
-const pexelsData = getPexelsData();
-console.log(pexelsData);
+// const pexelsData = getPexelsData();
+// console.log(pexelsData);
 
 /* Middleware */
 app.use(express.json());
-//app.use(pexelServer)
 app.use(express.static('public'));
 
 app.use((req, res, next) => {
@@ -40,6 +39,7 @@ app.get('/pexels', pixelMiddleware, (req, res) => {
 		res.status(500).json({ error: 'Failed to fetch Pexels data' });
 		return;
 	}
+	console.log(pexelsData)
 	res.json(pexelsData);
 });
 

@@ -1,29 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
-function PexelsContent({ mediaType, query, apiUrl }) {
-	const [pexelData, setPexelData] = useState([]);
+function PexelsContent({ pexelData, setPexelData }) {
+	console.log(pexelData);
 
 	useEffect(() => {
-		const params = {
-			per_page: 10,
-			media_type: mediaType,
-			query: query
-		};
-
-		const apiKey = process.env.PEXELSKEY;
-		params.api_key = apiKey;
-
-		const url = `${apiUrl}?${new URLSearchParams(params).toString()}`;
-
-		fetch(url)
+		fetch('/pexels')
 			.then((response) => response.json())
 			.then((data) => {
-				setPexelData(mediaType === 'video' ? data.videos : data.photos);
+				setPexelsData(data);
+                console.log(pexelsData);
 			})
 			.catch((error) => {
-				console.error('Data not found', error);
+				console.error('Error fetching Pexels data:', error);
 			});
-	}, [mediaType, query, apiUrl]);
+	}, []);
 
 	return (
 		<div>
@@ -44,3 +34,24 @@ function PexelsContent({ mediaType, query, apiUrl }) {
 }
 
 export default PexelsContent;
+
+// {/* <h1>What's Your Style?</h1>
+// 			<div>
+// 				{pexelsData.length === 0 ? (
+// 					<p>Loading...</p>
+// 				) : (
+// 					pexelsData.map((item) => (
+// 						<div key={item.id}>
+// 							{item.duration ? ( 
+// 								<video controls>
+// 									<source src={item.url} type="video/mp4" />{' '}
+
+// 									Your browser does not support the video tag.
+// 								</video>
+// 							) : (
+// 								{/* <img src={item.src.medium} alt={item.alt} /> */}
+// 							)}
+// 						</div>
+// 					))
+// 				)}
+// 			</div> */}
