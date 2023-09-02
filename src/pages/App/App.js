@@ -12,9 +12,12 @@ import * as ordersAPI from '../../utilities/order-api';
 import HomeScreen from '../HomeScreen/HomeScreen';
 
 export default function App() {
+	const [pexelsData, setPexelsData] = useState([]);
+
+
 	return (
 		<main>
-			<HomeScreen />
+			<HomeScreen pexelsData={pexelsData} setPexelsData={setPexelsData}/>
 		</main>
 	);
 }

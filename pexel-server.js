@@ -34,7 +34,7 @@ const getPexelsData = async () => {
 		const videos = videosResponse.data.videos || [];
 		const photos = photosResponse.data.photos || [];
 		const mergedData = [...videos, ...photos];
-		//console.log(mergedData);
+		console.log('SERVER', mergedData);
 
 		return mergedData;
 	} catch (error) {

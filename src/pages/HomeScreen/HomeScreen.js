@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import PexelsContent from '../../components/Pexels/PexelsContent';
 import { set } from 'mongoose';
 
-export default function HomeScreen(props) {
-	const [pexelsData, setPexelsData] = useState([]);
+export default function HomeScreen({ pexelsData, setPexelsData }) {
+	
 
 	
 
