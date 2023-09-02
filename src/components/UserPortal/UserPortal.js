@@ -3,13 +3,11 @@ import { useState,  useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { getUser } from '../../utilities/users-services'
 import UserLogOut from '../../components/UserLogOut/UserLogOut'
-// import * as ordersAPI from 
 //import Logo from '../../components/Logo/Logo' 
-// may need more imports
 
 export default function UserPortal({ user, setUser }) {
-    const [userInfo, setUserInfo] = useState(null)
-    const [error, setError] = useState('')
+    const [userInfo, setUserInfo] = useState({isLoggedIn: false})
+    const [errorMessage, setErrorMessage] = useState('')
 
     useEffect(() => {
         const fetchUserInfo = async () => {
@@ -17,25 +15,26 @@ export default function UserPortal({ user, setUser }) {
                 const userData = await getUser(user)
                 setUserInfo(userData)
             } catch (error) {
-                setError('Could Not Find Account Information')
+                setErrorMessage('Could Not Find Account Information')
             }
         }
         fetchUserInfo()
-    },[])
+    },[user])
     
     return (
-        <div className='profile-container'>
-            {userInfo.isLoggedIn ? (
-                <div className='loggedin'>
-                    <p className='user-link'>Hey, {user.name}</p>
+        <div className={styles.portal-container}>
+            {userInfo && userInfo.isLoggedIn ? (
+                <span className={styles.loggedin}>
+                    <Link  to='/account' className='user-link'>Hey, {userInfo.name}</Link>
                     <Link to='/favorites' className='fav-btn'>{/*heart icon*/}</Link>
-                    <Link to='cart-btn'></Link>
-                </div>
+                    <Link to='/cart' className={styles.cart-btn}>{/*shopping-cart icon */}</Link>
+                </span>
                 
             ) : (
-                <div className='notloggedin'>
-                <p className='login-btn'>Login/Signup</p>
-                </div>
+                <span className={styles.notloggedin}>
+                <Link className='login-btn'>Login/Signup</Link>
+                <Link to='/cart' className={styles.cart-btn}></Link>
+                </span>
             )}
         </div>
     )
