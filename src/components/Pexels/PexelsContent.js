@@ -3,16 +3,16 @@ import React, { useEffect } from 'react';
 function PexelsContent({ pexelsData, setPexelsData }) {
 	console.log(pexelsData);
 
-
 	useEffect(() => {
-		fetch('/pexels')
+		fetch('http://localhost:8010/pexels')
 			.then((response) => {
-				console.log('API Response:', response);
+				if (!response.ok) {
+					throw new Error(`HTTP error! Status: ${response.status}`);
+				}
 				return response.json();
 			})
 			.then((data) => {
 				setPexelsData(data);
-				console.log('Pexels Data:', data);
 			})
 			.catch((error) => {
 				console.error('Error fetching Pexels data:', error);
@@ -32,9 +32,7 @@ function PexelsContent({ pexelsData, setPexelsData }) {
 								support the video tag.
 							</video>
 						) : (
-							{
-								/* <img src={item.src.medium} alt={item.alt} /> */
-							}
+							<img src={item.src.medium} alt={item.alt} />
 						)}
 					</div>
 				))
