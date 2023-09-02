@@ -1,38 +1,31 @@
-@import "node_modules/bootstrap/scss/bootstrap.scss";
-@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700");
-@import "reset";
-@import "grid";
-
-// Define variables for reusable colors and fonts
 $primary-color: #007bff;
 $secondary-color: #ff6b00;
 $body-font: Arial, sans-serif;
 
-// Define a global container for your sections
+
 .container {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f5f5f5;
 }
 
-// Style the video sections
 .video-section {
   background-color: white;
-  margin-bottom: 20px;
-  padding: 20px;
+  padding: 0;
+  margin: 0; 
   border: 1px solid #ddd;
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between; 
 
-  // Style the video element
+
   video {
-    width: 100%;
-    max-width: 800px;
-    display: block;
-    margin: 0 auto;
+    max-width: 49%; 
     border: 1px solid #ddd;
   }
 
-  // Style headings and text
+
   h1 {
     font-size: 24px;
     color: $primary-color;
@@ -45,7 +38,7 @@ $body-font: Arial, sans-serif;
     margin-bottom: 20px;
   }
 
-  // Style buttons or other elements as needed
+ 
   button {
     background-color: $primary-color;
     color: white;
@@ -59,9 +52,8 @@ $body-font: Arial, sans-serif;
   }
 }
 
-// Apply global styles
+
 body {
   font-family: $body-font;
   background-color: #f5f5f5;
 }
-

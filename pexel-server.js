@@ -13,7 +13,7 @@ const getPexelsData = async () => {
 		const [videosResponse, photosResponse] = await Promise.all([
 			axios.get(pexelsApiUrlVideos, {
 				params: {
-					per_page: 1,
+					per_page: 8,
 					query: 'interior design'
 				},
 				headers: {
