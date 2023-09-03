@@ -17,6 +17,7 @@ export default function App() {
 
 	return (
 		<main>
+		<div>IKEA Logo</div>
 			<HomeScreen pexelsData={pexelsData} setPexelsData={setPexelsData}/>
 		</main>
 	);

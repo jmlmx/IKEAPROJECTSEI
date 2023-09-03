@@ -25,18 +25,15 @@ function PexelsContent({ pexelsData, setPexelsData }) {
 			) : (
 				pexelsData.map((item) => (
 					<div key={item.id}>
-						{/* Apply the styles using the className attribute */}
 						<section className={styles.videoSection}>
-							{item.duration ? (
+							{item.duration && (
 								<video controls autoPlay loop className={styles.video}>
 									<source src={item.video_files[0].link} type="video/mp4" />{' '}
 									Your browser does not support the video tag.
 								</video>
-							) : (
-								<h1 className={styles.heading}>Nothing here Bro</h1>
 							)}
 						</section>
-						{/* You can add text or other components here */}
+						{/* text or other components here */}
 					</div>
 				))
 			)}

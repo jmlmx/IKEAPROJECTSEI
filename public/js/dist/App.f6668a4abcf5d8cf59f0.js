@@ -37,7 +37,7 @@ function PexelsContent(_ref) {
     key: item.id
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
     className: _PexelsContent_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].videoSection
-  }, item.duration ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("video", {
+  }, item.duration && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("video", {
     controls: true,
     autoPlay: true,
     loop: true,
@@ -45,9 +45,7 @@ function PexelsContent(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("source", {
     src: item.video_files[0].link,
     type: "video/mp4"
-  }), ' ', "Your browser does not support the video tag.") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
-    className: _PexelsContent_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].heading
-  }, "Nothing here Bro")))));
+  }), ' ', "Your browser does not support the video tag.")))));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PexelsContent);
 
@@ -95,7 +93,7 @@ root.render( /*#__PURE__*/React.createElement(react__WEBPACK_IMPORTED_MODULE_0__
 
 function App() {
   const [pexelsData, setPexelsData] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("main", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_HomeScreen_HomeScreen__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("main", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "IKEA Logo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_HomeScreen_HomeScreen__WEBPACK_IMPORTED_MODULE_2__["default"], {
     pexelsData: pexelsData,
     setPexelsData: setPexelsData
   }));
@@ -258,11 +256,12 @@ div h1 {
   font-size: 2.5rem;
   color: #333;
   margin-bottom: 20px;
+  margin-top: 50rem;
   width: 100%;
 }
 div .lXVcQtMJkWrfFGLIyTcM {
   flex-basis: calc(50% - 5px);
-}`, "",{"version":3,"sources":["webpack://./src/pages/HomeScreen/HomeScreen.module.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,eAAA;EACA,uBAAA;EACA,YAAA;AACJ;AACI;EACE,iBAAA;EACA,WAAA;EACA,mBAAA;EACA,WAAA;AACN;AAEI;EACE,2BAAA;AAAN","sourcesContent":["div {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center; \n    padding: 0px;\n  \n    h1 {\n      font-size: 2.5rem;\n      color: #333;\n      margin-bottom: 20px;\n      width: 100%; \n    }\n  \n    .pexels-content {\n      flex-basis: calc(50% - 5px); \n    }\n  }"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/pages/HomeScreen/HomeScreen.module.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,eAAA;EACA,uBAAA;EACA,YAAA;AACJ;AACI;EACE,iBAAA;EACA,WAAA;EACA,mBAAA;EACA,iBAAA;EACA,WAAA;AACN;AAEI;EACE,2BAAA;AAAN","sourcesContent":["div {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center; \n    padding: 0px;\n  \n    h1 {\n      font-size: 2.5rem;\n      color: #333;\n      margin-bottom: 20px;\n      margin-top: 50rem;\n      width: 100%; \n    }\n  \n    .pexels-content {\n      flex-basis: calc(50% - 5px); \n    }\n  }"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"pexels-content": `lXVcQtMJkWrfFGLIyTcM`
