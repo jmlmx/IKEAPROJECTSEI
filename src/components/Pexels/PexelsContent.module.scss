@@ -1,27 +1,20 @@
 $primary-color: #007bff;
 $secondary-color: #ff6b00;
-$body-font: Arial, sans-serif;
+$body-font: 'Arial', sans-serif;
 
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f5f5f5;
-}
-
-.video-section {
+section {
   background-color: white;
-  padding: 0;
-  margin: 0; 
-  border: 1px solid #ddd;
-  display: flex;
-  flex-direction: row; 
-  justify-content: space-between; 
-
-
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid #ccc;
+  
+ 
   video {
-    max-width: 49%; 
+    width: 100%;
+    max-width: 800px;
+    display: block;
+    margin: 0 auto;
     border: 1px solid #ddd;
   }
 
@@ -39,17 +32,6 @@ $body-font: Arial, sans-serif;
   }
 
  
-  button {
-    background-color: $primary-color;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-
-    &:hover {
-      background-color: $secondary-color;
-    }
-  }
 }
 
 
@@ -57,3 +39,5 @@ body {
   font-family: $body-font;
   background-color: #f5f5f5;
 }
+
+

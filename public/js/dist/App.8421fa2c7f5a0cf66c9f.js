@@ -162,56 +162,36 @@ function HomeScreen(_ref) {
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `.tmbXXtelZAOOKprF1o1d {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f5f5f5;
-}
-
-.afshucnbrwIXDdixEMe3 {
+___CSS_LOADER_EXPORT___.push([module.id, `section {
   background-color: white;
-  padding: 0;
-  margin: 0;
-  border: 1px solid #ddd;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid #ccc;
 }
-.afshucnbrwIXDdixEMe3 video {
-  max-width: 49%;
+section video {
+  width: 100%;
+  max-width: 800px;
+  display: block;
+  margin: 0 auto;
   border: 1px solid #ddd;
 }
-.afshucnbrwIXDdixEMe3 h1 {
+section h1 {
   font-size: 24px;
   color: #007bff;
   margin-bottom: 10px;
 }
-.afshucnbrwIXDdixEMe3 p {
+section p {
   font-size: 16px;
   color: #333;
   margin-bottom: 20px;
 }
-.afshucnbrwIXDdixEMe3 button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-}
-.afshucnbrwIXDdixEMe3 button:hover {
-  background-color: #ff6b00;
-}
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Arial", sans-serif;
   background-color: #f5f5f5;
-}`, "",{"version":3,"sources":["webpack://./src/components/Pexels/PexelsContent.module.scss"],"names":[],"mappings":"AAKA;EACE,iBAAA;EACA,cAAA;EACA,aAAA;EACA,yBAAA;AAJF;;AAOA;EACE,uBAAA;EACA,UAAA;EACA,SAAA;EACA,sBAAA;EACA,aAAA;EACA,mBAAA;EACA,8BAAA;AAJF;AAOE;EACE,cAAA;EACA,sBAAA;AALJ;AASE;EACE,eAAA;EACA,cA9BY;EA+BZ,mBAAA;AAPJ;AAUE;EACE,eAAA;EACA,WAAA;EACA,mBAAA;AARJ;AAYE;EACE,yBA1CY;EA2CZ,YAAA;EACA,kBAAA;EACA,YAAA;EACA,eAAA;AAVJ;AAYI;EACE,yBAhDY;AAsClB;;AAgBA;EACE,8BAtDU;EAuDV,yBAAA;AAbF","sourcesContent":["$primary-color: #007bff;\n$secondary-color: #ff6b00;\n$body-font: Arial, sans-serif;\n\n\n.container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 20px;\n  background-color: #f5f5f5;\n}\n\n.video-section {\n  background-color: white;\n  padding: 0;\n  margin: 0; \n  border: 1px solid #ddd;\n  display: flex;\n  flex-direction: row; \n  justify-content: space-between; \n\n\n  video {\n    max-width: 49%; \n    border: 1px solid #ddd;\n  }\n\n\n  h1 {\n    font-size: 24px;\n    color: $primary-color;\n    margin-bottom: 10px;\n  }\n\n  p {\n    font-size: 16px;\n    color: #333;\n    margin-bottom: 20px;\n  }\n\n \n  button {\n    background-color: $primary-color;\n    color: white;\n    padding: 10px 20px;\n    border: none;\n    cursor: pointer;\n\n    &:hover {\n      background-color: $secondary-color;\n    }\n  }\n}\n\n\nbody {\n  font-family: $body-font;\n  background-color: #f5f5f5;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/Pexels/PexelsContent.module.scss"],"names":[],"mappings":"AAKA;EACE,uBAAA;EACA,aAAA;EACA,YAAA;EACA,sBAAA;AAJF;AAOE;EACE,WAAA;EACA,gBAAA;EACA,cAAA;EACA,cAAA;EACA,sBAAA;AALJ;AASE;EACE,eAAA;EACA,cAvBY;EAwBZ,mBAAA;AAPJ;AAUE;EACE,eAAA;EACA,WAAA;EACA,mBAAA;AARJ;;AAeA;EACE,gCApCU;EAqCV,yBAAA;AAZF","sourcesContent":["$primary-color: #007bff;\n$secondary-color: #ff6b00;\n$body-font: 'Arial', sans-serif;\n\n\nsection {\n  background-color: white;\n  padding: 20px;\n  margin: 20px;\n  border: 1px solid #ccc;\n  \n \n  video {\n    width: 100%;\n    max-width: 800px;\n    display: block;\n    margin: 0 auto;\n    border: 1px solid #ddd;\n  }\n\n\n  h1 {\n    font-size: 24px;\n    color: $primary-color;\n    margin-bottom: 10px;\n  }\n\n  p {\n    font-size: 16px;\n    color: #333;\n    margin-bottom: 20px;\n  }\n\n \n}\n\n\nbody {\n  font-family: $body-font;\n  background-color: #f5f5f5;\n}\n\n\n"],"sourceRoot":""}]);
 // Exports
-___CSS_LOADER_EXPORT___.locals = {
-	"container": `tmbXXtelZAOOKprF1o1d`,
-	"video-section": `afshucnbrwIXDdixEMe3`
-};
+___CSS_LOADER_EXPORT___.locals = {};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
