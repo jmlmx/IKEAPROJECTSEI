@@ -8,9 +8,10 @@ const SALT_ROUNDS = 5;
 //password(string) add minimum length and required
 //add timestamps to know when people sign in/up
 
-const userSchema = new Schema(
+const userSchema = new mongoose.Schema(
 	{
 		username: { type: String, required: true },
+		favorites: { type: Schema.Types.ObjectId, ref: 'Favorites' },
 		email: {
 			type: String,
 			unique: true,
@@ -30,10 +31,14 @@ const userSchema = new Schema(
 userSchema.pre('save', async function (next) {
 	if (!this.isModified('password')) return next();
 	//updates the password with the computed hash
-	this.password = await bcrypt.hash(this.password);
+	this.password = await bcrypt.hash(this.password, SALT_ROUNDS);
 	return next();
 });
 
 
 //add export module at the end.
-module.exports = mongoose.model('User', userSchema);
+// module.exports = mongoose.model('User', userSchema);
+
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;
