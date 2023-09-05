@@ -2,11 +2,10 @@ import styles from './UserPortal.module.scss'
 import { useState,  useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { getUser } from '../../utilities/users-services'
-import UserLogOut from '../../components/UserLogOut/UserLogOut'
 //import Logo from '../../components/Logo/Logo' 
 
 export default function UserPortal({ user, setUser }) {
-    const [userInfo, setUserInfo] = useState({isLoggedIn: false})
+    const [userInfo, setUserInfo] = useState(null)
     const [errorMessage, setErrorMessage] = useState('')
 
     useEffect(() => {
@@ -22,17 +21,17 @@ export default function UserPortal({ user, setUser }) {
     },[user])
     
     return (
-        <div className={styles.portal-container}>
+        <div className={styles.portalcontainer}>
             {userInfo && userInfo.isLoggedIn ? (
                 <span className={styles.loggedin}>
-                    <Link  to='/account' className='user-link'>Hey, {userInfo.name}</Link>
-                    <Link to='/favorites' className='fav-btn'>likes</Link>
+                    <Link  to='/account' className='userlink'>Hey, {userInfo.name}</Link>
+                    <Link to='/favorites' className='favbtn'>likes</Link>
                     <Link to='/cart' className={styles.cart-btn}>cart</Link>
                 </span>
                 
             ) : (
                 <span className={styles.notloggedin}>
-                <Link className='login-btn'>Login/Signup</Link>
+                <Link className='loginbtn'>Login/Signup</Link>
                 <Link to='/cart' className={styles.cart-btn}>cart</Link>
                 </span>
             )}

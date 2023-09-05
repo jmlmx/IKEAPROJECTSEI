@@ -10,6 +10,7 @@ import styles from './App.module.scss';
 import { getUser, signUp } from '../../utilities/users-services';
 import * as ordersAPI from '../../utilities/order-api';
 import HomeScreen from '../HomeScreen/HomeScreen';
+import UserPortal from '../../components/UserPortal/UserPortal'
 
 export default function App() {
 	const [user, setUser] = useState(getUser());
@@ -48,6 +49,7 @@ export default function App() {
 	return (
 		<main>
 			<HomeScreen />
+			<UserPortal />
 		</main>
 	);
 }
