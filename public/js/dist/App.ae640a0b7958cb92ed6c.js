@@ -50,7 +50,7 @@ function UserPortal(_ref) {
   }, [user]);
   return /*#__PURE__*/React.createElement("div", {
     className: _UserPortal_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].portalcontainer
-  }, userInfo && userInfo.isLoggedIn ? /*#__PURE__*/React.createElement("span", {
+  }, userInfo && userInfo.isLoggedIn ? /*#__PURE__*/React.createElement("div", {
     className: _UserPortal_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].loggedin
   }, /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
     to: "/account",
@@ -60,15 +60,16 @@ function UserPortal(_ref) {
     className: "favbtn"
   }, "likes"), /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
     to: "/cart",
-    className: _UserPortal_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].cart - btn
-  }, "cart")) : /*#__PURE__*/React.createElement("span", {
+    className: _UserPortal_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].cartbtn
+  }, "cart")) : /*#__PURE__*/React.createElement("div", {
     className: _UserPortal_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].notloggedin
   }, /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+    to: "/login",
     className: "loginbtn"
   }, "Login/Signup"), /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
     to: "/cart",
-    className: _UserPortal_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].cart - btn
-  }, "cart")));
+    className: _UserPortal_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].cartbtn
+  }, "Cart")));
 }
 
 /***/ }),
@@ -417,20 +418,29 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.ZwNhM6v1FQIi1EH_OyOe {
   display: flex;
+  justify-content: space-evenly;
 }
 
-.liKyWqdgAPxKYEuWF0yT {
+.ZwNhM6v1FQIi1EH_OyOe .liKyWqdgAPxKYEuWF0yT {
   display: flex;
+  justify-content: space-evenly;
 }
 
-.QNGME6RGnfPrSJlmbrMa {
+.ZwNhM6v1FQIi1EH_OyOe .QNGME6RGnfPrSJlmbrMa {
   display: flex;
-}`, "",{"version":3,"sources":["webpack://./src/components/UserPortal/UserPortal.module.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;AACJ;;AAEA;EACI,aAAA;AACJ;;AAEA;EACI,aAAA;AACJ","sourcesContent":[".portalcontainer {\n    display:flex;\n}\n\n.loggedin {\n    display:flex;\n}\n\n.notloggedin {\n    display:flex;\n}"],"sourceRoot":""}]);
+  width: 10vmin;
+  justify-content: space-evenly;
+}
+
+.ZwNhM6v1FQIi1EH_OyOe .TIJQh045RWXXzyQmbruJ {
+  display: flex;
+}`, "",{"version":3,"sources":["webpack://./src/components/UserPortal/UserPortal.module.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,6BAAA;AACJ;;AAEI;EACI,aAAA;EACA,6BAAA;AACR;;AAEI;EACI,aAAA;EACA,aAAA;EACA,6BAAA;AACR;;AAEI;EACI,aAAA;AACR","sourcesContent":[".portalcontainer {\n    display:flex;\n    justify-content: space-evenly;\n}\n\n    .portalcontainer .loggedin {\n        display:flex;\n        justify-content: space-evenly;\n    }\n\n    .portalcontainer .notloggedin {\n        display:flex;\n        width: 10vmin;\n        justify-content: space-evenly;\n    }\n\n    .portalcontainer .cartbtn {\n        display: flex;\n    }"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"portalcontainer": `ZwNhM6v1FQIi1EH_OyOe`,
 	"loggedin": `liKyWqdgAPxKYEuWF0yT`,
-	"notloggedin": `QNGME6RGnfPrSJlmbrMa`
+	"notloggedin": `QNGME6RGnfPrSJlmbrMa`,
+	"cartbtn": `TIJQh045RWXXzyQmbruJ`
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -23,17 +23,17 @@ export default function UserPortal({ user, setUser }) {
     return (
         <div className={styles.portalcontainer}>
             {userInfo && userInfo.isLoggedIn ? (
-                <span className={styles.loggedin}>
+                <div className={styles.loggedin}>
                     <Link  to='/account' className='userlink'>Hey, {userInfo.name}</Link>
                     <Link to='/favorites' className='favbtn'>likes</Link>
-                    <Link to='/cart' className={styles.cart-btn}>cart</Link>
-                </span>
+                    <Link to='/cart' className={styles.cartbtn}>cart</Link>
+                </div>
                 
             ) : (
-                <span className={styles.notloggedin}>
-                <Link className='loginbtn'>Login/Signup</Link>
-                <Link to='/cart' className={styles.cart-btn}>cart</Link>
-                </span>
+                <div className={styles.notloggedin}>
+                <Link to='/login' className='loginbtn'>Login/Signup</Link>
+                <Link to='/cart' className={styles.cartbtn}>Cart</Link>
+                </div>
             )}
         </div>
     )
