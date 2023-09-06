@@ -10,7 +10,11 @@ import styles from './App.module.scss';
 import { getUser, signUp } from '../../utilities/users-services';
 import * as ordersAPI from '../../utilities/order-api';
 import HomeScreen from '../HomeScreen/HomeScreen';
+<<<<<<< HEAD
+import UserPortal from '../../components/UserPortal/UserPortal'
+=======
 import NavBar from '../../components/NavBar/NavBar';
+>>>>>>> 66f22c7f5e680ffd7118b69972384ea9cd753224
 
 export default function App() {
 	const [user, setUser] = useState(getUser());
@@ -50,6 +54,7 @@ export default function App() {
 		<main>
 			<NavBar />
 			<HomeScreen />
+			<UserPortal />
 		</main>
 	);
 }

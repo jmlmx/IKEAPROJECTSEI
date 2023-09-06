@@ -77,6 +77,7 @@ const dataController = {
 			if (!user) throw new Error();
 			const match = await bcrypt.compare(req.body.password, user.password);
 			if (!match) throw new Error();
+			user.isLoggedIn = true
 			res.locals.data.user = user;
 			res.locals.data.token = createJWT(user);
 			next();
