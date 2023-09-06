@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom";
 import styles from './NavBar.module.scss'
+import Logo from "../Logo/Logo";
 
-export default function NavBar({ Entertainment, Furniture, HomeDecor, Appliance, Kitchen , Bedroom, Bathroom }) {
+export default function NavBar({ AboutUs, Shop, Jobs }) {
 
-  return (
-    <div className={styles.NavBar}>
-        <Link to='/HomeScreen' className='entBtn'>Entertainment</Link>
-        <Link to='/HomeScreen' className='furnBtn'>Furniture</Link>
-        <Link to='/HomeScreen' className='hdBtn'>Home Decor</Link>
-        <Link to='/HomeScreen' className='appBtn'>Appliance</Link>
-        <Link to='/HomeScreen' className='kitBtn'>Kitchen</Link>
-        <Link to='/HomeScreen' className='bedBtn'>Bedroom</Link>
-        <Link to='/HomeScreen' className='batBtn'>Bathroom</Link>
-      
-    </div>
-  )
+    return (
+
+        <main className={styles.NavBar}>
+            <div>
+                <Logo />
+                <Link to='/HomeScreen' className='aboutBtn'>About Us</Link>
+                <Link to='/HomeScreen' className='shopBtn'>Shop</Link>
+                <Link to='/HomeScreen' className='jobsBtn'>Jobs</Link>
+            </div>
+        </main>
+    )
 }
