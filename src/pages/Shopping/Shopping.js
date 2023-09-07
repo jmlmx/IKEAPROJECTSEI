@@ -28,9 +28,10 @@ export default function Shop({ user, setUser, cart, setCart }) {
 		}
 		getCart();
 	}, []);
+	console.log(menuItems);
 
 	return (
-		<main >
+		<main>
 			<div>
 				<CategoryList
 					categories={categoriesRef.current}
@@ -39,11 +40,7 @@ export default function Shop({ user, setUser, cart, setCart }) {
 				/>
 			</div>
 			<MenuList
-				menuItems={
-					activeCat === 'Show All'
-						? menuItems
-						: menuItems.filter((item) => item.category.name === activeCat)
-				}
+				menuItems={menuItems.filter((item) => item.category.name === activeCat)}
 			/>
 		</main>
 	);

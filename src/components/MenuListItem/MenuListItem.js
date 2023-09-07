@@ -4,6 +4,7 @@ import styles from './MenuListItem.module.scss';
 
 //write export function for menu list items
 export default function MenuListItem ({menuItem, handleAddToOrder}) {
+    console.log(menuItem)
  return (
     <div className={styles.MenuListItem}>
         {/* img src controls the size and appearance of pictures for items */}
