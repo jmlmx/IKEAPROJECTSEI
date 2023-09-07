@@ -23,7 +23,6 @@ export default function App() {
 	useEffect(() => {
 		if (!user) {
 			createGuestUser();
-			console.log('Guest user created', user)
 		}
 	}, []);
 
@@ -36,6 +35,7 @@ export default function App() {
 		localStorage.setItem('guestuser', guestUserData.email);
 		const guestUser = await signUp(guestUserData);
 		setUser(guestUser);
+		console.log('Guest user created', guestUser)
 	}
 
 	useEffect(() => {
@@ -51,7 +51,7 @@ export default function App() {
 			<NavBar />
 			<UserPortal />
 			<Routes>
-			<Route path="/ikea" element={<HomeScreen pexelsData={pexelsData} setPexelsData={setPexelsData}/>} />
+			<Route path="/ikea" element={<HomeScreen user={user} setUser={setUser} pexelsData={pexelsData} setPexelsData={setPexelsData}/>} />
 			<Route path="/*" element={<Navigate to="/ikea" />} />
 			</Routes>
 		</main>

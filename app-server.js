@@ -26,7 +26,7 @@ app.use((req, res, next) => {
 app.get('/pexels', async (req, res, next) => {
 	try {
 		const pexelsData = await getPexelsData();
-		console.log("GET ROUTE", pexelsData);
+		//console.log("GET ROUTE", pexelsData);
 		res.json(pexelsData);
 	} catch (error) {
 		console.error('Error fetching Pexels data:', error);
