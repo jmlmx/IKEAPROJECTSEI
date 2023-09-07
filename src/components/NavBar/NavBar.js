@@ -10,7 +10,7 @@ export default function NavBar({ AboutUs, Shop, Jobs }) {
             <div>
                 <Logo />
                 <Link to='/HomeScreen' className='aboutBtn'>About Us</Link>
-                <Link to='/HomeScreen' className='shopBtn'>Shop</Link>
+                <Link to='/shop' className='shopBtn'>Shop</Link>
                 <Link to='/HomeScreen' className='jobsBtn'>Jobs</Link>
             </div>
         </main>
