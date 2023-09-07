@@ -10,11 +10,13 @@ import styles from './App.module.scss';
 import { getUser, signUp } from '../../utilities/users-services';
 import * as ordersAPI from '../../utilities/order-api';
 import HomeScreen from '../HomeScreen/HomeScreen';
+import Footer from '../../components/Footer/Footer'
 
 export default function App() {
 	return (
 		<main>
 			<HomeScreen />
+			<Footer />
 		</main>
 	);
 }
