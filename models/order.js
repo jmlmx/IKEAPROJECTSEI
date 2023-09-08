@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-const itemSchema = require('./itemSchema');
+const mongoose = require('mongoose')
+const { model, Schema } = require('mongoose')
+const itemSchema = require('./itemSchema')
 
-const lineItemSchema = new Schema ({
+const lineItemSchema = new Schema({
     quantity: {type: Number, default: 1},
     item: itemSchema
 }, {
@@ -70,8 +70,5 @@ orderSchema.methods.setItemQty = function(itemId, newQty) {
     return cart.save();
 };
 
-const Order = mongoose.model('Order', orderSchema);
-const LineItem = mongoose.model('LineItem', lineItemSchema)
-
-module.exports = { Order, LineItem }
+module.exports = model('Order', orderSchema)
 

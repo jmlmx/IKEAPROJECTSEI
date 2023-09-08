@@ -7,13 +7,11 @@ export default function NavBar({ AboutUs, Shop, Jobs }) {
     return (
 
         <main className={styles.NavBar}>
-            <Logo className={styles.Logo} />
-            <div className={styles.Link}>
-                <ul>
-                    <li><Link to='/HomeScreen'>About Us</Link></li>
-                    <li><Link to='/HomeScreen'>Shop</Link></li>
-                    <li><Link to='/HomeScreen'>Jobs</Link></li>
-                </ul>
+            <div>
+                <Logo />
+                <Link to='/HomeScreen' className='aboutBtn'>About Us</Link>
+                <Link to='/shop' className='shopBtn'>Shop</Link>
+                <Link to='/HomeScreen' className='jobsBtn'>Jobs</Link>
             </div>
         </main>
     )
