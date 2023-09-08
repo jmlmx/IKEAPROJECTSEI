@@ -9,16 +9,11 @@ import {
 import styles from './App.module.scss';
 import { getUser, signUp } from '../../utilities/users-services';
 import * as ordersAPI from '../../utilities/order-api';
-
 import HomeScreen from '../HomeScreen/HomeScreen';
-<<<<<<< HEAD
-import Footer from '../../components/Footer/Footer'
-=======
+import Footer from '../../components/Footer/Footer';
 import Shop from '../Shopping/Shopping';
-
 import UserPortal from '../../components/UserPortal/UserPortal';
 import NavBar from '../../components/NavBar/NavBar';
->>>>>>> e08e46c044bfc73d23deae69096ae97c0b8f286d
 
 export default function App() {
 	const [pexelsData, setPexelsData] = useState([]);
@@ -42,7 +37,7 @@ export default function App() {
 		localStorage.setItem('guestuser', guestUserData.email);
 		const guestUser = await signUp(guestUserData);
 		setUser(guestUser);
-		console.log('Guest user created', guestUser)
+		console.log('Guest user created', guestUser);
 	}
 
 	useEffect(() => {
@@ -55,18 +50,24 @@ export default function App() {
 
 	return (
 		<main>
-<<<<<<< HEAD
-			<HomeScreen />
-			<Footer />
-=======
 			<NavBar />
 			<UserPortal />
 			<Routes>
-			<Route path="/ikea" element={<HomeScreen user={user} setUser={setUser} pexelsData={pexelsData} setPexelsData={setPexelsData}/>} />
-			<Route path="/shop" element={<Shop cart={cart} setCart={setCart} />} />
-			<Route path="/*" element={<Navigate to="/ikea" />} />
+				<Route
+					path="/ikea"
+					element={
+						<HomeScreen
+							user={user}
+							setUser={setUser}
+							pexelsData={pexelsData}
+							setPexelsData={setPexelsData}
+						/>
+					}
+				/>
+				<Route path="/shop" element={<Shop cart={cart} setCart={setCart} />} />
+				<Route path="/*" element={<Navigate to="/ikea" />} />
 			</Routes>
->>>>>>> e08e46c044bfc73d23deae69096ae97c0b8f286d
+			<Footer />
 		</main>
 	);
 }
