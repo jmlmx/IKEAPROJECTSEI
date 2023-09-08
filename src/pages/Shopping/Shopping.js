@@ -30,6 +30,11 @@ export default function Shop({ user, setUser, cart, setCart }) {
 	}, []);
 	console.log(menuItems);
 
+	async function handleAddToOrder(itemId) {
+		const updatedCart = await ordersAPI.addItemToCart(itemId)
+		setCart(updatedCart)
+	  }
+
 	return (
 		<main>
 			<div>
@@ -41,6 +46,7 @@ export default function Shop({ user, setUser, cart, setCart }) {
 			</div>
 			<MenuList
 				menuItems={menuItems.filter((item) => item.category.name === activeCat)}
+				handleAddToOrder={handleAddToOrder}
 			/>
 		</main>
 	);
