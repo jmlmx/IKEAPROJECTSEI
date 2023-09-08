@@ -1,10 +1,14 @@
 //import styles from the scss file
 import styles from './MenuListItem.module.scss';
-
+import Favorites from '../../../models/favorites'
 
 //write export function for menu list items
 export default function MenuListItem ({menuItem, handleAddToOrder}) {
     console.log(menuItem)
+
+    async function handleAddToFaves() {
+        
+    }
  return (
     <div className={styles.MenuListItem}>
         {/* img src controls the size and appearance of pictures for items */}

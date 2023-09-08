@@ -2,8 +2,7 @@ import styles from './UserPortal.module.scss'
 import { useState,  useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { getUser } from '../../utilities/users-services'
-//import Logo from '../../components/Logo/Logo' 
-
+import { UserLogout } from '../../components/UserLogOut'
 export default function UserPortal({ user, setUser }) {
     const [userInfo, setUserInfo] = useState(null)
     const [errorMessage, setErrorMessage] = useState('')
@@ -27,6 +26,7 @@ export default function UserPortal({ user, setUser }) {
                     <Link  to='/account' className='userlink'>Hey, {userInfo.name}</Link>
                     <Link to='/favorites' className='favbtn'>likes</Link>
                     <Link to='/cart' className={styles.cartbtn}>cart</Link>
+                    <UserLogout />
                 </div>
                 
             ) : (

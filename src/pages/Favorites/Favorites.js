@@ -10,3 +10,16 @@
         Ternary: If checkbox is checked, push top array of objects named favorites.
     
     */
+import styles from './Favorites.module.scss'
+import { useState } from 'react'
+import Logo from '../../components/Logo/Logo'
+import UserPortal from '../../components/UserPortal/UserPortal'
+import NavBar from '../../components/NavBar/NavBar'
+
+export default function Favorites({ user, setUser}) {
+    
+    
+    return (
+
+    )
+}

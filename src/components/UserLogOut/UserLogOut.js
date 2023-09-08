@@ -13,8 +13,6 @@ export default function UserLogOut({ user, createGuestUser, /*toggleShowUserSide
 
     return (
         < div className={styles.UserLogOut}>
-            <div>{user.name}</div>
-            <div className={styles.email}>{user.email}</div>
             <button className='logout-btn' onClick={handleLogOut}>Log Out</button>
         </div>
     )
