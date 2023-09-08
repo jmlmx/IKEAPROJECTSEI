@@ -9,7 +9,10 @@ import {
 import styles from './App.module.scss';
 import { getUser, signUp } from '../../utilities/users-services';
 import * as ordersAPI from '../../utilities/order-api';
+
 import HomeScreen from '../HomeScreen/HomeScreen';
+import Shop from '../Shopping/Shopping';
+
 import UserPortal from '../../components/UserPortal/UserPortal';
 import NavBar from '../../components/NavBar/NavBar';
 
@@ -52,6 +55,7 @@ export default function App() {
 			<UserPortal />
 			<Routes>
 			<Route path="/ikea" element={<HomeScreen user={user} setUser={setUser} pexelsData={pexelsData} setPexelsData={setPexelsData}/>} />
+			<Route path="/shop" element={<Shop cart={cart} setCart={setCart} />} />
 			<Route path="/*" element={<Navigate to="/ikea" />} />
 			</Routes>
 		</main>
