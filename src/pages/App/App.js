@@ -9,14 +9,64 @@ import {
 import styles from './App.module.scss';
 import { getUser, signUp } from '../../utilities/users-services';
 import * as ordersAPI from '../../utilities/order-api';
+
 import HomeScreen from '../HomeScreen/HomeScreen';
+<<<<<<< HEAD
 import Footer from '../../components/Footer/Footer'
+=======
+import Shop from '../Shopping/Shopping';
+
+import UserPortal from '../../components/UserPortal/UserPortal';
+import NavBar from '../../components/NavBar/NavBar';
+>>>>>>> e08e46c044bfc73d23deae69096ae97c0b8f286d
 
 export default function App() {
+	const [pexelsData, setPexelsData] = useState([]);
+	const [user, setUser] = useState(getUser());
+	const [cart, setCart] = useState(null);
+	const navigate = useNavigate();
+	let location = useLocation();
+
+	useEffect(() => {
+		if (!user) {
+			createGuestUser();
+		}
+	}, []);
+
+	async function createGuestUser() {
+		const guestUserData = {
+			username: 'guestuser',
+			email: Math.round(Math.random() * 1000000000000) + '@guest.com',
+			password: 'guestpassword'
+		};
+		localStorage.setItem('guestuser', guestUserData.email);
+		const guestUser = await signUp(guestUserData);
+		setUser(guestUser);
+		console.log('Guest user created', guestUser)
+	}
+
+	useEffect(() => {
+		async function getCartItems() {
+			const cart = await ordersAPI.getCart();
+			setCart(cart);
+		}
+		getCartItems();
+	}, []);
+
 	return (
 		<main>
+<<<<<<< HEAD
 			<HomeScreen />
 			<Footer />
+=======
+			<NavBar />
+			<UserPortal />
+			<Routes>
+			<Route path="/ikea" element={<HomeScreen user={user} setUser={setUser} pexelsData={pexelsData} setPexelsData={setPexelsData}/>} />
+			<Route path="/shop" element={<Shop cart={cart} setCart={setCart} />} />
+			<Route path="/*" element={<Navigate to="/ikea" />} />
+			</Routes>
+>>>>>>> e08e46c044bfc73d23deae69096ae97c0b8f286d
 		</main>
 	);
 }
