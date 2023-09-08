@@ -11,10 +11,14 @@ import { getUser, signUp } from '../../utilities/users-services';
 import * as ordersAPI from '../../utilities/order-api';
 
 import HomeScreen from '../HomeScreen/HomeScreen';
+<<<<<<< HEAD
+import Footer from '../../components/Footer/Footer'
+=======
 import Shop from '../Shopping/Shopping';
 
 import UserPortal from '../../components/UserPortal/UserPortal';
 import NavBar from '../../components/NavBar/NavBar';
+>>>>>>> e08e46c044bfc73d23deae69096ae97c0b8f286d
 
 export default function App() {
 	const [pexelsData, setPexelsData] = useState([]);
@@ -51,6 +55,10 @@ export default function App() {
 
 	return (
 		<main>
+<<<<<<< HEAD
+			<HomeScreen />
+			<Footer />
+=======
 			<NavBar />
 			<UserPortal />
 			<Routes>
@@ -58,6 +66,7 @@ export default function App() {
 			<Route path="/shop" element={<Shop cart={cart} setCart={setCart} />} />
 			<Route path="/*" element={<Navigate to="/ikea" />} />
 			</Routes>
+>>>>>>> e08e46c044bfc73d23deae69096ae97c0b8f286d
 		</main>
 	);
 }
