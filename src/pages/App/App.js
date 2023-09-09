@@ -17,6 +17,7 @@ import Cart from '../Cart/Cart';
 import Footer from '../../components/Footer/Footer';
 import UserPortal from '../../components/UserPortal/UserPortal';
 import NavBar from '../../components/NavBar/NavBar';
+import AuthPage from '../../pages/AuthPage/AuthPage';
 
 export default function App() {
 	const [pexelsData, setPexelsData] = useState([]);

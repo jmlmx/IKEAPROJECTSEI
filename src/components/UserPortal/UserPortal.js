@@ -7,32 +7,33 @@ import { getUser } from '../../utilities/users-services'
 export default function UserPortal({ user, setUser, cart }) {
     const [userInfo, setUserInfo] = useState(null)
     const [errorMessage, setErrorMessage] = useState('')
-
-    useEffect(() => {
-        const fetchUserInfo = async () => {
-            try {
-                const userData = await getUser(user)
-                setUserInfo(userData)
-            } catch (error) {
-                setErrorMessage('Could Not Find Account Information')
-            }
-        }
-        fetchUserInfo()
-    },[user])
+    console.log(user)
+    // useEffect(() => {
+    //     const fetchUserInfo = async () => {
+    //         try {
+    //             const userData = await getUser(user)
+    //             setUserInfo(userData)
+    //         } catch (error) {
+    //             setErrorMessage('Could Not Find Account Information')
+    //         }
+    //     }
+    //     fetchUserInfo()
+    // },[user])
     
     return (
         <div className={styles.portalcontainer}>
-            {userInfo && userInfo.isLoggedIn ? (
+            {user && user.isLoggedIn ? (
                 <div className={styles.loggedin}>
-                    <Link  to='/account' className='userlink'>Hey, {userInfo.name}</Link>
+                    <Link  to='/account' className='userlink'>Hey, {user.username}</Link>
                     <Link to='/favorites' className='favbtn'>likes</Link>
                     <Link to='/cart' className={styles.cartbtn}>cart</Link>
                 </div>
                 
             ) : (
                 <div className={styles.notloggedin}>
-                <Link to='/login' className='loginbtn'>Login/Signup</Link>
+                <Link to='/guestSignUp' className='loginbtn'>Login/Signup</Link>
                 <Link to='/cart' className={styles.cartbtn}>{cart ? `cart(${cart.totalQty})` : 'cart(0)'}</Link>
+
                 </div>
             )}
         </div>
