@@ -20,6 +20,7 @@ export default function App() {
 	const [pexelsData, setPexelsData] = useState([]);
 	const [user, setUser] = useState(getUser());
 	const [cart, setCart] = useState(null);
+	const [favorites, setFavorites] = useState(null)
 	const navigate = useNavigate();
 	let location = useLocation();
 
@@ -56,6 +57,7 @@ export default function App() {
 			<Routes>
 			<Route path="/ikea" element={<HomeScreen user={user} setUser={setUser} pexelsData={pexelsData} setPexelsData={setPexelsData}/>} />
 			<Route path="/shop" element={<Shop cart={cart} setCart={setCart} />} />
+			{/*add favourites route here */}
 			<Route path="/*" element={<Navigate to="/ikea" />} />
 			</Routes>
 		</main>

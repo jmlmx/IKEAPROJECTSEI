@@ -16,8 +16,9 @@ import Logo from '../../components/Logo/Logo'
 import UserPortal from '../../components/UserPortal/UserPortal'
 import NavBar from '../../components/NavBar/NavBar'
 
-export default function Favorites({ user, setUser}) {
-    
+export default function Favorites({ user, setUser, handleAddToOrder, }) {
+    const [favorites, setFavorites] = useState(null)
+
     
     return (
 

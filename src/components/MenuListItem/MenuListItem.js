@@ -1,14 +1,9 @@
 //import styles from the scss file
 import styles from './MenuListItem.module.scss';
-import Favorites from '../../../models/favorites'
+import { useState } from 'react';
 
 //write export function for menu list items
 export default function MenuListItem ({menuItem, handleAddToOrder}) {
-    console.log(menuItem)
-
-    async function handleAddToFaves() {
-        
-    }
  return (
     <div className={styles.MenuListItem}>
         {/* img src controls the size and appearance of pictures for items */}
@@ -19,7 +14,7 @@ export default function MenuListItem ({menuItem, handleAddToOrder}) {
             <button className='btn-sm' onClick={() => handleAddToOrder(menuItem._id)}>
                 ADD TO CART
             </button>
-      <checkbox>Like Box</checkbox>
+      <checkbox>Like Box</checkbox>{/*handleaddtofavorites*/}
         </div>
     </div>
  );   
