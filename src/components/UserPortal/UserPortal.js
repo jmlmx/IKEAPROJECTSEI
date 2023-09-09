@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { getUser } from '../../utilities/users-services'
 //import Logo from '../../components/Logo/Logo' 
 
-export default function UserPortal({ user, setUser }) {
+export default function UserPortal({ user, setUser, cart }) {
     const [userInfo, setUserInfo] = useState(null)
     const [errorMessage, setErrorMessage] = useState('')
     console.log(user)
@@ -32,7 +32,8 @@ export default function UserPortal({ user, setUser }) {
             ) : (
                 <div className={styles.notloggedin}>
                 <Link to='/guestSignUp' className='loginbtn'>Login/Signup</Link>
-                <Link to='/cart' className={styles.cartbtn}>Cart</Link>
+                <Link to='/cart' className={styles.cartbtn}>{cart ? `cart(${cart.totalQty})` : 'cart(0)'}</Link>
+
                 </div>
             )}
         </div>
