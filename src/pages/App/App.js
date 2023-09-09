@@ -62,7 +62,7 @@ export default function App() {
 	return (
 		<main>
 			<NavBar />
-			<UserPortal user={user} setUser={setUser} cart={cart} />
+			<UserPortal user={user} setUser={setUser} cart={cart} createGuestUser={createGuestUser} />
 			<Routes>
 				<Route
 					path="/ikea"
