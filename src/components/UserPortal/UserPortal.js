@@ -7,7 +7,7 @@ import { getUser } from '../../utilities/users-services'
 export default function UserPortal({ user, setUser, cart }) {
     const [userInfo, setUserInfo] = useState(null)
     const [errorMessage, setErrorMessage] = useState('')
-    console.log(user)
+    console.log(cart)
     // useEffect(() => {
     //     const fetchUserInfo = async () => {
     //         try {
@@ -26,14 +26,13 @@ export default function UserPortal({ user, setUser, cart }) {
                 <div className={styles.loggedin}>
                     <Link  to='/account' className='userlink'>Hey, {user.username}</Link>
                     <Link to='/favorites' className='favbtn'>likes</Link>
-                    <Link to='/cart' className={styles.cartbtn}>cart</Link>
+                    <Link to='/cart' className={styles.cartbtn}>{cart ? `cart(${cart.totalQty})` : 'cart(0)'}</Link>
                 </div>
                 
             ) : (
                 <div className={styles.notloggedin}>
                 <Link to='/guestSignUp' className='loginbtn'>Login/Signup</Link>
                 <Link to='/cart' className={styles.cartbtn}>{cart ? `cart(${cart.totalQty})` : 'cart(0)'}</Link>
-
                 </div>
             )}
         </div>

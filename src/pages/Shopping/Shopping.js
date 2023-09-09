@@ -28,7 +28,7 @@ export default function Shop({ user, setUser, cart, setCart }) {
 		}
 		getCart();
 	}, []);
-	console.log(menuItems);
+	//console.log(menuItems);
 
 	async function handleAddToOrder(itemId) {
 		const updatedCart = await ordersAPI.addItemToCart(itemId)

@@ -1,7 +1,6 @@
 import { Component } from 'react';
 import { signUp } from '../../utilities/users-services';
-import styles from './SignUpForm.module.scss'
-
+//import styles from './SignUpForm.module.scss';
 
 export default class SignUpForm extends Component {
 	state = {
@@ -23,25 +22,17 @@ export default class SignUpForm extends Component {
 			const formData = { ...this.state };
 			delete formData.confirm;
 			delete formData.error;
-			// The promise returned by the signUp service method
-			// will resolve to the user object included in the
-			// payload of the JSON Web Token (JWT)
 			const user = await signUp(formData);
-			// Baby step
 			this.props.setUser(user);
 		} catch {
-			// An error happened on the server
 			this.setState({ error: 'Sign Up Failed - Try Again' });
 		}
 	};
-	// We must override the render method
-	// The render method is the equivalent to a function-based component
-	// (its job is to return the UI)
 	render() {
 		const disable = this.state.password !== this.state.confirm;
 		return (
 			<div>
-				<div className={styles['form-container']}>
+				<div>
 					<form autoComplete="off" onSubmit={this.handleSubmit}>
 						<label>username</label>
 						<input
