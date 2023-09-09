@@ -1,12 +1,14 @@
-//==== NEEDED COMPONENTS FOR FAVORITES SCREEN ====//
-    /*
-    Logo
-    USER PORTAL COMPONENT
-    FOOTER COMPONENT
-    NavBar
+import styles from './Favorites.module.scss'
+import { useState } from 'react'
+import FavoriteList from '../../components/FavoriteList/FavoriteList'
+import removeFromFavorites from '../../utilities/items-api'
 
-    -  Using same functionality as order history: Items will have "is liked boolean" defalted to false.
-        Only becomes true when liked checkbox under item is clicked. (Checkbox created in MenuListItem)
-        Ternary: If checkbox is checked, push top array of objects named favorites.
-    
-    */
+export default function Favorites({ user, setUser, handleAddToOrder, removeFromFavorites}) {
+    function handleRemoveFromFavorites() {
+        removeFromFavorites()
+    }
+    return (
+        <FavoriteList user={user} setUser={setUser} handleAddToOrder={handleAddToOrder} handleRemoveFromFavorites={handleRemoveFromFavorites}/>
+    )
+}
+
