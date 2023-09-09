@@ -18,11 +18,13 @@ import Footer from '../../components/Footer/Footer';
 import UserPortal from '../../components/UserPortal/UserPortal';
 import NavBar from '../../components/NavBar/NavBar';
 import AuthPage from '../../pages/AuthPage/AuthPage';
+import Favorites from '../../pages/Favorites/Favorites'
 
 export default function App() {
 	const [pexelsData, setPexelsData] = useState([]);
 	const [user, setUser] = useState(getUser());
 	const [cart, setCart] = useState(null);
+	const [favorites, setFavorites] = useState(null);
 	const navigate = useNavigate();
 	let location = useLocation();
 
@@ -60,7 +62,7 @@ export default function App() {
 	return (
 		<main>
 			<NavBar />
-			<UserPortal user={user} setUser={setUser} cart={cart} />
+			<UserPortal user={user} setUser={setUser} cart={cart} createGuestUser={createGuestUser} />
 			<Routes>
 				<Route
 					path="/ikea"
@@ -74,6 +76,10 @@ export default function App() {
 					}
 				/>
 				<Route path="/shop" element={<Shop cart={cart} setCart={setCart} />} />
+				{/* <Route
+					path="/favorites"
+					element={<Favorites user={user} setUser={setUser} />}
+				/> */}
 				<Route
 					path="/guestSignUp"
 					element={
