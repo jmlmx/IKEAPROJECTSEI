@@ -15,12 +15,10 @@ import { useState } from 'react'
 import Logo from '../../components/Logo/Logo'
 import UserPortal from '../../components/UserPortal/UserPortal'
 import NavBar from '../../components/NavBar/NavBar'
+import FavoriteList from '../../components/FavoriteList/FavoriteList'
 
-export default function Favorites({ user, setUser, handleAddToOrder, }) {
-    const [favorites, setFavorites] = useState(null)
-
-    
+export default function Favorites({ user, setUser, handleAddToOrder,/*handleRemoveFromFavorites*/}) {
     return (
-
+        <FavoriteList user={user} setUser={setUser} handleAddToOrder={handleAddToOrder} />
     )
 }

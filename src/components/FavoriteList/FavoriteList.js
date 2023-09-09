@@ -1,6 +1,6 @@
 import FavoriteListItem from '../FavoriteListItem/FavoriteListItem'
 import styles from './FavoriteList.module.scss'
-export default function FavoriteList({ favorites, handleAddToOrder, handleFavoriteItem }) {
+export default function FavoriteList({ favorites, handleAddToOrder, handleFavoriteItem, user, setUser }) {
     const favoriteItems = favorites.map(f =>
       <FavoriteListItem
       key={f._id}
