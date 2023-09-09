@@ -9,6 +9,7 @@ import {
 import styles from './App.module.scss';
 import { getUser, signUp } from '../../utilities/users-services';
 import * as ordersAPI from '../../utilities/order-api';
+import * as ItemsAPI from '../../utilities/items-api';
 
 import HomeScreen from '../HomeScreen/HomeScreen';
 import Shop from '../Shopping/Shopping';
@@ -18,7 +19,7 @@ import Footer from '../../components/Footer/Footer';
 import UserPortal from '../../components/UserPortal/UserPortal';
 import NavBar from '../../components/NavBar/NavBar';
 import AuthPage from '../../pages/AuthPage/AuthPage';
-import Favorites from '../../pages/Favorites/Favorites'
+import Favorites from '../../pages/Favorites/Favorites';
 
 export default function App() {
 	const [pexelsData, setPexelsData] = useState([]);
@@ -58,11 +59,40 @@ export default function App() {
 		const updatedCart = await ordersAPI.setItemQtyInCart(itemId, newQty);
 		setCart(updatedCart);
 	}
+	/*if (url = /favorites) {
+		delete item from faves list
+	} else {
+		add item to faves list
+	}
+	*/
+	async function handleLikeButton() {
+		const currentURL = window.location.href;
+		if (currentURL.includes('/favorites')) {
+			async function addToFavorites(itemId) {
+				const favorites = await ItemsAPI.getFavorites(itemId);
+				setFavorites(favorites);
+			}
+			addToFavorites();
+		} else {
+			if (currentURL.includes('/shop')) {
+				async function removeFromFavorites(itemId) {
+					const favorites = await ItemsAPI.removeFromFavorites(itemId);
+					setFavorites(favorites);
+				}
+				removeFromFavorites();
+			}
+		}
+	}
 
 	return (
 		<main>
 			<NavBar />
-			<UserPortal user={user} setUser={setUser} cart={cart} createGuestUser={createGuestUser} />
+			<UserPortal
+				user={user}
+				setUser={setUser}
+				cart={cart}
+				createGuestUser={createGuestUser}
+			/>
 			<Routes>
 				<Route
 					path="/ikea"
@@ -75,11 +105,17 @@ export default function App() {
 						/>
 					}
 				/>
-				<Route path="/shop" element={<Shop cart={cart} setCart={setCart} />} />
-				{/* <Route
+				<Route path="/shop" element={<Shop cart={cart} setCart={setCart} handleLikeButton={handleLikeButton} />} />
+				<Route
 					path="/favorites"
-					element={<Favorites user={user} setUser={setUser} />}
-				/> */}
+					element={
+						<Favorites
+							user={user}
+							setUser={setUser}
+							handleLikeButton={handleLikeButton}
+						/>
+					}
+				/>
 				<Route
 					path="/guestSignUp"
 					element={
