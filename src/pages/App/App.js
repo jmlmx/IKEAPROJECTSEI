@@ -53,9 +53,9 @@ export default function App() {
 	}, []);
 
 	async function handleChangeQty(itemId, newQty) {
-		const updatedCart = await ordersAPI.setItemQtyInCart(itemId, newQty)
-		setCart(updatedCart)
-	  }
+		const updatedCart = await ordersAPI.setItemQtyInCart(itemId, newQty);
+		setCart(updatedCart);
+	}
 
 	return (
 		<main>
@@ -75,9 +75,26 @@ export default function App() {
 				/>
 				<Route path="/shop" element={<Shop cart={cart} setCart={setCart} />} />
 				<Route
+					path="/guestSignUp"
+					element={
+						<AuthPage
+							user={user}
+							setUser={setUser}
+							cart={cart}
+							setCart={setCart}
+						/>
+					}
+				/>
+				<Route
 					path="/cart"
 					element={
-						<Cart handleChangeQty={handleChangeQty} user={user} setUser={setUser} cart={cart} setCart={setCart} />
+						<Cart
+							handleChangeQty={handleChangeQty}
+							user={user}
+							setUser={setUser}
+							cart={cart}
+							setCart={setCart}
+						/>
 					}
 				/>
 				<Route path="/*" element={<Navigate to="/ikea" />} />

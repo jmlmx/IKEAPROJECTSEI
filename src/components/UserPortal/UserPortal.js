@@ -7,7 +7,7 @@ import { getUser } from '../../utilities/users-services'
 export default function UserPortal({ user, setUser, cart }) {
     const [userInfo, setUserInfo] = useState(null)
     const [errorMessage, setErrorMessage] = useState('')
-    console.log(cart)
+    console.log(user)
     // useEffect(() => {
     //     const fetchUserInfo = async () => {
     //         try {

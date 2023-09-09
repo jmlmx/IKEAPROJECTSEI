@@ -67,7 +67,6 @@ export default class SignUpForm extends Component {
 							required
 						/>
 						<button
-							className={styles['cyberpunk']}
 							type="submit"
 							disabled={disable}
 						>
