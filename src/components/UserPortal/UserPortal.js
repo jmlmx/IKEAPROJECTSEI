@@ -1,25 +1,13 @@
 import styles from './UserPortal.module.scss'
-import { useState,  useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { getUser } from '../../utilities/users-services'
-//import Logo from '../../components/Logo/Logo' 
+import { useState } from 'react'
+import { Link, Navigate } from 'react-router-dom'
+import { logOut } from '../../utilities/users-services'
+export default function UserPortal({ user, setUser, cart, createGuestUser }) {
 
-export default function UserPortal({ user, setUser, cart }) {
-    const [userInfo, setUserInfo] = useState(null)
-    const [errorMessage, setErrorMessage] = useState('')
-    console.log(user)
-    // useEffect(() => {
-    //     const fetchUserInfo = async () => {
-    //         try {
-    //             const userData = await getUser(user)
-    //             setUserInfo(userData)
-    //         } catch (error) {
-    //             setErrorMessage('Could Not Find Account Information')
-    //         }
-    //     }
-    //     fetchUserInfo()
-    // },[user])
-    
+    function handleLogOut() {
+        logOut()
+        createGuestUser()
+    }
     return (
         <div className={styles.portalcontainer}>
             {user && user.isLoggedIn ? (
@@ -27,6 +15,7 @@ export default function UserPortal({ user, setUser, cart }) {
                     <Link  to='/account' className='userlink'>Hey, {user.username}</Link>
                     <Link to='/favorites' className='favbtn'>likes</Link>
                     <Link to='/cart' className={styles.cartbtn}>{cart ? `cart(${cart.totalQty})` : 'cart(0)'}</Link>
+                    <button className='logout-btn' element={<Navigate to='/ikea' />} onClick={handleLogOut}>Log Out</button>
                 </div>
                 
             ) : (
