@@ -1,25 +1,32 @@
-.NavBar {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0.5rem;
-    display: felx;
-    flex-direction: row;
-    justify-content: space-between;
+.Links {
+    display: block;
 }
 
-main {
-    color: yellow;
-    margin: 0 0.5rem;
-    font-weight: 500;
+li {
+    display: inline;
+    background-color: #0051BA;
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    text-decoration: none;
+
 }
 
-div { 
+li a {
+    display: inline;
+    padding: 15px;
+    color: black;
+    font-size: 24px;
+    text-decoration: none;
+
+}
+
+li a :hover {
     color: blue;
-    margin: 0 0.5rem;
-    font-weight: 500;
 }
 
-div:hover {
-    cursor: crosshair
+ul {
+    display: block;
 }
+
+

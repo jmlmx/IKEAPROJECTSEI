@@ -11,3 +11,4 @@ export default function Favorites({ user, setUser, handleAddToOrder, removeFromF
         <FavoriteList user={user} setUser={setUser} handleAddToOrder={handleAddToOrder} handleRemoveFromFavorites={handleRemoveFromFavorites}/>
     )
 }
+
