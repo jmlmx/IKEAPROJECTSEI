@@ -1,18 +1,32 @@
-.NavBar {
-    background-color: #003399;
-    color: #ffcc00;
-    text-align: center;
-    font-size: 30px;
-    flex-direction: column;
+.Links {
     display: block;
-    padding: 8px;
+}
+
+li {
+    display: inline;
+    background-color: #0051BA;
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    text-decoration: none;
 
 }
 
-.Link {
-    color: #ffcc00;
-    text-align: center;
-    font-size: 30px;
-    grid-template-columns: auto;
-    flex-direction: row;
+li a {
+    display: inline;
+    padding: 15px;
+    color: black;
+    font-size: 24px;
+    text-decoration: none;
+
 }
+
+li a :hover {
+    color: blue;
+}
+
+ul {
+    display: block;
+}
+
+
