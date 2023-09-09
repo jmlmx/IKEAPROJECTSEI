@@ -8,7 +8,6 @@ export default function UserPortal({ user, setUser }) {
     function handleLogOut() {
         logOut()
         createGuestUser()
-        // possibly take user back to homepage
     }
 
     return (
