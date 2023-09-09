@@ -1,5 +1,6 @@
-import LineItem from '../LineItem/LineItem';
+import LineItem from '../../components/LineItem/LineItem';
 import { useNavigate } from 'react-router-dom';
+import styles from './Cart.module.scss';
 
 export default function Cart({ cart, handleChangeQty, toggleShowCart }) {
 	if (!cart) return null;
