@@ -19,6 +19,10 @@ export default function Cart({ cart, handleChangeQty, user }) {
     navigate('/checkout');
   }
 
+  function handleUserButtonClick() {
+    navigate('/guestSignUp');
+  }
+
   return (
     <div className={styles['cart-container']}>
       <div>
@@ -39,9 +43,16 @@ export default function Cart({ cart, handleChangeQty, user }) {
                     onClick={handleCheckoutClick}
                     disabled={!lineItems.length}
                   >
-                    checkout
+                    checkout as guest
                   </button>
+                  
                 )}
+                <button
+                    className={styles['checkout-btn']}
+                    onClick={handleUserButtonClick}
+                  >
+                    Log In/Sign Up
+                  </button>
               </section>
             </>
           ) : (
