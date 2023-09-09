@@ -22,7 +22,7 @@ export default function UserPortal({ user, setUser }) {
                 
             ) : (
                 <div className={styles.notloggedin}>
-                <Link to='/login' className='loginbtn'>Login/Signup</Link>
+                <Link to='/guestSignUp' className='loginbtn'>Login/Signup</Link>
                 <Link to='/cart' className={styles.cartbtn}>Cart</Link>
                 </div>
             )}
