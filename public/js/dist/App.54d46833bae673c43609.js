@@ -906,12 +906,13 @@ ___CSS_LOADER_EXPORT___.locals = {};
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.QpVD3qAS0nYBtoQqAYoe {
-  display: flex;
   background-color: #003399;
   color: #ffcc00;
   text-align: center;
   font-size: 30px;
   flex-direction: column;
+  display: block;
+  padding: 8px;
 }
 
 .vdLcfAWwu7EJ_DwEISFz {
@@ -920,16 +921,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.QpVD3qAS0nYBtoQqAYoe {
   font-size: 30px;
   grid-template-columns: auto;
   flex-direction: row;
-}
-
-.eRf97gfbsMtLCn3UHWXE {
-  position: absolute;
-}`, "",{"version":3,"sources":["webpack://./src/components/NavBar/NavBar.module.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,yBAAA;EACA,cAAA;EACA,kBAAA;EACA,eAAA;EACA,sBAAA;AACJ;;AAGA;EACI,cAAA;EACA,kBAAA;EACA,eAAA;EACA,2BAAA;EACA,mBAAA;AAAJ;;AAGA;EACI,kBAAA;AAAJ","sourcesContent":[".NavBar {\n    display: flex;\n    background-color: #003399;\n    color: #ffcc00;\n    text-align: center;\n    font-size: 30px;\n    flex-direction: column;\n\n}\n\n.Link {\n    color: #ffcc00;\n    text-align: center;\n    font-size: 30px;\n    grid-template-columns: auto;\n    flex-direction: row;\n}\n\n.Logo {\n    position: absolute;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/NavBar/NavBar.module.scss"],"names":[],"mappings":"AAAA;EACI,yBAAA;EACA,cAAA;EACA,kBAAA;EACA,eAAA;EACA,sBAAA;EACA,cAAA;EACA,YAAA;AACJ;;AAGA;EACI,cAAA;EACA,kBAAA;EACA,eAAA;EACA,2BAAA;EACA,mBAAA;AAAJ","sourcesContent":[".NavBar {\n    background-color: #003399;\n    color: #ffcc00;\n    text-align: center;\n    font-size: 30px;\n    flex-direction: column;\n    display: block;\n    padding: 8px;\n\n}\n\n.Link {\n    color: #ffcc00;\n    text-align: center;\n    font-size: 30px;\n    grid-template-columns: auto;\n    flex-direction: row;\n}\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"NavBar": `QpVD3qAS0nYBtoQqAYoe`,
-	"Link": `vdLcfAWwu7EJ_DwEISFz`,
-	"Logo": `eRf97gfbsMtLCn3UHWXE`
+	"Link": `vdLcfAWwu7EJ_DwEISFz`
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
