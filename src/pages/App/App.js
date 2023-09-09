@@ -15,6 +15,7 @@ import Shop from '../Shopping/Shopping';
 
 import UserPortal from '../../components/UserPortal/UserPortal';
 import NavBar from '../../components/NavBar/NavBar';
+import AuthPage from '../../pages/AuthPage/AuthPage';
 
 export default function App() {
 	const [pexelsData, setPexelsData] = useState([]);
@@ -52,11 +53,13 @@ export default function App() {
 	return (
 		<main>
 			<NavBar />
-			<UserPortal />
+			<UserPortal cart={cart} user={user} setUser={setUser}/>
 			<Routes>
 			<Route path="/ikea" element={<HomeScreen user={user} setUser={setUser} pexelsData={pexelsData} setPexelsData={setPexelsData}/>} />
 			<Route path="/shop" element={<Shop cart={cart} setCart={setCart} />} />
+			<Route path="/guestSignUp" element={<AuthPage user={user} setUser={setUser} cart={cart} setCart={setCart} />} />
 			<Route path="/*" element={<Navigate to="/ikea" />} />
+			
 			</Routes>
 		</main>
 	);
