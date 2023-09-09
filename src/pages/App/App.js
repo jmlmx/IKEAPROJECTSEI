@@ -12,7 +12,9 @@ import * as ordersAPI from '../../utilities/order-api';
 
 import HomeScreen from '../HomeScreen/HomeScreen';
 import Shop from '../Shopping/Shopping';
+import Cart from '../Cart/Cart';
 
+import Footer from '../../components/Footer/Footer';
 import UserPortal from '../../components/UserPortal/UserPortal';
 import NavBar from '../../components/NavBar/NavBar';
 
@@ -38,7 +40,7 @@ export default function App() {
 		localStorage.setItem('guestuser', guestUserData.email);
 		const guestUser = await signUp(guestUserData);
 		setUser(guestUser);
-		console.log('Guest user created', guestUser)
+		console.log('Guest user created', guestUser);
 	}
 
 	useEffect(() => {
@@ -49,15 +51,37 @@ export default function App() {
 		getCartItems();
 	}, []);
 
+	async function handleChangeQty(itemId, newQty) {
+		const updatedCart = await ordersAPI.setItemQtyInCart(itemId, newQty)
+		setCart(updatedCart)
+	  }
+
 	return (
 		<main>
 			<NavBar />
-			<UserPortal />
+			<UserPortal user={user} setUser={setUser} cart={cart} />
 			<Routes>
-			<Route path="/ikea" element={<HomeScreen user={user} setUser={setUser} pexelsData={pexelsData} setPexelsData={setPexelsData}/>} />
-			<Route path="/shop" element={<Shop cart={cart} setCart={setCart} />} />
-			<Route path="/*" element={<Navigate to="/ikea" />} />
+				<Route
+					path="/ikea"
+					element={
+						<HomeScreen
+							user={user}
+							setUser={setUser}
+							pexelsData={pexelsData}
+							setPexelsData={setPexelsData}
+						/>
+					}
+				/>
+				<Route path="/shop" element={<Shop cart={cart} setCart={setCart} />} />
+				<Route
+					path="/cart"
+					element={
+						<Cart handleChangeQty={handleChangeQty} user={user} setUser={setUser} cart={cart} setCart={setCart} />
+					}
+				/>
+				<Route path="/*" element={<Navigate to="/ikea" />} />
 			</Routes>
+			<Footer />
 		</main>
 	);
 }

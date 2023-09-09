@@ -61,10 +61,12 @@ orderSchema.methods.setItemQty = function(itemId, newQty) {
     const cart = this;
 
     const lineItem = cart.lineItems.find(lineItem => lineItem.item._id.equals(itemId));
+    console.log(lineItem)
     if (lineItem && newQty <= 0) {
-
+        console.log('deleting line item')
         lineItem.deleteOne();
     } else if (lineItem) {
+        console.log('adding line item')
         lineItem.quantity = newQty;
     }
     return cart.save();
