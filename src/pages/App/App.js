@@ -59,27 +59,24 @@ export default function App() {
 		const updatedCart = await ordersAPI.setItemQtyInCart(itemId, newQty);
 		setCart(updatedCart);
 	}
-	/*if (url = /favorites) {
-		delete item from faves list
-	} else {
-		add item to faves list
+	async function removeFromFavorites(itemId) {
+		const updatedFavorites = await ItemsAPI.removeFromFavorites(itemId);
+		setFavorites(updatedFavorites);
 	}
-	*/
+	async function addToFavorites(itemId) {
+		const updatedFavorites = await ItemsAPI.addToFavorites(itemId);
+		setFavorites(updatedFavorites);
+	}
+	
 	async function handleLikeButton() {
 		const currentURL = window.location.href;
 		if (currentURL.includes('/favorites')) {
-			async function addToFavorites(itemId) {
-				const favorites = await ItemsAPI.getFavorites(itemId);
-				setFavorites(favorites);
-			}
-			addToFavorites();
+			const Item = await ItemsAPI.getById(Item._id)
+			addToFavorites(Item);
 		} else {
 			if (currentURL.includes('/shop')) {
-				async function removeFromFavorites(itemId) {
-					const favorites = await ItemsAPI.removeFromFavorites(itemId);
-					setFavorites(favorites);
-				}
-				removeFromFavorites();
+				const Item = await ItemsAPI.getById(Item._id)
+				removeFromFavorites(Item);
 			}
 		}
 	}
