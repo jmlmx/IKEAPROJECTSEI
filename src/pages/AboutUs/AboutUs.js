@@ -19,7 +19,7 @@ export default function AboutUs() {
                                         Mission Statement: At ShuKea, our mission is to transform houses into homes by providing high-quality, stylish, and functional furniture that enriches the lives of our customers. We are dedicated to offering an exceptional shopping experience, where craftsmanship,  affordability, and sustainability converge.
                                 </p>
                                 <p>
-                                        Website Statement: 
+                                        Website Statement:
                                 </p>
                         </div>
                         <div>
