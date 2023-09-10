@@ -1,6 +1,6 @@
 import React from 'react';
-
-const members = [
+import { useNavigate } from 'react-router-dom';
+/*const members = [
         'Terrance Hill',
         'Jorge Lopez',
         'Jamal Mayon',
@@ -8,9 +8,9 @@ const members = [
         'Jake Carlson',
         'Diego Vasquez',
         'Yami Narvaez'
-]
+]*/
 
-export default function AboutUs({ members }) {
+export default function AboutUs() {
 
         return (
                 <main>
@@ -25,31 +25,31 @@ export default function AboutUs({ members }) {
                         <div>
                                 <p>
                                         Terrance Hill - Scrum Master
-                                        <img>Picture of team member</img>
+                                        {/* <img>Picture of team member</img> */}
                                 </p>
                                 <p>
                                         Jorge Lopez - GitHub Manager
-                                        <img>Picture of team member</img>
+                                        {/* <img>Picture of team member</img> */}
                                 </p>
                                 <p>
                                         Jamal Mayon - User Services Manager
-                                        <img>Picture of team member</img>
+                                        {/* <img>Picture of team member</img> */}
                                 </p>
                                 <p>
                                         Shumar McPherson - Database Manager
-                                        <img>Picture of team member</img>
+                                        {/* <img>Picture of team member</img> */}
                                 </p>
                                 <p>
                                         Jake Carlson - User Services Manager
-                                        <img>Picture of team member</img>
+                                        {/* <img>Picture of team member</img> */}
                                 </p>
                                 <p>
                                         Diego Vasquez - Front End Manager
-                                        <img>Picture of team member</img>
+                                        {/* <img>Picture of team member</img> */}
                                 </p>
                                 <p>
                                         Yami Navaez - Styling Manager
-                                        <img>Picture of team member</img>
+                                        {/* <img>Picture of team member</img> */}
                                 </p>
                         </div>
                 </main>

@@ -105,13 +105,7 @@ export default function App() {
 					}
 				/>
 				<Route
-					path="/AboutUs"
-					element={
-						<AboutUs
-							members={members}
-						/>
-					}
-				/>
+					path="/AboutUs" element={<AboutUs/>} />
 				<Route path="/*" element={<Navigate to="/ikea" />} />
 			</Routes>
 			<Footer />
