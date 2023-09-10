@@ -73,7 +73,15 @@ export default function App() {
 						/>
 					}
 				/>
-				<Route path="/shop" element={<Shop cart={cart} setCart={setCart} />} />
+				<Route 
+					path="/shop" 
+					element={
+						<Shop 
+							cart={cart} 
+							setCart={setCart} 
+						/>
+					} 
+				/>
 				<Route
 					path="/guestSignUp"
 					element={
