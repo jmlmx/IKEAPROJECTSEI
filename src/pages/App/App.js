@@ -18,7 +18,8 @@ import Footer from '../../components/Footer/Footer';
 import UserPortal from '../../components/UserPortal/UserPortal';
 import NavBar from '../../components/NavBar/NavBar';
 import AuthPage from '../../pages/AuthPage/AuthPage';
-import Favorites from '../../pages/Favorites/Favorites'
+import Favorites from '../../pages/Favorites/Favorites';
+import AboutUs from '../../pages/AboutUs/AboutUs'
 
 export default function App() {
 	const [pexelsData, setPexelsData] = useState([]);
@@ -103,6 +104,8 @@ export default function App() {
 						/>
 					}
 				/>
+				<Route
+					path="/AboutUs" element={<AboutUs/>} />
 				<Route path="/*" element={<Navigate to="/ikea" />} />
 			</Routes>
 			<Footer />
