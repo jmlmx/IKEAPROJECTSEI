@@ -39,3 +39,4 @@ export default function FavoritesPage({ user, setUser }) {
 		</main>
 	);
 }
+
