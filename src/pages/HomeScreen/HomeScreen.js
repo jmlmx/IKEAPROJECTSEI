@@ -22,6 +22,8 @@ export default function HomeScreen({ user, setUser, pexelsData, setPexelsData })
     FOOTER COMPONENT
     NavBar
 
+
+
     - PICTURES & VIDEOS from Pexel's API
     
     */
