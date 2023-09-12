@@ -1,18 +1,22 @@
 .home {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; 
-    padding: 0px;
-  
-    .style {
-      font-size: 2.5rem;
-      color: #333;
-      margin-bottom: 20px;
-      margin-top: 50rem;
-      width: 100%; 
-    }
-  
-    .pexels-content {
-      flex-basis: calc(50% - 5px); 
-    }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0px;
+  background-image: url(https://cdn.dribbble.com/users/1937292/screenshots/7130478/media/b4ec823bfc0e4066ae20b422702b7487.gif);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100rem;
+
+  .style {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    margin-top: 50rem;
+    width: 100%;
   }
+
+  .pexels-content {
+    flex-basis: calc(50% - 5px);
+  }
+}
