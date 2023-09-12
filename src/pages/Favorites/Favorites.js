@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import MenuListItem from '../../components/MenuListItem/MenuListItem';
 import * as ItemsAPI from '../../utilities/items-api'
 import FavoriteList from '../../components/FavoriteList/FavoriteList'
-export default function FavoritesPage({ user, setUser, handleLikeButton}) {
+export default function FavoritesPage({ user, setUser, handleLikeButton, handleAddToOrder}) {
     console.log(user)
     /*--- State --- */
     const [favorites, setFavorites] = useState([]);
@@ -25,7 +24,7 @@ export default function FavoritesPage({ user, setUser, handleLikeButton}) {
     return (
         <main>
             <div>
-                <FavoriteList user={user} setUser={setUser} handleLikeButton={handleLikeButton} />
+                <FavoriteList user={user} setUser={setUser} handleLikeButton={handleLikeButton} favorites={favorites}/>
             </div>
         </main>
     );

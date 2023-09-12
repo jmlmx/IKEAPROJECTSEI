@@ -1,26 +1,28 @@
-import FavoriteListItem from '../FavoriteListItem/FavoriteListItem'
+import MenuListItem from '../MenuListItem/MenuListItem';
 import styles from './FavoriteList.module.scss'
 export default function FavoriteList({ favorites, handleAddToOrder, user, setUser }) {
   console.log(user)
-    const favoriteItems = favorites.map(f =>
-      <FavoriteListItem
-      key={f._id}
+    const favoriteItems = user.favorites.map(fave =>
+      <MenuListItem
+      key={fave._id}
       handleAddToOrder={handleAddToOrder}
-      favorite={f}
+      favoriteItem={fave}
       />
     );
+    const isLoggedIn = user.isLoggedIn
+    const hasFaves = user.favorites.length > 0
     // Link favorites to logged in user here?
     return (
       <main className={styles.FavoriteList}>
-        {user.isLoggedIn ?
-          {user ?
+        {isLoggedIn ? (
+          hasFaves ? (
             {favoriteItems}
-            :
-            <span className={styles.noFavorites}>You Have No Favorites, What's That About?</span>
-          }
-          :
-          <span className={styles.noUser}>Log In To See Your Favorites</span>
-        }
+        ):(
+            <span className={styles.noFavorites}>You Have No Favorites</span>
+        )
+        ) : (
+          <span className={styles.noUser}>Log In To See Or Add Favorites</span>
+        )}
       </main>
     );
     }

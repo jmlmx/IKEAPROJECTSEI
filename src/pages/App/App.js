@@ -20,11 +20,8 @@ import UserPortal from '../../components/UserPortal/UserPortal';
 import NavBar from '../../components/NavBar/NavBar';
 import AuthPage from '../../pages/AuthPage/AuthPage';
 import Favorites from '../../pages/Favorites/Favorites';
-<<<<<<< HEAD
-=======
 import Checkout from '../../pages/Checkout/Checkout';
 import AboutUs from '../../pages/AboutUs/AboutUs'
->>>>>>> 5f3faf0bb66c163cbc58ff0423f2b6c9cb178b61
 
 export default function App() {
 	const [pexelsData, setPexelsData] = useState([]);
@@ -92,10 +89,7 @@ export default function App() {
 			<UserPortal
 				user={user}
 				setUser={setUser}
-<<<<<<< HEAD
-=======
 				setCart={setCart}
->>>>>>> 5f3faf0bb66c163cbc58ff0423f2b6c9cb178b61
 				cart={cart}
 				createGuestUser={createGuestUser}
 			/>
@@ -111,23 +105,10 @@ export default function App() {
 						/>
 					}
 				/>
-<<<<<<< HEAD
-				<Route path="/shop" element={<Shop cart={cart} setCart={setCart} handleLikeButton={handleLikeButton} />} />
-				<Route
-					path="/favorites"
-					element={
-						<Favorites
-							user={user}
-							setUser={setUser}
-							handleLikeButton={handleLikeButton}
-						/>
-					}
-=======
 				<Route path="/shop" element={<Shop cart={cart} setCart={setCart} />} />
 				<Route
 					path="/checkout"
 					element={<Checkout user={user} cart={cart} order={cart} setCart={setCart}/>}
->>>>>>> 5f3faf0bb66c163cbc58ff0423f2b6c9cb178b61
 				/>
 				<Route
 					path="/guestSignUp"
