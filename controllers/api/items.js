@@ -42,7 +42,7 @@ async function show(req, res) {
 async function getFavorites(req, res) {
 	try {
 		const favorites = await Favorites.find({
-			user: req.user._id
+			user: req.user._id,
 			// isLiked: true
 		})
 			.sort('-updatedAt')

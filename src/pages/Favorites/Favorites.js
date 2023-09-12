@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MenuListItem from '../../components/MenuListItem/MenuListItem';
 import * as ItemsAPI from '../../utilities/items-api'
-export default function FavoritesPage({ user, setUser }) {
+import FavoriteList from '../../components/FavoriteList/FavoriteList'
+export default function FavoritesPage({ user, setUser, handleLikeButton}) {
+    console.log(user)
     /*--- State --- */
     const [favorites, setFavorites] = useState([]);
     /*--- Side Effects --- */
@@ -22,9 +24,9 @@ export default function FavoritesPage({ user, setUser }) {
     /*--- Rendered UI --- */
     return (
         <main>
-            <aside>
-                favorites
-            </aside>
+            <div>
+                <FavoriteList user={user} setUser={setUser} handleLikeButton={handleLikeButton} />
+            </div>
         </main>
     );
 }

@@ -2,8 +2,9 @@ import { useState } from 'react';
 import styles from './AuthPage.module.scss';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
-import Logo from '../../components/Logo/Logo';
-export default function AuthPage({ setUser, user, cart, setCart }) {
+
+export default function AuthPage({ user, setUser, cart, setCart }) {
+  console.log(user)
   const [showLogin, setShowLogin] = useState(true);
   return (
     <div>
