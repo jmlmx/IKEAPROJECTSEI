@@ -20,6 +20,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import AuthPage from '../../pages/AuthPage/AuthPage';
 import Favorites from '../../pages/Favorites/Favorites';
 import Checkout from '../../pages/Checkout/Checkout';
+import AboutUs from '../../pages/AboutUs/AboutUs'
 
 export default function App() {
 	const [pexelsData, setPexelsData] = useState([]);
@@ -110,6 +111,8 @@ export default function App() {
 						/>
 					}
 				/>
+				<Route
+					path="/AboutUs" element={<AboutUs/>} />
 				<Route path="/*" element={<Navigate to="/ikea" />} />
 			</Routes>
 			<Footer />
