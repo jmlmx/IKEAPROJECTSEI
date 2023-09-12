@@ -2,10 +2,11 @@ import styles from './UserPortal.module.scss'
 import { useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import { logOut } from '../../utilities/users-services'
-export default function UserPortal({ user, setUser, cart, createGuestUser }) {
+export default function UserPortal({ user, setUser, cart, setCart, createGuestUser }) {
 
     function handleLogOut() {
         logOut()
+        setCart(null)
         createGuestUser()
     }
     return (
