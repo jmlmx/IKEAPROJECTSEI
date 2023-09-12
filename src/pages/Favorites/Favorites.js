@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import * as ItemsAPI from '../../utilities/items-api'
 import FavoriteList from '../../components/FavoriteList/FavoriteList'
-export default function FavoritesPage({ user, setUser, handleLikeButton, handleAddToOrder}) {
+export default function Favorites({ user, handleLikeButton }) {
     console.log(user)
     /*--- State --- */
     const [favorites, setFavorites] = useState([]);
@@ -14,7 +14,7 @@ export default function FavoritesPage({ user, setUser, handleLikeButton, handleA
             setFavorites(favorites);
         }
         fetchFavoriteItems();
-    }, []);
+    }, [favorites]);
     console.log(favorites)
     /*--- Event Handlers --- */
     function handleSelectFavorite(favorite) {
@@ -24,7 +24,7 @@ export default function FavoritesPage({ user, setUser, handleLikeButton, handleA
     return (
         <main>
             <div>
-                <FavoriteList user={user} setUser={setUser} handleLikeButton={handleLikeButton} favorites={favorites}/>
+                <FavoriteList user={user} handleLikeButton={handleLikeButton} favorites={favorites}/>
             </div>
         </main>
     );

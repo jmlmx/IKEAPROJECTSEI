@@ -57,7 +57,7 @@ async function addToFavorites(req, res, next) {
 	try {
 		const item = await Item.findById(req.params.id);
 		const user = await User.findById(req.user._id).populate('favorites');
-		console.log(user);
+		console.log('GIGGITY GIGGITY', user);
 		if (!item) {
 			return res.status(404).json({ msg: 'Item not found' });
 		}
@@ -65,7 +65,6 @@ async function addToFavorites(req, res, next) {
 			const newFavorites = new Favorites({
 				user: req.user._id,
 				items: [item], // Use 'items' as per your schema
-				user: Favorites.isliked === true
 			});
 			await newFavorites.save();
 			user.favorites = newFavorites._id;

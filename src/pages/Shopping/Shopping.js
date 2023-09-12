@@ -4,7 +4,7 @@ import * as ordersAPI from '../../utilities/order-api';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import MenuList from '../../components/MenuList/MenuList';
 
-export default function Shop({ user, setUser, cart, setCart }) {
+export default function Shop({ user, setUser, cart, setCart, handleLikeButton }) {
 	const [menuItems, setMenuItems] = useState([]);
 	const [activeCat, setActiveCat] = useState('');
 
@@ -33,7 +33,7 @@ export default function Shop({ user, setUser, cart, setCart }) {
 	async function handleAddToOrder(itemId) {
 		const updatedCart = await ordersAPI.addItemToCart(itemId)
 		setCart(updatedCart)
-	  }
+	}
 
 	return (
 		<main>
@@ -47,6 +47,7 @@ export default function Shop({ user, setUser, cart, setCart }) {
 			<MenuList
 				menuItems={menuItems.filter((item) => item.category.name === activeCat)}
 				handleAddToOrder={handleAddToOrder}
+				handleLikeButton={handleLikeButton}
 			/>
 		</main>
 	);

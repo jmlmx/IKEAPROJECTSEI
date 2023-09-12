@@ -21,7 +21,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import AuthPage from '../../pages/AuthPage/AuthPage';
 import Favorites from '../../pages/Favorites/Favorites';
 import Checkout from '../../pages/Checkout/Checkout';
-import AboutUs from '../../pages/AboutUs/AboutUs'
+import AboutUs from '../../pages/AboutUs/AboutUs';
 
 export default function App() {
 	const [pexelsData, setPexelsData] = useState([]);
@@ -61,24 +61,25 @@ export default function App() {
 		const updatedCart = await ordersAPI.setItemQtyInCart(itemId, newQty);
 		setCart(updatedCart);
 	}
-	async function removeFromFavorites(itemId) {
-		const updatedFavorites = await ItemsAPI.removeFromFavorites(itemId);
-		setFavorites(updatedFavorites);
-	}
-	async function addToFavorites(itemId) {
-		const updatedFavorites = await ItemsAPI.addToFavorites(itemId);
-		setFavorites(updatedFavorites);
-	}
-	
-	async function handleLikeButton() {
+
+	async function handleLikeButton(itemId) {
 		const currentURL = window.location.href;
+		console.log(itemId)
 		if (currentURL.includes('/favorites')) {
-			const Item = await ItemsAPI.getById(Item._id)
-			addToFavorites(Item);
+			async function removeFavorite(itemId) {
+				const Item = await ItemsAPI.getById(Item._id);
+				const updatedFavorites = await ItemsAPI.removeFromFavorites(itemId);
+				setFavorites(updatedFavorites);
+			}
+			removeFavorite(Item);
 		} else {
 			if (currentURL.includes('/shop')) {
-				const Item = await ItemsAPI.getById(Item._id)
-				removeFromFavorites(Item);
+				async function addFavorite() {
+					console.log(itemId)
+					const updatedFavorites = await ItemsAPI.addToFavorites(itemId);
+					setFavorites(updatedFavorites);
+				}
+				addFavorite();
 			}
 		}
 	}
@@ -95,6 +96,12 @@ export default function App() {
 			/>
 			<Routes>
 				<Route
+					path="/favorites"
+					element={
+						<Favorites user={user} handleLikeButton={handleLikeButton} />
+					}
+				/>
+				<Route
 					path="/ikea"
 					element={
 						<HomeScreen
@@ -105,10 +112,21 @@ export default function App() {
 						/>
 					}
 				/>
-				<Route path="/shop" element={<Shop cart={cart} setCart={setCart} />} />
+				<Route
+					path="/shop"
+					element={
+						<Shop
+							cart={cart}
+							setCart={setCart}
+							handleLikeButton={handleLikeButton}
+						/>
+					}
+				/>
 				<Route
 					path="/checkout"
-					element={<Checkout user={user} cart={cart} order={cart} setCart={setCart}/>}
+					element={
+						<Checkout user={user} cart={cart} order={cart} setCart={setCart} />
+					}
 				/>
 				<Route
 					path="/guestSignUp"
@@ -133,8 +151,7 @@ export default function App() {
 						/>
 					}
 				/>
-				<Route
-					path="/AboutUs" element={<AboutUs/>} />
+				<Route path="/AboutUs" element={<AboutUs />} />
 				<Route path="/*" element={<Navigate to="/ikea" />} />
 			</Routes>
 			<Footer />
