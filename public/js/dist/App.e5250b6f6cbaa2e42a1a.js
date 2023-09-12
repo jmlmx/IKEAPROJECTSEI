@@ -474,7 +474,9 @@ function LoginForm(_ref) {
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-/* unused harmony export default */
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Logo)
+/* harmony export */ });
 /* harmony import */ var _Logo_module_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Logo.module.scss */ "./src/components/Logo/Logo.module.scss");
 /* provided dependency */ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 //import styles from the module.scss
@@ -483,10 +485,10 @@ function LoginForm(_ref) {
 //export function to have Project title
 function Logo() {
   return /*#__PURE__*/React.createElement("div", {
-    className: "animate__animated animate__tada animate__slow"
+    className: "animate__animated animate__tada animate__slow animate__infinite"
   }, /*#__PURE__*/React.createElement("div", {
     className: _Logo_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].Logo
-  }, /*#__PURE__*/React.createElement("div", null, "Shukea")));
+  }, /*#__PURE__*/React.createElement("div", null, "IKEA")));
 }
 
 /***/ }),
@@ -1301,6 +1303,8 @@ function Favorites(_ref) {
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Pexels_PexelsContent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Pexels/PexelsContent */ "./src/components/Pexels/PexelsContent.js");
 /* harmony import */ var _HomeScreen_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./HomeScreen.module.scss */ "./src/pages/HomeScreen/HomeScreen.module.scss");
+/* harmony import */ var _components_Logo_Logo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Logo/Logo */ "./src/components/Logo/Logo.js");
+
 
 
 
@@ -1314,7 +1318,7 @@ function HomeScreen(_ref) {
   console.log(user);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "home-screen"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "What's Your Style?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Logo_Logo__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "What's Your Style?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "pexels-content"
   }));
 }
