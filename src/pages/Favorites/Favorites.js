@@ -30,14 +30,3 @@ export default function FavoritesPage({ user, setUser, handleLikeButton}) {
         </main>
     );
 }
-
-<<<<<<< HEAD
-
-
-
-
-
-
-
-=======
->>>>>>> 5f3faf0bb66c163cbc58ff0423f2b6c9cb178b61
