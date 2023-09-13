@@ -7,7 +7,6 @@ export default function AuthPage({ setUser, user, cart, setCart }) {
 	const [showLogin, setShowLogin] = useState(true);
 	const [userLoggedIn, setUserLoggedIn] = useState(false);
 
-
 	return (
 		<div>
 			{user.isLoggedIn ? (
@@ -25,21 +24,9 @@ export default function AuthPage({ setUser, user, cart, setCart }) {
 							</h3>
 						</div>
 						{showLogin ? (
-							<LoginForm
-								setUser={setUser}
-								user={user}
-								cart={cart}
-								setCart={setCart}
-							/>
+							<LoginForm setUser={setUser} />
 						) : (
-							<SignUpForm
-								userLoggedIn={userLoggedIn}
-								setUserLoggedIn={setUserLoggedIn}
-								setUser={setUser}
-								user={user}
-								cart={cart}
-								setCart={setCart}
-							/>
+							<SignUpForm setUserLoggedIn={setUserLoggedIn} setUser={setUser} />
 						)}
 					</main>
 				</div>

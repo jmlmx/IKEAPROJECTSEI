@@ -3,12 +3,8 @@ import { signUp, login } from '../../utilities/users-services';
 import { useNavigate } from 'react-router-dom';
 
 function SignUpForm({
-	userLoggedIn,
 	setUserLoggedIn,
 	setUser,
-	user,
-	cart,
-	setCart
 }) {
 	const navigate = useNavigate();
 	const [formData, setFormData] = useState({
