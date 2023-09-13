@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from './NavBar.module.scss';
-
+import Logo from "../Logo/Logo";
 export default function NavBar({ AboutUs, Shop, Jobs }) {
 
     return (
@@ -12,7 +12,9 @@ export default function NavBar({ AboutUs, Shop, Jobs }) {
                     <li><a href='/shop'>Shop</a></li>
                     <li><a href='/HomeScreen'>Jobs</a></li>
                 </ul>
-
+                <div className={styles.logo}> 
+                    <Logo />
+                </div>
             </section>
         </main>
     )
