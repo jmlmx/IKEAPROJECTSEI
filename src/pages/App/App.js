@@ -98,6 +98,7 @@ export default function App() {
 						path="/shop"
 						element={<Shop cart={cart} setCart={setCart} />}
 					/>
+					<Route path="/profile" element={<Profile user={user} setUser={setUser} />} />
 					<Route
 						path="/checkout"
 						element={
