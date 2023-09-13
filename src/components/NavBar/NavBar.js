@@ -10,7 +10,7 @@ export default function NavBar({ AboutUs, Shop, Jobs }) {
                 <ul>
                     <li><a href='/AboutUs'>About Us</a></li>
                     <li><a href='/shop'>Shop</a></li>
-                    <li><a href='/HomeScreen'>Jobs</a></li>
+                    <li><a href='/Jobs'>Jobs</a></li>
                 </ul>
                 <div className={styles.logo}> 
                     <Logo />

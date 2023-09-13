@@ -21,12 +21,16 @@ import AuthPage from '../../pages/AuthPage/AuthPage';
 import Favorites from '../../pages/Favorites/Favorites';
 import Checkout from '../../pages/Checkout/Checkout';
 import AboutUs from '../../pages/AboutUs/AboutUs';
+
+import Jobs from '../../pages/Jobs/Jobs'
+
 import OrderHistory from '../../pages/OrderHistoryPage/OrderHistoryPage';
 
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
 const stripePromise = loadStripe(process.env.STRIPESPUB);
+
 
 export default function App() {
 	const [pexelsData, setPexelsData] = useState([]);
@@ -130,6 +134,8 @@ export default function App() {
 					/>
 					<Route path="/AboutUs" element={<AboutUs />} />
 					<Route path="/orders" element={<OrderHistory />} />
+          <Route path="/Jobs" element={<Jobs />} />
+          <Route path="/AboutUs" element={<AboutUs />} />  
 					<Route path="/*" element={<Navigate to="/ikea" />} />
 				</Routes>
 				<Footer />
