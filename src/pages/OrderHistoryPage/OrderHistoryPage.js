@@ -1,6 +1,5 @@
 import styles from './OrderHistoryPage.module.scss';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import * as ordersAPI from '../../utilities/order-api';
 import OrderList from '../../components/OrderList/OrderList';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
@@ -21,9 +20,8 @@ export default function OrderHistoryPage({ user, setUser }) {
 
 	function handleSelectOrder(order) {
 		if (activeOrder === order) {
-			// If the same order is clicked again, close the OrderDetail
 			setShowOrderDetail(false);
-			setActiveOrder(null); // Optionally, reset activeOrder to null
+			setActiveOrder(null); 
 		} else {
 			setActiveOrder(order);
 			setShowOrderDetail(true);

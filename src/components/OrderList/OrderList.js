@@ -18,7 +18,7 @@ export default function OrderList({ orders, activeOrder, handleSelectOrder }) {
       order={o}
       isSelected={o === activeOrder}
       handleSelectOrder={handleSelectOrder}
-      isExpanded={expandedOrders[o.orderId]} // Pass isExpanded as a prop
+      isExpanded={expandedOrders[o.orderId]} 
     />
   ));
 
