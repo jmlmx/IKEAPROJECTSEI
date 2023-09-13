@@ -1,4 +1,4 @@
-div {
+div.pexels-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: center; 
@@ -12,7 +12,4 @@ div {
       width: 100%; 
     }
   
-    .pexels-content {
-      flex-basis: calc(50% - 5px); 
-    }
   }

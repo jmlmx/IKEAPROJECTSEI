@@ -1,0 +1,44 @@
+.OrderHistoryPage {
+    display: flex;
+    justify-content: center; /* Horizontally center content */
+    align-items: flex-start; /* Vertically align content to the top */
+    
+    height: 100vh; /* Ensure the component takes up the full viewport height */
+    padding: 20px; /* Add padding to create space from the sides of the screen */
+  }
+  
+  aside {
+    /* Add styles for your sidebar content */
+    width: 250px; /* Adjust the width as needed */
+    margin-right: 20px; /* Add margin to separate the sidebar from the main content */
+  }
+  
+  .OrderContent {
+    /* Add styles for the main content */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    flex-grow: 1; /* Allow the main content to expand and fill available space */
+  }
+  
+  .OrderDetail {
+    /* Add background and transition properties for the OrderDetail component */
+    background-color: #fff; /* Set your desired background color */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out; /* Add a smooth transform animation */
+  
+    /* Adjust width and margin to control the size and position */
+    width: 100%; /* You can adjust this based on your design */
+    margin-top: 10px; /* Add margin from the content above */
+    opacity: 0; /* Initially hide the component */
+    transform: translateY(-10px); /* Slide up animation */
+  
+    &.show {
+      opacity: 1; /* Show the component */
+      transform: translateY(0); /* Slide down animation */
+    }
+  }
+  
+  /* Adjust styles as needed for your OrderList and OrderDetail components */
+  

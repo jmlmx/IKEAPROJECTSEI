@@ -1,8 +1,8 @@
 import styles from './OrderHistory.module.scss'
 import { useState, useEffect } from 'react'
 import * as ordersAPI from '../../utilities/orders-api'
-import OrderList from '../../components/OrderList/OrderList'
-import OrderDetail from '../../components/OrderDetail/OrderDetail'
+import OrderList from '../OrderList/OrderList'
+import OrderDetail from '../OrderDetail/OrderDetail'
 
 export default function OrderHistory() {
   /* ----- State ----- */
