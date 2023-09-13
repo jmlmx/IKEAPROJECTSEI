@@ -20,7 +20,13 @@ import NavBar from '../../components/NavBar/NavBar';
 import AuthPage from '../../pages/AuthPage/AuthPage';
 import Favorites from '../../pages/Favorites/Favorites';
 import Checkout from '../../pages/Checkout/Checkout';
-import AboutUs from '../../pages/AboutUs/AboutUs'
+import AboutUs from '../../pages/AboutUs/AboutUs';
+import OrderHistory from '../../pages/OrderHistoryPage/OrderHistoryPage';
+
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
+const stripePromise = loadStripe(process.env.STRIPESPUB);
 
 export default function App() {
 	const [pexelsData, setPexelsData] = useState([]);
@@ -62,60 +68,72 @@ export default function App() {
 	}
 
 	return (
-		<main>
-			<NavBar />
-			<UserPortal
-				user={user}
-				setUser={setUser}
-				setCart={setCart}
-				cart={cart}
-				createGuestUser={createGuestUser}
-			/>
-			<Routes>
-				<Route
-					path="/ikea"
-					element={
-						<HomeScreen
-							user={user}
-							setUser={setUser}
-							pexelsData={pexelsData}
-							setPexelsData={setPexelsData}
-						/>
-					}
+		<Elements stripe={stripePromise}>
+			<main>
+				<NavBar />
+				<UserPortal
+					user={user}
+					setUser={setUser}
+					setCart={setCart}
+					cart={cart}
+					createGuestUser={createGuestUser}
 				/>
-				<Route path="/shop" element={<Shop cart={cart} setCart={setCart} />} />
-				<Route
-					path="/checkout"
-					element={<Checkout user={user} cart={cart} order={cart} setCart={setCart}/>}
-				/>
-				<Route
-					path="/guestSignUp"
-					element={
-						<AuthPage
-							user={user}
-							setUser={setUser}
-							cart={cart}
-							setCart={setCart}
-						/>
-					}
-				/>
-				<Route
-					path="/cart"
-					element={
-						<Cart
-							handleChangeQty={handleChangeQty}
-							user={user}
-							setUser={setUser}
-							cart={cart}
-							setCart={setCart}
-						/>
-					}
-				/>
-				<Route
-					path="/AboutUs" element={<AboutUs/>} />
-				<Route path="/*" element={<Navigate to="/ikea" />} />
-			</Routes>
-			<Footer />
-		</main>
+				<Routes>
+					<Route
+						path="/ikea"
+						element={
+							<HomeScreen
+								user={user}
+								setUser={setUser}
+								pexelsData={pexelsData}
+								setPexelsData={setPexelsData}
+							/>
+						}
+					/>
+					<Route
+						path="/shop"
+						element={<Shop cart={cart} setCart={setCart} />}
+					/>
+					<Route
+						path="/checkout"
+						element={
+							<Checkout
+								user={user}
+								cart={cart}
+								order={cart}
+								setCart={setCart}
+							/>
+						}
+					/>
+					<Route
+						path="/guestSignUp"
+						element={
+							<AuthPage
+								user={user}
+								setUser={setUser}
+								cart={cart}
+								setCart={setCart}
+							/>
+						}
+					/>
+					<Route
+						path="/cart"
+						element={
+							<Cart
+								handleChangeQty={handleChangeQty}
+								user={user}
+								setUser={setUser}
+								cart={cart}
+								setCart={setCart}
+							/>
+						}
+					/>
+					<Route path="/AboutUs" element={<AboutUs />} />
+					<Route path="/orders" element={<OrderHistory />} />
+					<Route path="/*" element={<Navigate to="/ikea" />} />
+				</Routes>
+				<Footer />
+			</main>
+		</Elements>
 	);
 }
