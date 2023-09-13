@@ -1,5 +1,6 @@
 .Links {
-    display: block;
+    display: flex;
+    align-items: center;
 }
 
 li {
@@ -26,6 +27,10 @@ li a :hover {
 
 ul {
     display: block;
+    width: 50%;
+    flex: 2;
 }
 
-
+.logo {
+    
+}
