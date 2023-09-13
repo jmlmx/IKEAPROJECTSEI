@@ -7,6 +7,7 @@ import MenuList from '../../components/MenuList/MenuList';
 export default function Shop({ user, setUser, cart, setCart, handleLikeButton }) {
 	const [menuItems, setMenuItems] = useState([]);
 	const [activeCat, setActiveCat] = useState('');
+	console.log(user)
 
 	const categoriesRef = useRef([]);
 

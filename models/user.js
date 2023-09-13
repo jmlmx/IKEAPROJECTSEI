@@ -11,7 +11,7 @@ const SALT_ROUNDS = 5;
 const userSchema = new mongoose.Schema(
 	{
 		username: { type: String, required: true },
-		favorites: { type: Schema.Types.ObjectId, ref: 'Favorites' },
+		favorites: { type: mongoose.Schema.Types.ObjectId, ref: 'Favorites' },
 		email: {
 			type: String,
 			unique: true,

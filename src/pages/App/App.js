@@ -64,22 +64,22 @@ export default function App() {
 
 	async function handleLikeButton(itemId) {
 		const currentURL = window.location.href;
-		console.log(itemId)
+		console.log('HANDLELIKEBUTTON', itemId)
 		if (currentURL.includes('/favorites')) {
 			async function removeFavorite(itemId) {
-				const Item = await ItemsAPI.getById(Item._id);
+				// const Item = await ItemsAPI.getById(itemId);
 				const updatedFavorites = await ItemsAPI.removeFromFavorites(itemId);
 				setFavorites(updatedFavorites);
 			}
-			removeFavorite(Item);
+			removeFavorite(itemId);
 		} else {
 			if (currentURL.includes('/shop')) {
-				async function addFavorite() {
-					console.log(itemId)
+				async function addFavorite(itemId) {
+					console.log("MOOMMM!", itemId)
 					const updatedFavorites = await ItemsAPI.addToFavorites(itemId);
 					setFavorites(updatedFavorites);
 				}
-				addFavorite();
+				addFavorite(itemId);
 			}
 		}
 	}
@@ -116,6 +116,7 @@ export default function App() {
 					path="/shop"
 					element={
 						<Shop
+							user={user}
 							cart={cart}
 							setCart={setCart}
 							handleLikeButton={handleLikeButton}

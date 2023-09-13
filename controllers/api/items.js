@@ -56,19 +56,22 @@ async function getFavorites(req, res) {
 async function addToFavorites(req, res, next) {
 	try {
 		const item = await Item.findById(req.params.id);
-		const user = await User.findById(req.user._id).populate('favorites');
-		console.log('GIGGITY GIGGITY', user);
+		console.log("IIIIIIDDDDD", req.params.id, item)
 		if (!item) {
 			return res.status(404).json({ msg: 'Item not found' });
 		}
+		const user = await User.findById(req.user._id).populate('favorites');
+		console.log('GIGGITY GIGGITY', user);
 		if (!user.favorites) {
 			const newFavorites = new Favorites({
 				user: req.user._id,
 				items: [item], // Use 'items' as per your schema
 			});
 			await newFavorites.save();
+			console.log('A STRING!!!!',newFavorites)
 			user.favorites = newFavorites._id;
 		} else {
+			console.log('USER ITEMS', user.favorites.items)
 			// Check if the item is already in the user's favorites to avoid duplicates
 			if (!user.favorites.items.includes(item._id)) {
 				user.favorites.items.push(item._id);
@@ -76,7 +79,9 @@ async function addToFavorites(req, res, next) {
 				return res.status(404).json({ msg: 'Item already in favorites' });
 			}
 		}
+		// user.favorites.populate('items');
 		await user.save();
+		(console.log('ITEEEEMS',user.favorites.items))
 		res.json(user);
 	} catch (e) {
 		console.error('Error:', e);

@@ -4,7 +4,7 @@ import favoriteListItem from '../../components/FavoriteListItem/FavoriteListItem
 
 //write export function for menu list items
 export default function MenuListItem({ menuItem, handleAddToOrder, handleLikeButton }) {
-	console.log(handleLikeButton);
+	console.log('MENUITEM', menuItem);
 	return (
 		<div className={styles.MenuListItem}>
 			{/* img src controls the size and appearance of pictures for items */}
