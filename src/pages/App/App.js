@@ -21,6 +21,7 @@ import AuthPage from '../../pages/AuthPage/AuthPage';
 import Favorites from '../../pages/Favorites/Favorites';
 import Checkout from '../../pages/Checkout/Checkout';
 import AboutUs from '../../pages/AboutUs/AboutUs';
+import OrderHistory from '../../pages/OrderHistoryPage/OrderHistoryPage';
 
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
@@ -128,6 +129,7 @@ export default function App() {
 						}
 					/>
 					<Route path="/AboutUs" element={<AboutUs />} />
+					<Route path="/orders" element={<OrderHistory />} />
 					<Route path="/*" element={<Navigate to="/ikea" />} />
 				</Routes>
 				<Footer />

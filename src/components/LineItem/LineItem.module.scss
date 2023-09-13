@@ -9,19 +9,17 @@
   }
   
   .LineItem img {
-    width: 100px; /* Adjust the image width as needed */
-    height: 100px; /* Adjust the image height as needed */
-    object-fit: cover; /* Maintain aspect ratio and cover the container */
-    margin-right: 10px; /* Provide spacing between the image and content */
+    object-fit: cover; 
+    margin-right: 10px;
   }
   
   .LineItem > div {
-    flex: 1; /* Distribute remaining space evenly among child divs */
+    flex: 1; 
   }
   
   .LineItem span {
-    display: block; /* Make spans appear on separate lines */
-    margin-bottom: 5px; /* Add space between spans */
+    display: block;
+    margin-bottom: 5px;
   }
   
   .qty {
