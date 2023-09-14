@@ -2,15 +2,16 @@ import styles from './UserPortal.module.scss'
 import { useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import { logOut } from '../../utilities/users-services'
-export default function UserPortal({ user, setUser, cart, createGuestUser }) {
+export default function UserPortal({ user, setUser, cart, setCart, createGuestUser }) {
 
     function handleLogOut() {
         logOut()
+        setCart(null)
         createGuestUser()
     }
     return (
         <div className={styles.portalcontainer}>
-            {user && user.isLoggedIn ? (
+            {user.isLoggedIn || !user.username === 'guestuser' ? (
                 <div className={styles.loggedin}>
                     <Link  to='/account' className='userlink'>Hey, {user.username}</Link>
                     <Link to='/favorites' className='favbtn'>likes</Link>
