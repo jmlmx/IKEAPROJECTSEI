@@ -21,12 +21,13 @@ export default function FavoriteList({ favorites, handleLikeButton, user }) {
 				!user.favorites ? (
 					<span className={styles.noFavorites}>You Have No Favorites</span>
 				) : (
-					(favoriteItems = user.favorites.items.map(fave => (
+					(favorites && favorites.map(fave => (
+						// (favoriteItems = user.favorites.items.map(fave => (
 						<MenuListItem
 							key={fave._id}
 							handleAddToOrder={handleAddToOrder}
 							handleLikeButton={handleLikeButton}
-							favoriteItem={fave}
+							menuItem={fave}
 						/>
 					)))
 				)

@@ -75,7 +75,7 @@ export default function App() {
 		} else {
 			if (currentURL.includes('/shop')) {
 				async function addFavorite(itemId) {
-					console.log("MOOMMM!", itemId)
+					console.log("ITEMID ITEMID!", itemId)
 					const updatedFavorites = await ItemsAPI.addToFavorites(itemId);
 					setFavorites(updatedFavorites);
 				}

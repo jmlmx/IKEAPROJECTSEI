@@ -42,46 +42,68 @@ async function show(req, res) {
 async function getFavorites(req, res) {
 	try {
 		const favorites = await Favorites.find({
-			user: req.user._id,
-			// isLiked: true
+			user: req.user._id
 		})
-			.sort('-updatedAt')
-			.exec();
-		res.status(200).json(favorites);
+		console.log(favorites)
+		res.status(200).json(favorites[0].items);
 	} catch (error) {
 		res.status(400).json({ msg: error.message });
 	}
 }
 
 async function addToFavorites(req, res, next) {
+	const itemId = req.params.id
+	const isItemFavorite = async (itemId, favoriteItems) => {
+		const foundItem = await favoriteItems.find((item) => {
+			console.log(item.id === itemId)
+			item.id === itemId
+		})
+		if (foundItem) return true;
+		console.log('FOUND ITEM', foundItem)
+		return false;
+	}
 	try {
-		const item = await Item.findById(req.params.id);
-		console.log("IIIIIIDDDDD", req.params.id, item)
+		const item = await Item.findById(itemId);
+		console.log("ID", req.params.id, item)
 		if (!item) {
 			return res.status(404).json({ msg: 'Item not found' });
 		}
 		const user = await User.findById(req.user._id).populate('favorites');
-		console.log('GIGGITY GIGGITY', user);
+		console.log('USER', user);
 		if (!user.favorites) {
 			const newFavorites = new Favorites({
 				user: req.user._id,
 				items: [item], // Use 'items' as per your schema
 			});
 			await newFavorites.save();
-			console.log('A STRING!!!!',newFavorites)
-			user.favorites = newFavorites._id;
+			console.log('NEW FAVES',newFavorites)
+			user.favorites = newFavorites;
 		} else {
-			console.log('USER ITEMS', user.favorites.items)
+			const favorites = await Favorites.find({
+				user: req.user._id
+			})
+			const foundFavorite = await Favorites.findById(favorites[0]._id)
+			console.log('FAVORITE ITEMS', favorites)
+			console.log(itemId, favorites[0])
 			// Check if the item is already in the user's favorites to avoid duplicates
-			if (!user.favorites.items.includes(item._id)) {
-				user.favorites.items.push(item._id);
+			if (isItemFavorite(itemId, favorites[0].items)) {
+				favorites[0].items.push(item);
+				// const unique = [...new Set(favorites[0].items.map((item) => item))]
+				// console.log(unique)
+				foundFavorite.items = favorites[0].items
+				await foundFavorite.save()
+				//console.log('FOUND FAVE', foundFavorite)
+				//user.favorites.items = favorites[0].items
+				//await favorites[0].save()
 			} else {
+				console.log('Item Already In Favorites')
 				return res.status(404).json({ msg: 'Item already in favorites' });
 			}
+
 		}
-		// user.favorites.populate('items');
+		user.populate('favorites');
 		await user.save();
-		(console.log('ITEEEEMS',user.favorites.items))
+		(console.log('USER FAVE ITEMS',user.favorites.items))
 		res.json(user);
 	} catch (e) {
 		console.error('Error:', e);
