@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-	Routes,
-	Route,
-	Navigate,
-	useNavigate,
-	useLocation
-} from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import styles from './App.module.scss';
 import { getUser, signUp } from '../../utilities/users-services';
 import * as ordersAPI from '../../utilities/order-api';
@@ -21,8 +15,9 @@ import AuthPage from '../../pages/AuthPage/AuthPage';
 import Favorites from '../../pages/Favorites/Favorites';
 import Checkout from '../../pages/Checkout/Checkout';
 import AboutUs from '../../pages/AboutUs/AboutUs';
+import Profile from '../../pages/Profile/profile';
 
-import Jobs from '../../pages/Jobs/Jobs'
+import Jobs from '../../pages/Jobs/Jobs';
 
 import OrderHistory from '../../pages/OrderHistoryPage/OrderHistoryPage';
 
@@ -31,14 +26,11 @@ import { loadStripe } from '@stripe/stripe-js';
 
 const stripePromise = loadStripe(process.env.STRIPESPUB);
 
-
 export default function App() {
 	const [pexelsData, setPexelsData] = useState([]);
 	const [user, setUser] = useState(getUser());
 	const [cart, setCart] = useState(null);
 	const [favorites, setFavorites] = useState(null);
-	const navigate = useNavigate();
-	let location = useLocation();
 
 	useEffect(() => {
 		if (!user) {
@@ -73,7 +65,7 @@ export default function App() {
 
 	return (
 		<Elements stripe={stripePromise}>
-			<main>
+			<main className={styles.App}>
 				<NavBar />
 				<UserPortal
 					user={user}
@@ -135,8 +127,8 @@ export default function App() {
 					/>
 					<Route path="/AboutUs" element={<AboutUs />} />
 					<Route path="/orders" element={<OrderHistory />} />
-          <Route path="/Jobs" element={<Jobs />} />
-          <Route path="/AboutUs" element={<AboutUs />} />  
+					<Route path="/Jobs" element={<Jobs />} />
+					<Route path="/AboutUs" element={<AboutUs />} />
 					<Route path="/*" element={<Navigate to="/ikea" />} />
 				</Routes>
 				<Footer />

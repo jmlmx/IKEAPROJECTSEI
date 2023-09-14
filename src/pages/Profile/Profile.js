@@ -26,6 +26,27 @@ export default function Profile() {
         setIsEditMode(!isEditMode);
     };
 
+    const saveChanges = () => {
+           
+         // saves what is in the profile in edit mode  
+        const editedProfileData = {
+          firstName: profile.firstName,
+          lastName: profile.lastName,
+          phoneNumber: profile.phoneNumber,
+          location: profile.location,
+          aboutYou: profile.aboutYou,
+            };
+          
+            // Update the profile state with the edited data
+            setProfile(editedProfileData);
+          
+            // Store the edited data in localStorage for a frontend-only solution
+            localStorage.setItem('userData', JSON.stringify(editedProfileData));
+            
+            // when the save button is clicked it will switch the edit mode to off
+            setIsEditMode(false)
+    };
+
     return (
         <main className={styles.profile}>
             <div>

@@ -11,9 +11,9 @@ export default function UserPortal({ user, setUser, cart, setCart, createGuestUs
     }
     return (
         <div className={styles.portalcontainer}>
-            {user && user.isLoggedIn ? (
+            {user.isLoggedIn || !user.username === 'guestuser' ? (
                 <div className={styles.loggedin}>
-                    <Link  to='/account' className='userlink'>Hey, {user.username}</Link>
+                    <Link  to='/profile' className='userlink'>Hey, {user.username}</Link>
                     <Link to='/favorites' className='favbtn'>likes</Link>
                     <Link to='/cart' className={styles.cartbtn}>{cart ? `cart(${cart.totalQty})` : 'cart(0)'}</Link>
                     <button className='logout-btn' element={<Navigate to='/ikea' />} onClick={handleLogOut}>Log Out</button>
