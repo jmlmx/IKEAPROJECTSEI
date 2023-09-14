@@ -21,22 +21,22 @@ function Chatbot() {
 					<div className="chatLinks">
 						<ul>
 							<li>
-								<Link to="/ikea">Take me to IKEA</Link>
+								<Link to="/ikea">Take Me Home</Link>
 							</li>
 							<li>
-								<Link to="/shop">Take me to the Shop</Link>
+								<Link to="/shop">Take Me Shopping</Link>
 							</li>
 							<li>
-								<Link to="/checkout">Take me to Checkout</Link>
+								<Link to="/checkout">Take My Money</Link>
 							</li>
 							<li>
-								<Link to="/guestSignUp">I want to sign in</Link>
+								<Link to="/guestSignUp">Sign Me In</Link>
 							</li>
 							<li>
 								<Link to="/cart">View My Cart</Link>
 							</li>
 							<li>
-								<Link to="/AboutUs">Learn About Us</Link>
+								<Link to="/AboutUs">What Is IKEA</Link>
 							</li>
 							<li>
 								<Link to="/orders">View Order History</Link>
