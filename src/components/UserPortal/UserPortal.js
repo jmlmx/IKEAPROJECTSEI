@@ -1,30 +1,51 @@
-import styles from './UserPortal.module.scss'
-import { useState } from 'react'
-import { Link, Navigate } from 'react-router-dom'
-import { logOut } from '../../utilities/users-services'
-export default function UserPortal({ user, setUser, cart, setCart, createGuestUser }) {
+import styles from './UserPortal.module.scss';
+import { useState } from 'react';
+import { Link, Navigate } from 'react-router-dom';
+import { logOut } from '../../utilities/users-services';
 
-    function handleLogOut() {
-        logOut()
-        setCart(null)
-        createGuestUser()
-    }
-    return (
-        <div className={styles.portalcontainer}>
-            {user.isLoggedIn || !user.username === 'guestuser' ? (
-                <div className={styles.loggedin}>
-                    <Link to='/account' className='userlink'>Hey, {user.username}</Link>
-                    <Link to='/favorites' className='favbtn'>likes</Link>
-                    <Link to='/cart' className={styles.cartbtn}>{cart ? `cart(${cart.totalQty})` : 'cart(0)'}</Link>
-                    <button className='logout-btn' element={<Navigate to='/ikea' />} onClick={handleLogOut}>Log Out</button>
-                </div>
-                
-            ) : (
-                <div className={styles.notloggedin}>
-                <Link to='/guestSignUp' className='loginbtn'>Login/Signup</Link>
-                <Link to='/cart' className={styles.cartbtn}>{cart ? `cart(${cart.totalQty})` : 'cart(0)'}</Link>
-                </div>
-            )}
-        </div>
-    )
+
+export default function UserPortal({
+	user,
+	setUser,
+	cart,
+	setCart,
+	createGuestUser
+}) {
+	function handleLogOut() {
+		logOut();
+		setCart(null);
+		createGuestUser();
+	}
+	return (
+		<div className={styles.PortalContainer}>
+			{user.isLoggedIn || !user.username === 'guestuser' ? (
+				<div >
+					<Link to="/account" >
+						Hey, {user.username}
+					</Link>
+					<Link to="/favorites" >
+						likes
+					</Link>
+					<Link to="/cart">
+						{cart ? `cart(${cart.totalQty})` : 'cart(0)'}
+					</Link>
+					<button
+						element={<Navigate to="/ikea" />}
+						onClick={handleLogOut}
+					>
+						Log Out
+					</button>
+				</div>
+			) : (
+				<div className={styles.UserPortal}>
+					<Link to="/guestSignUp" className={styles.LSBtn}>
+						Login / Signup
+					</Link>
+					<Link to="/cart" className={styles.CBtn}>
+						{cart ? `Cart(${cart.totalQty})` : 'Cart (0)'}
+					</Link>
+				</div>
+			)}
+		</div>
+	);
 }

@@ -39,8 +39,8 @@ export default function LoginForm({ setUser }) {
 			<div >
 				<form className={styles.Form} autoComplete="off" onSubmit={handleSubmit}>
 					<label>Email: </label>
-					<input
-						placeholder='email here'
+					<input className={styles.Placeholder}
+						placeholder='email'
 						type="text"
 						name="email"
 						value={credentials.email}
@@ -49,8 +49,8 @@ export default function LoginForm({ setUser }) {
 					/>
 					<label>Password: </label>
 					<div >
-						<input
-							placeholder='password here'
+						<input className={styles.Placeholder}
+							placeholder='password'
 							type={showPassword ? 'text' : 'password'}
 							name="password"
 							value={credentials.password}
