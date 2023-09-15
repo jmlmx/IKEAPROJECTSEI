@@ -4,18 +4,17 @@ require('./database');
 const Category = require('../models/category');
 const Item = require('../models/item');
 
-(async function() {
-
-  await Category.deleteMany({});
-  const categories = await Category.create([
-    {name: 'Entertainment', sortOrder: 10},
-    {name: 'Furniture', sortOrder: 20},
-    {name: 'Home Decor', sortOrder: 30},
-    {name: 'Appliances', sortOrder: 40},
-    {name: 'Kitchen', sortOrder: 50},
-    {name: 'Bedroom', sortOrder: 60},
-    {name: 'Bathroom', sortOrder: 70},
-  ]);
+(async function () {
+	await Category.deleteMany({});
+	const categories = await Category.create([
+		{ name: 'Entertainment', sortOrder: 10 },
+		{ name: 'Furniture', sortOrder: 20 },
+		{ name: 'Home Decor', sortOrder: 30 },
+		{ name: 'Appliances', sortOrder: 40 },
+		{ name: 'Kitchen', sortOrder: 50 },
+		{ name: 'Bedroom', sortOrder: 60 },
+		{ name: 'Bathroom', sortOrder: 70 }
+	]);
 
   await Item.deleteMany({});
   const items = await Item.create([
@@ -61,13 +60,7 @@ const Item = require('../models/item');
     {name: 'RUNSKÄR Toilet with Bidet', emojiURL: 'https://i.imgur.com/JryMqRv.jpg', category: categories[6], price: 499.00, rating: 11/10},
     {name: 'RÄGRUND Towel Bar', emojiURL: 'https://i.imgur.com/obQmuXe.jpg', category: categories[6], price: 19.99, rating: 3/10},
     {name: 'BJÄLVEN Bath Robe', emojiURL: 'https://i.imgur.com/QkG08Bq.jpg', category: categories[6], price: 70.00, rating: 9/10},
-
-    
-  
   ]);
-
   console.log(items)
-
   process.exit();
-
 })();

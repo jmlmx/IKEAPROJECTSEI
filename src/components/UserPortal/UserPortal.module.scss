@@ -1,19 +1,16 @@
-.portalcontainer {
-    display:flex;
-    justify-content: space-evenly;
+.PortalContainer {
+   font-size: 20px;
+
+   .LSBtn {
+    display: block;
+    margin: -102px 10px 10px 1173px;
+    color: black;
+   }
+    
+   .CBtn {
+    display: block;
+    margin: -49px 10px 10px 1382px;
+    color: black;
+   }
+
 }
-
-    .portalcontainer .loggedin {
-        display:flex;
-        justify-content: space-evenly;
-    }
-
-    .portalcontainer .notloggedin {
-        display:flex;
-        width: 10vmin;
-        justify-content: space-evenly;
-    }
-
-    .portalcontainer .cartbtn {
-        display: flex;
-    }
