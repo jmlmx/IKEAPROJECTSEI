@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './ChatBot.module.scss';
+import Music from '../Music/Music'
 
 function Chatbot() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -16,9 +17,11 @@ function Chatbot() {
 			>
 				<div className={styles.chatboxContainer}>
 					<div className={styles.chatHeader}>
-						<p>How Can I Help You?:</p>
+						<p>Relax, How Can I Help You?:</p>
+						<Music videoId="7nMsw5twDLs" />
 					</div>
 					<div className="chatLinks">
+		
 						<ul>
 							<li>
 								<Link to="/ikea">Take Me Home</Link>
@@ -54,7 +57,7 @@ function Chatbot() {
 				</div>
 			</div>
 			<button className={styles.toggleButton} onClick={toggleChat}>
-				Need Help?
+				🎧Help🎧
 			</button>
 		</div>
 	);

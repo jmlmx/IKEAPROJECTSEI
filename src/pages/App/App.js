@@ -7,12 +7,15 @@ import { getUser, signUp } from '../../utilities/users-services';
 import * as ordersAPI from '../../utilities/order-api';
 import * as ItemsAPI from '../../utilities/items-api';
 
-import HomeScreen from '../HomeScreen/HomeScreen';
-import Shop from '../Shopping/Shopping';
-import Cart from '../Cart/Cart';
 import Footer from '../../components/Footer/Footer';
 import UserPortal from '../../components/UserPortal/UserPortal';
 import NavBar from '../../components/NavBar/NavBar';
+import ChatBot from '../../components/ChatBot/ChatBot'
+import Music from '../../components/Music/Music'
+
+import HomeScreen from '../HomeScreen/HomeScreen';
+import Shop from '../Shopping/Shopping';
+import Cart from '../Cart/Cart';
 import AuthPage from '../../pages/AuthPage/AuthPage';
 import Favorites from '../../pages/Favorites/Favorites';
 import Checkout from '../../pages/Checkout/Checkout';
@@ -24,7 +27,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 const stripePromise = loadStripe(process.env.STRIPESPUB);
 
-import ChatBot from '../../components/ChatBot/ChatBot'
+
 
 export default function App() {
 	const [pexelsData, setPexelsData] = useState([]);
