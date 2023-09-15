@@ -1,49 +1,60 @@
 .LineItem {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.LineItem img {
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.LineItem > div {
+  flex: 1;
+}
+
+.LineItem span {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.qty {
+  display: flex;
+  align-items: center;
+}
+
+.quantityLabel {
+  font-weight: bold;
+  font-size: 14px;
+  margin-right: 5px;
+  color: #333;
+}
+
+.quantity {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.btn-xs {
+  background-color: #0051ba;
+  color: #fff;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 16px;
+
+  &:hover {
+    background-color: #003f9f;
   }
-  
-  .LineItem img {
-    width: 100px; /* Adjust the image width as needed */
-    height: 100px; /* Adjust the image height as needed */
-    object-fit: cover; /* Maintain aspect ratio and cover the container */
-    margin-right: 10px; /* Provide spacing between the image and content */
-  }
-  
-  .LineItem > div {
-    flex: 1; /* Distribute remaining space evenly among child divs */
-  }
-  
-  .LineItem span {
-    display: block; /* Make spans appear on separate lines */
-    margin-bottom: 5px; /* Add space between spans */
-  }
-  
-  .qty {
-    display: flex;
-    align-items: center;
-  }
-  
-  .btn-xs {
-    background-color: transparent;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-    color: #ff6b00;
-    padding: 0 5px;
-  
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-  
-  .extPrice {
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
-  
+}
+
+.extPrice {
+  font-weight: bold;
+  font-size: 1.2rem;
+}

@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import {
-	Routes,
-	Route,
-	Navigate,
-	useNavigate,
-	useLocation
-} from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+
+
 import styles from './App.module.scss';
 import { getUser, signUp } from '../../utilities/users-services';
 import * as ordersAPI from '../../utilities/order-api';
@@ -14,22 +10,27 @@ import * as ItemsAPI from '../../utilities/items-api';
 import HomeScreen from '../HomeScreen/HomeScreen';
 import Shop from '../Shopping/Shopping';
 import Cart from '../Cart/Cart';
-
 import Footer from '../../components/Footer/Footer';
 import UserPortal from '../../components/UserPortal/UserPortal';
 import NavBar from '../../components/NavBar/NavBar';
 import AuthPage from '../../pages/AuthPage/AuthPage';
 import Favorites from '../../pages/Favorites/Favorites';
 import Checkout from '../../pages/Checkout/Checkout';
-import AboutUs from '../../pages/AboutUs/AboutUs';
+import AboutUs from '../../pages/AboutUs/AboutUs';;
+import Jobs from '../../pages/Jobs/Jobs';
+import OrderHistory from '../../pages/OrderHistoryPage/OrderHistoryPage';
+
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+const stripePromise = loadStripe(process.env.STRIPESPUB);
+
+import ChatBot from '../../components/ChatBot/ChatBot'
 
 export default function App() {
 	const [pexelsData, setPexelsData] = useState([]);
 	const [user, setUser] = useState(getUser());
 	const [cart, setCart] = useState(null);
 	const [favorites, setFavorites] = useState(null);
-	const navigate = useNavigate();
-	let location = useLocation();
 
 	useEffect(() => {
 		if (!user) {
@@ -96,12 +97,6 @@ export default function App() {
 			/>
 			<Routes>
 				<Route
-					path="/favorites"
-					element={
-						<Favorites user={user} handleLikeButton={handleLikeButton} />
-					}
-				/>
-				<Route
 					path="/ikea"
 					element={
 						<HomeScreen
@@ -112,22 +107,10 @@ export default function App() {
 						/>
 					}
 				/>
-				<Route
-					path="/shop"
-					element={
-						<Shop
-							user={user}
-							cart={cart}
-							setCart={setCart}
-							handleLikeButton={handleLikeButton}
-						/>
-					}
-				/>
+				<Route path="/shop" element={<Shop cart={cart} setCart={setCart} />} />
 				<Route
 					path="/checkout"
-					element={
-						<Checkout user={user} cart={cart} order={cart} setCart={setCart} />
-					}
+					element={<Checkout user={user} cart={cart} order={cart} setCart={setCart}/>}
 				/>
 				<Route
 					path="/guestSignUp"
@@ -152,7 +135,8 @@ export default function App() {
 						/>
 					}
 				/>
-				<Route path="/AboutUs" element={<AboutUs />} />
+				<Route
+					path="/AboutUs" element={<AboutUs/>} />
 				<Route path="/*" element={<Navigate to="/ikea" />} />
 			</Routes>
 			<Footer />
