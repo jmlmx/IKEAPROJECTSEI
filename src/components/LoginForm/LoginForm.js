@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as usersServices from '../../utilities/users-services';
+import styles from './LoginForm.module.scss'
 
 export default function LoginForm({ setUser }) {
 	const navigate = useNavigate();
@@ -34,38 +35,39 @@ export default function LoginForm({ setUser }) {
 	};
 
 	return (
-		<div>
-			<div className="form-container">
-				<form autoComplete="off" onSubmit={handleSubmit}>
-					<label>Email</label>
-					<input
+		<main className={styles.FormContainer}>
+			<div >
+				<form className={styles.Form} autoComplete="off" onSubmit={handleSubmit}>
+					<label>Email: </label>
+					<input className={styles.Placeholder}
+						placeholder='email'
 						type="text"
 						name="email"
 						value={credentials.email}
 						onChange={handleChange}
 						required
 					/>
-					<label>Password</label>
-					<div className="password-input">
-						<input
+					<label>Password: </label>
+					<div >
+						<input className={styles.Placeholder}
+							placeholder='password'
 							type={showPassword ? 'text' : 'password'}
 							name="password"
 							value={credentials.password}
 							onChange={handleChange}
 							required
 						/>
-						<button
+						<button className={styles.PeekABoo}
 							type="button"
-							className="password-toggle-button"
 							onClick={togglePasswordVisibility}
 						>
 							{showPassword ? '👁️' : '👁️‍🗨️'}
 						</button>
 					</div>
-					<button type="submit">Log In</button>
+					<button className={styles.LogInBtn} type="submit">LOG IN</button>
 				</form>
 			</div>
-			<p className="error-message">{error}</p>
-		</div>
+			<p className={styles.errorMessage}>{error}</p>
+		</main>
 	);
 }

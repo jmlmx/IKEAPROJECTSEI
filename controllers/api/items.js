@@ -43,41 +43,66 @@ async function getFavorites(req, res) {
 	try {
 		const favorites = await Favorites.find({
 			user: req.user._id
-			// isLiked: true
-		})
-			.sort('-updatedAt')
-			.exec();
-		res.status(200).json(favorites);
+		});
+		console.log(favorites);
+		res.status(200).json(favorites[0].items);
 	} catch (error) {
 		res.status(400).json({ msg: error.message });
 	}
 }
 
 async function addToFavorites(req, res, next) {
+	const itemId = req.params.id;
+	const isItemFavorite = async (itemId, favoriteItems) => {
+		const foundItem = await favoriteItems.find((item) => {
+			console.log(item.id === itemId);
+			item.id === itemId;
+		});
+		if (foundItem) return true;
+		console.log('FOUND ITEM', foundItem);
+		return false;
+	};
 	try {
-		const item = await Item.findById(req.params.id);
-		const user = await User.findById(req.user._id).populate('favorites');
-		console.log(user);
+		const item = await Item.findById(itemId);
+		console.log('ID', req.params.id, item);
 		if (!item) {
 			return res.status(404).json({ msg: 'Item not found' });
 		}
+		const user = await User.findById(req.user._id).populate('favorites');
+		console.log('USER', user);
 		if (!user.favorites) {
 			const newFavorites = new Favorites({
 				user: req.user._id,
-				items: [item], // Use 'items' as per your schema
-				user: Favorites.isliked === true
+				items: [item] // Use 'items' as per your schema
 			});
 			await newFavorites.save();
-			user.favorites = newFavorites._id;
+			console.log('NEW FAVES', newFavorites);
+			user.favorites = newFavorites;
 		} else {
+			const favorites = await Favorites.find({
+				user: req.user._id
+			});
+			const foundFavorite = await Favorites.findById(favorites[0]._id);
+			console.log('FAVORITE ITEMS', favorites);
+			console.log(itemId, favorites[0]);
 			// Check if the item is already in the user's favorites to avoid duplicates
-			if (!user.favorites.items.includes(item._id)) {
-				user.favorites.items.push(item._id);
+			if (isItemFavorite(itemId, favorites[0].items)) {
+				favorites[0].items.push(item);
+				// const unique = [...new Set(favorites[0].items.map((item) => item))]
+				// console.log(unique)
+				foundFavorite.items = favorites[0].items;
+				await foundFavorite.save();
+				//console.log('FOUND FAVE', foundFavorite)
+				//user.favorites.items = favorites[0].items
+				//await favorites[0].save()
 			} else {
+				console.log('Item Already In Favorites');
 				return res.status(404).json({ msg: 'Item already in favorites' });
 			}
 		}
+		user.populate('favorites');
 		await user.save();
+		console.log('USER FAVE ITEMS', user.favorites.items);
 		res.json(user);
 	} catch (e) {
 		console.error('Error:', e);
@@ -86,29 +111,46 @@ async function addToFavorites(req, res, next) {
 }
 
 async function removeFromFavorites(req, res, next) {
+	const itemId = req.params.id;
+	const isItemFavorite = async (itemId, favoriteItems) => {
+		const foundItem = await favoriteItems.find((item) => {
+			console.log('IS ITEM FAVE', item.id === itemId);
+			item.id === itemId;
+		});
+		if (foundItem) return true;
+		//console.log('FOUND ITEM', foundItem);
+		return false;
+	};
 	try {
-		const item = await Item.findById(req.params.id);
-		const user = await User.findById(req.user._id).populate('favorites');
-		console.log(user);
+		const item = await Item.findById(itemId);
+		//console.log('ID', req.params.id, item);
 		if (!item) {
 			return res.status(404).json({ msg: 'Item not found' });
 		}
+		const user = await User.findById(req.user._id).populate('favorites');
+		//console.log('USER', user);
 		if (!user.favorites) {
 			const newFavorites = new Favorites({
 				user: req.user._id,
 				items: [item] // Use 'items' as per your schema
 			});
 			await newFavorites.save();
-			user.favorites = newFavorites._id;
+			//console.log('NEW FAVES', newFavorites);
+			user.favorites = newFavorites;
 		} else {
-			// Check if the item is already in the user's favorites to avoid duplicates
-			if (!user.favorites.items.includes(item._id)) {
-				user.favorites.items.pull(item._id);
-			} else {
-				return res.status(404).json({ msg: 'Item already in favorites' });
-			}
+			const favorites = await Favorites.find({
+				user: req.user._id
+			});
+			const foundFavorite = await Favorites.findById(favorites[0]._id);
+			//console.log('FAVORITE ITEMS', favorites);
+			console.log('GIBBERISH', favorites[0]);
+			favorites[0].items.pull(item);
+			foundFavorite.items = favorites[0].items
+			await foundFavorite.save();
 		}
+		user.populate('favorites');
 		await user.save();
+		console.log('USER FAVE ITEMS', user.favorites.items);
 		res.json(user);
 	} catch (e) {
 		console.error('Error:', e);

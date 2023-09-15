@@ -2,7 +2,6 @@ import styles from './LineItem.module.scss';
 
 export default function LineItem({ lineItem, isPaid, handleChangeQty }) {
   const currentURL = window.location.pathname;
-
   const shouldShowButtons = currentURL !== '/checkout';
 
   return (
