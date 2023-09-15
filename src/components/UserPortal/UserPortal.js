@@ -37,7 +37,7 @@ export default function UserPortal({
 					</Link>
 					<button
 						className={styles.LOBtn}
-						element={<Navigate to="/ikea" />}
+						// element={<Navigate to="/ikea" />}
 						onClick={handleLogOut}
 					>
 						Log Out
