@@ -5,7 +5,15 @@ import FavoriteList from '../../components/FavoriteList/FavoriteList'
 export default function Favorites({ user, handleLikeButton, favorites, setFavorites }) {
     console.log(user)
     console.log(favorites)
-    /*--- Rendered UI --- */
+    useEffect(function () {
+        // Load favorites (Boolean === true)
+        async function fetchFavoriteItems() {
+            const favorites = await ItemsAPI.getFavorites();
+            setFavorites(favorites);
+        }
+        fetchFavoriteItems();
+    }, [])
+
     return (
         <main>
             <div>

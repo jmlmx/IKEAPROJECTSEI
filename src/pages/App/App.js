@@ -78,9 +78,11 @@ export default function App() {
 		console.log('HANDLELIKEBUTTON', itemId);
 		if (currentURL.includes('/favorites')) {
 			async function removeFavorite(itemId) {
-				// const Item = await ItemsAPI.getById(itemId);
 				const updatedFavorites = await ItemsAPI.removeFromFavorites(itemId);
 				setFavorites(updatedFavorites);
+				const favorites = await ItemsAPI.getFavorites();
+            setFavorites(favorites);
+				
 			}
 			removeFavorite(itemId);
 		} else {
