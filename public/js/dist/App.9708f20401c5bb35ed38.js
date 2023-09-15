@@ -1674,7 +1674,16 @@ function AuthPage(_ref) {
   const [userLoggedIn, setUserLoggedIn] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
   return /*#__PURE__*/React.createElement("div", {
     className: _AuthPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].AuthPage
-  }, user.isLoggedIn ? /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("img", {
+    src: "https://www.ikea.com/images/a-colorful-living-room-with-a-sofa-and-a-chaise-lounge-in-or-00751d1b036ac33f4730ffbc32c08cc9.jpg?f=xxxl",
+    width: "750",
+    height: "424",
+    className: _AuthPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].OrangePhoto
+  }), /*#__PURE__*/React.createElement("img", {
+    src: "https://www.ikea.com/images/an-open-plan-living-and-dining-area-with-two-beige-brown-soe-133a1ded0c1bbe120e42820301753083.jpg?f=xxxl",
+    width: "720",
+    height: "424"
+  }), user.isLoggedIn ? /*#__PURE__*/React.createElement("div", {
     className: _AuthPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].LoggedIn
   }, /*#__PURE__*/React.createElement("h1", null, "Welcome, ", user.username, "!")) : /*#__PURE__*/React.createElement("div", {
     className: _AuthPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].GuestUser
@@ -1738,7 +1747,7 @@ function Cart(_ref) {
     className: "".concat(_Cart_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"]['line-items'], " scroll-y")
   }, lineItems.length ? /*#__PURE__*/React.createElement(React.Fragment, null, lineItems, /*#__PURE__*/React.createElement("section", {
     className: _Cart_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"]['total-section']
-  }, /*#__PURE__*/React.createElement("span", null, "$", cart.orderTotal.toFixed(2)), user.username === 'guestuser' ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/React.createElement("span", null, "Total: $", cart.orderTotal.toFixed(2)), user.username === 'guestuser' ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("button", {
     className: _Cart_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"]['checkout-btn'],
     onClick: handleCheckoutClick,
     disabled: !lineItems.length
@@ -1749,8 +1758,8 @@ function Cart(_ref) {
     className: _Cart_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"]['checkout-btn'],
     onClick: handleCheckoutClick
   }, "Proceed to Checkout"))) : /*#__PURE__*/React.createElement("div", {
-    className: _Cart_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"]['empty-cart']
-  }, "your cart is empty."))));
+    className: _Cart_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"]['emptyCart']
+  }, "Cart Is Empty."))));
 }
 
 /***/ }),
@@ -2557,7 +2566,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.l8hJyaPvo9smd6LiNqWK {
 .l8hJyaPvo9smd6LiNqWK ._scckhAN2KPE1u73kR14 {
   font-size: x-large;
   color: black;
-}`, "",{"version":3,"sources":["webpack://./src/components/CategoryList/CategoryList.module.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,WAAA;EACA,eAAA;EACA,2BAAA;EACA,eAAA;EACA,0DAAA;EACA,kBAAA;AACJ;AACI;EACI,kBAAA;EACA,YAAA;AACR","sourcesContent":[".CategoryList {\n    display: grid;\n    color: blue;\n    font-size: 20px;\n    margin: 17px 2px 10px 155px;\n    cursor: pointer;\n    background-image: linear-gradient(180deg, lavender, white);\n    border-radius: 10%;\n\n    .active {\n        font-size: x-large;\n        color: black;\n    }\n \n}\n\n"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/CategoryList/CategoryList.module.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,WAAA;EACA,eAAA;EACA,2BAAA;EACA,eAAA;EACA,0DAAA;EACA,kBAAA;AACJ;AACI;EACI,kBAAA;EACA,YAAA;AACR","sourcesContent":[".CategoryList {\n    display: grid;\n    color: blue;\n    font-size: 20px;\n    margin: 17px 2px 10px 155px;\n    cursor: pointer;\n    background-image: linear-gradient(180deg, lavender, white);\n    border-radius: 10%;\n\n    .active {\n        font-size: x-large;\n        color: black;\n    }\n }\n\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"CategoryList": `l8hJyaPvo9smd6LiNqWK`,
@@ -2880,7 +2889,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.ZeRW57PNaWpYVsw6JlaC {
   font-weight: bold;
 }
 
-.SyuZ4Crt_6sVbNgW7cME {
+.pQzU0RF7GG3zfUxm8oal {
   background-color: #0051ba;
   color: #fff;
   padding: 6px 12px;
@@ -2888,23 +2897,24 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.ZeRW57PNaWpYVsw6JlaC {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.2s;
-  font-size: 16px;
+  font-size: 10px;
+  margin: 2%;
 }
-.SyuZ4Crt_6sVbNgW7cME:hover {
+.pQzU0RF7GG3zfUxm8oal:hover {
   background-color: #003f9f;
 }
 
 .iZ6oJDRJlBAjRnxPhUy5 {
   font-weight: bold;
   font-size: 1.2rem;
-}`, "",{"version":3,"sources":["webpack://./src/components/LineItem/LineItem.module.scss"],"names":[],"mappings":"AAAA;EACE,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,aAAA;EACA,sBAAA;EACA,kBAAA;EACA,mBAAA;AACF;;AAEA;EACE,oBAAA;EACG,iBAAA;EACH,kBAAA;AACF;;AAEA;EACE,OAAA;AACF;;AAEA;EACE,cAAA;EACA,kBAAA;AACF;;AAEA;EACE,aAAA;EACA,mBAAA;AACF;;AAEA;EACE,iBAAA;EACA,eAAA;EACA,iBAAA;EACA,WAAA;AACF;;AAEA;EACE,eAAA;EACA,iBAAA;AACF;;AAEA;EACE,yBAAA;EACA,WAAA;EACA,iBAAA;EACA,YAAA;EACA,kBAAA;EACA,eAAA;EACA,iCAAA;EACA,eAAA;AACF;AACE;EACE,yBAAA;AACJ;;AAGA;EACE,iBAAA;EACA,iBAAA;AAAF","sourcesContent":[".LineItem {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 10px;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  margin-bottom: 10px;\n}\n\n.LineItem img {\n  -o-object-fit: cover;\n     object-fit: cover;\n  margin-right: 10px;\n}\n\n.LineItem > div {\n  flex: 1;\n}\n\n.LineItem span {\n  display: block;\n  margin-bottom: 5px;\n}\n\n.qty {\n  display: flex;\n  align-items: center;\n}\n\n.quantityLabel {\n  font-weight: bold;\n  font-size: 14px;\n  margin-right: 5px;\n  color: #333;\n}\n\n.quantity {\n  font-size: 16px;\n  font-weight: bold;\n}\n\n.btn-xs {\n  background-color: #0051ba;\n  color: #fff;\n  padding: 6px 12px;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background-color 0.2s;\n  font-size: 16px;\n\n  &:hover {\n    background-color: #003f9f;\n  }\n}\n\n.extPrice {\n  font-weight: bold;\n  font-size: 1.2rem;\n}\n"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/LineItem/LineItem.module.scss"],"names":[],"mappings":"AAAA;EACE,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,aAAA;EACA,sBAAA;EACA,kBAAA;EACA,mBAAA;AACF;;AAEA;EACE,oBAAA;EACG,iBAAA;EACH,kBAAA;AACF;;AAEA;EACE,OAAA;AACF;;AAEA;EACE,cAAA;EACA,kBAAA;AACF;;AAEA;EACE,aAAA;EACA,mBAAA;AACF;;AAEA;EACE,iBAAA;EACA,eAAA;EACA,iBAAA;EACA,WAAA;AACF;;AAEA;EACE,eAAA;EACA,iBAAA;AACF;;AAEA;EACE,yBAAA;EACA,WAAA;EACA,iBAAA;EACA,YAAA;EACA,kBAAA;EACA,eAAA;EACA,iCAAA;EACA,eAAA;EACA,UAAA;AACF;AACE;EACE,yBAAA;AACJ;;AAGA;EACE,iBAAA;EACA,iBAAA;AAAF","sourcesContent":[".LineItem {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 10px;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  margin-bottom: 10px;\n}\n\n.LineItem img {\n  -o-object-fit: cover;\n     object-fit: cover;\n  margin-right: 10px;\n}\n\n.LineItem > div {\n  flex: 1;\n}\n\n.LineItem span {\n  display: block;\n  margin-bottom: 5px;\n}\n\n.qty {\n  display: flex;\n  align-items: center;\n}\n\n.quantityLabel {\n  font-weight: bold;\n  font-size: 14px;\n  margin-right: 5px;\n  color: #333;\n}\n\n.quantity {\n  font-size: 16px;\n  font-weight: bold;\n}\n\n.btnXS {\n  background-color: #0051ba;\n  color: #fff;\n  padding: 6px 12px;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background-color 0.2s;\n  font-size: 10px;\n  margin: 2%;\n\n  &:hover {\n    background-color: #003f9f;\n  }\n}\n\n.extPrice {\n  font-weight: bold;\n  font-size: 1.2rem;\n}\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"LineItem": `ZeRW57PNaWpYVsw6JlaC`,
 	"qty": `Z_MQzAiRjTlxboCrh9om`,
 	"quantityLabel": `tovNyPga5YuPHV34_qb4`,
 	"quantity": `H2KUlESFil5S8jINTVRZ`,
-	"btn-xs": `SyuZ4Crt_6sVbNgW7cME`,
+	"btnXS": `pQzU0RF7GG3zfUxm8oal`,
 	"extPrice": `iZ6oJDRJlBAjRnxPhUy5`
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
@@ -2936,7 +2946,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.BRLBjdPLu6h8KA48LraH {
 }
 .BRLBjdPLu6h8KA48LraH .NrcY7MlcniHMOeFg_OJc {
   display: grid;
-  gap: 6px;
+  gap: 2px;
 }
 .BRLBjdPLu6h8KA48LraH .GaWjdZjTYKDoZXGe6J02 {
   font-size: 15px;
@@ -2954,7 +2964,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.BRLBjdPLu6h8KA48LraH {
   border-color: rgb(162, 14, 14);
   display: block;
   border-radius: 10%;
-  margin: 45px 387px 30px 0px;
+  margin: 45px 526px 15px 0px;
   padding: 5px;
 }
 .BRLBjdPLu6h8KA48LraH .Hg5qipBpdv68l9Q3x9MC:hover {
@@ -2964,7 +2974,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.BRLBjdPLu6h8KA48LraH {
 }
 .BRLBjdPLu6h8KA48LraH .OB6wDumfTTpvUFiHe1R3 {
   color: red;
-}`, "",{"version":3,"sources":["webpack://./src/components/LoginForm/LoginForm.module.scss"],"names":[],"mappings":"AAAA;EACI,cAAA;AACJ;AACI;EACI,aAAA;EACA,QAAA;AACR;AAEI;EACI,eAAA;EACA,kBAAA;AAAR;AAGI;EACI,iBAAA;EACA,uBAAA;EACA,gBAAA;AADR;AAII;EACI,uBAAA;EACA,uBAAA;EACA,eAAA;EACA,8BAAA;EACA,cAAA;EACA,kBAAA;EACA,2BAAA;EACA,YAAA;AAFR;AAKI;EACI,YAAA;EACA,kCAAA;EACA,mBAAA;AAHR;AAMI;EACI,UAAA;AAJR","sourcesContent":[".FormContainer {\n    display: block;\n\n    .Form {\n        display: grid;\n        gap: 6px;\n    }\n\n    .Placeholder {\n        font-size: 15px;\n        text-align: center;\n    }\n\n    .PeekABoo {\n        margin-left: 10px;\n        background-color: white;\n        size-adjust: 5px;\n    }\n\n    .LogInBtn {\n        color: rgb(162, 14, 14);\n        background-color: white;\n        font-size: 20px;\n        border-color: rgb(162, 14, 14);\n        display: block;\n        border-radius: 10%;\n        margin: 45px 387px 30px 0px;\n        padding: 5px;\n    }\n\n    .LogInBtn:hover {\n        color: white;\n        background-color: rgb(162, 14, 14);\n        border-color: black;\n    }\n\n    .errorMessage {\n        color: red;\n    }\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/LoginForm/LoginForm.module.scss"],"names":[],"mappings":"AAAA;EACI,cAAA;AACJ;AACI;EACI,aAAA;EACA,QAAA;AACR;AAEI;EACI,eAAA;EACA,kBAAA;AAAR;AAGI;EACI,iBAAA;EACA,uBAAA;EACA,gBAAA;AADR;AAII;EACI,uBAAA;EACA,uBAAA;EACA,eAAA;EACA,8BAAA;EACA,cAAA;EACA,kBAAA;EACA,2BAAA;EACA,YAAA;AAFR;AAKI;EACI,YAAA;EACA,kCAAA;EACA,mBAAA;AAHR;AAMI;EACI,UAAA;AAJR","sourcesContent":[".FormContainer {\n    display: block;\n\n    .Form {\n        display: grid;\n        gap: 2px;\n    }\n\n    .Placeholder {\n        font-size: 15px;\n        text-align: center;\n    }\n\n    .PeekABoo {\n        margin-left: 10px;\n        background-color: white;\n        size-adjust: 5px;\n    }\n\n    .LogInBtn {\n        color: rgb(162, 14, 14);\n        background-color: white;\n        font-size: 20px;\n        border-color: rgb(162, 14, 14);\n        display: block;\n        border-radius: 10%;\n        margin: 45px 526px 15px 0px;\n        padding: 5px;\n    }\n\n    .LogInBtn:hover {\n        color: white;\n        background-color: rgb(162, 14, 14);\n        border-color: black;\n    }\n\n    .errorMessage {\n        color: red;\n    }\n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"FormContainer": `BRLBjdPLu6h8KA48LraH`,
@@ -3651,19 +3661,20 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.RygkJgZmBHTETlLP3C3i {
   display: inline-block;
-  margin: 30px 10px 30px 820px;
+  margin: 30px 10px 30px 1000px;
 }
 .RygkJgZmBHTETlLP3C3i ._lgMHrauViEFmOIflF0w {
   color: blue;
   font-family: "Noto IKEA", "Noto Sans", "Roboto", "Open Sans", system-ui, sans-serif;
   font-size: 20px;
+  margin: 13px 513px 25px -440px;
 }
 .RygkJgZmBHTETlLP3C3i .K_nEnxEvdh2EAiBO6hWA {
   border: 2px solid blue;
   border-radius: 10%;
   display: inline-block;
   background-color: white;
-  margin: 45px 10px 30px 0px;
+  margin: -12px 10px 30px 0px;
   padding: 5px;
   cursor: pointer;
 }
@@ -3672,12 +3683,16 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.RygkJgZmBHTETlLP3C3i {
   border-radius: 10%;
   background-color: blue;
   color: white;
-}`, "",{"version":3,"sources":["webpack://./src/pages/AuthPage/AuthPage.module.scss"],"names":[],"mappings":"AAAA;EACI,qBAAA;EACA,4BAAA;AACJ;AAEI;EACI,WAAA;EACA,mFAAA;EACA,eAAA;AAAR;AAGI;EACI,sBAAA;EACA,kBAAA;EACA,qBAAA;EACA,uBAAA;EACA,0BAAA;EACA,YAAA;EACA,eAAA;AADR;AAKI;EACI,uBAAA;EACA,kBAAA;EACA,sBAAA;EACA,YAAA;AAHR","sourcesContent":[".AuthPage {\n    display: inline-block;\n    margin: 30px 10px 30px 820px;\n\n\n    .GuestUser {\n        color: blue;\n        font-family: 'Noto IKEA', 'Noto Sans', 'Roboto', 'Open Sans', system-ui, sans-serif;\n        font-size: 20px;\n    }\n\n    .SLBtn {\n        border: 2px solid blue;\n        border-radius: 10%;\n        display: inline-block;\n        background-color: white; \n        margin: 45px 10px 30px 0px;\n        padding: 5px;\n        cursor: pointer;  \n       \n    }\n\n    .SLBtn:hover {\n        border: 2px solid black;\n        border-radius: 10%;\n        background-color: blue;\n        color: white;\n    }\n}"],"sourceRoot":""}]);
+}
+.RygkJgZmBHTETlLP3C3i .xf1cGR7c4Xjwsc9n0pEQ {
+  margin: 10px 10px 10px -803px;
+}`, "",{"version":3,"sources":["webpack://./src/pages/AuthPage/AuthPage.module.scss"],"names":[],"mappings":"AAAA;EACI,qBAAA;EACA,6BAAA;AACJ;AAEI;EACI,WAAA;EACA,mFAAA;EACA,eAAA;EACA,8BAAA;AAAR;AAGI;EACI,sBAAA;EACA,kBAAA;EACA,qBAAA;EACA,uBAAA;EACA,2BAAA;EACA,YAAA;EACA,eAAA;AADR;AAKI;EACI,uBAAA;EACA,kBAAA;EACA,sBAAA;EACA,YAAA;AAHR;AAMI;EACI,6BAAA;AAJR","sourcesContent":[".AuthPage {\n    display: inline-block;\n    margin: 30px 10px 30px 1000px;\n\n\n    .GuestUser {\n        color: blue;\n        font-family: 'Noto IKEA', 'Noto Sans', 'Roboto', 'Open Sans', system-ui, sans-serif;\n        font-size: 20px;\n        margin: 13px 513px 25px -440px;\n    }\n\n    .SLBtn {\n        border: 2px solid blue;\n        border-radius: 10%;\n        display: inline-block;\n        background-color: white; \n        margin: -12px 10px 30px 0px;\n        padding: 5px;\n        cursor: pointer;  \n       \n    }\n\n    .SLBtn:hover {\n        border: 2px solid black;\n        border-radius: 10%;\n        background-color: blue;\n        color: white;\n    }\n\n    .OrangePhoto {\n        margin: 10px 10px 10px -803px;\n    }\n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"AuthPage": `RygkJgZmBHTETlLP3C3i`,
 	"GuestUser": `_lgMHrauViEFmOIflF0w`,
-	"SLBtn": `K_nEnxEvdh2EAiBO6hWA`
+	"SLBtn": `K_nEnxEvdh2EAiBO6hWA`,
+	"OrangePhoto": `xf1cGR7c4Xjwsc9n0pEQ`
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3774,34 +3789,33 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.eXUO8_QXMvqk84cHmokz {
 
 .XApaR82b8LA2gSALI2ax {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   margin-top: 20px;
   font-size: 1.2rem;
   font-weight: bold;
 }
 .XApaR82b8LA2gSALI2ax .LuFsUEEEJl9UTkjvdmkJ {
-  background-color: #ff6b00;
+  background-color: #dcd9d9;
   color: white;
   border: none;
+  margin: 0.3rem;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
 }
-.XApaR82b8LA2gSALI2ax .LuFsUEEEJl9UTkjvdmkJ:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-.XApaR82b8LA2gSALI2ax .LuFsUEEEJl9UTkjvdmkJ:hover:enabled {
-  background-color: #ff8c4b;
+.XApaR82b8LA2gSALI2ax .LuFsUEEEJl9UTkjvdmkJ:hover {
+  background-color: #FFDA1A;
+  color: #007bff;
+  font-weight: bold;
 }
 
-.TC593zFdhbHUzgSgM_aB {
+.fGnsyaAEMomjstkw4m80 {
   text-align: center;
   font-size: 1.2rem;
-  color: #666;
+  color: #000000;
   margin-top: 40px;
-}`, "",{"version":3,"sources":["webpack://./src/pages/Cart/Cart.module.scss"],"names":[],"mappings":"AAAA;EACE,sBAAA;EACA,sBAAA;EACA,kBAAA;EACA,uCAAA;EACA,aAAA;EACA,UAAA;EACA,cAAA;EACA,gBAAA;AACF;;AAEA;EACE,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,mBAAA;AACF;AACE;EACE,iBAAA;AACJ;AAEE;EACE,6BAAA;EACA,YAAA;EACA,iBAAA;EACA,eAAA;EACA,WAAA;AAAJ;AAEI;EACE,cAAA;AAAN;;AAKA;EACE,gBAAA;EACA,gBAAA;EACA,UAAA;EACA,gBAAA;AAFF;;AAKA;EACE,sBAAA;EACA,kBAAA;EACA,aAAA;EACA,mBAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;AAFF;AAIE;EACE,OAAA;AAFJ;AAKE;EACE,eAAA;EACA,iBAAA;AAHJ;AAME;EACE,iBAAA;EACA,iBAAA;AAJJ;AAOE;EACE,6BAAA;EACA,YAAA;EACA,eAAA;EACA,eAAA;EACA,cAAA;AALJ;AAOI;EACE,0BAAA;AALN;;AAUA;EACE,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,gBAAA;EACA,iBAAA;EACA,iBAAA;AAPF;AASE;EACE,yBAAA;EACA,YAAA;EACA,YAAA;EACA,kBAAA;EACA,kBAAA;EACA,eAAA;AAPJ;AASI;EACE,sBAAA;EACA,mBAAA;AAPN;AAUI;EACE,yBAAA;AARN;;AAaA;EACE,kBAAA;EACA,iBAAA;EACA,WAAA;EACA,gBAAA;AAVF","sourcesContent":[".cart-container {\n  background-color: #fff;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  padding: 20px;\n  width: 90%;\n  margin: 0 auto;\n  min-height: 80vh;\n}\n\n.cart-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n\n  .item-count {\n    font-size: 1.2rem;\n  }\n\n  .close-btn {\n    background-color: transparent;\n    border: none;\n    font-size: 1.2rem;\n    cursor: pointer;\n    color: #666;\n\n    &:hover {\n      color: #ff6b00;\n    }\n  }\n}\n\n.line-items {\n  min-height: 20vh;\n  overflow-y: auto;\n  padding: 0;\n  list-style: none;\n}\n\n.line-item {\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  padding: 10px;\n  margin-bottom: 10px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n\n  .item-title {\n    flex: 1;\n  }\n\n  .item-quantity {\n    font-size: 1rem;\n    margin-left: 10px;\n  }\n\n  .item-price {\n    font-weight: bold;\n    font-size: 1.2rem;\n  }\n\n  .remove-btn {\n    background-color: transparent;\n    border: none;\n    font-size: 1rem;\n    cursor: pointer;\n    color: #ff6b00;\n\n    &:hover {\n      text-decoration: underline;\n    }\n  }\n}\n\n.total-section {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-top: 20px;\n  font-size: 1.2rem;\n  font-weight: bold;\n\n  .checkout-btn {\n    background-color: #ff6b00;\n    color: white;\n    border: none;\n    padding: 10px 20px;\n    border-radius: 5px;\n    cursor: pointer;\n\n    &:disabled {\n      background-color: #ccc;\n      cursor: not-allowed;\n    }\n\n    &:hover:enabled {\n      background-color: #ff8c4b;\n    }\n  }\n}\n\n.empty-cart {\n  text-align: center;\n  font-size: 1.2rem;\n  color: #666;\n  margin-top: 40px;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/pages/Cart/Cart.module.scss"],"names":[],"mappings":"AAAA;EACE,sBAAA;EACA,sBAAA;EACA,kBAAA;EACA,uCAAA;EACA,aAAA;EACA,UAAA;EACA,cAAA;EACA,gBAAA;AACF;;AAEA;EACE,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,mBAAA;AACF;AACE;EACE,iBAAA;AACJ;AAEE;EACE,6BAAA;EACA,YAAA;EACA,iBAAA;EACA,eAAA;EACA,WAAA;AAAJ;AAEI;EACE,cAAA;AAAN;;AAKA;EACE,gBAAA;EACA,gBAAA;EACA,UAAA;EACA,gBAAA;AAFF;;AAKA;EACE,sBAAA;EACA,kBAAA;EACA,aAAA;EACA,mBAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;AAFF;AAIE;EACE,OAAA;AAFJ;AAKE;EACE,eAAA;EACA,iBAAA;AAHJ;AAME;EACE,iBAAA;EACA,iBAAA;AAJJ;AAOE;EACE,6BAAA;EACA,YAAA;EACA,eAAA;EACA,eAAA;EACA,cAAA;AALJ;AAOI;EACE,0BAAA;AALN;;AAUA;EACE,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,gBAAA;EACA,iBAAA;EACA,iBAAA;AAPF;AASE;EACE,yBAAA;EACA,YAAA;EACA,YAAA;EACA,cAAA;EACA,kBAAA;EACA,kBAAA;EACA,eAAA;AAPJ;AASI;EACE,yBAAA;EACA,cAAA;EACA,iBAAA;AAPN;;AAYA;EACE,kBAAA;EACA,iBAAA;EACA,cAAA;EACA,gBAAA;AATF","sourcesContent":[".cart-container {\n  background-color: #fff;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  padding: 20px;\n  width: 90%;\n  margin: 0 auto;\n  min-height: 80vh;\n}\n\n.cart-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n\n  .item-count {\n    font-size: 1.2rem;\n  }\n\n  .close-btn {\n    background-color: transparent;\n    border: none;\n    font-size: 1.2rem;\n    cursor: pointer;\n    color: #666;\n\n    &:hover {\n      color: #ff6b00;\n    }\n  }\n}\n\n.line-items {\n  min-height: 20vh;\n  overflow-y: auto;\n  padding: 0;\n  list-style: none;\n}\n\n.line-item {\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  padding: 10px;\n  margin-bottom: 10px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n\n  .item-title {\n    flex: 1;\n  }\n\n  .item-quantity {\n    font-size: 1rem;\n    margin-left: 10px;\n  }\n\n  .item-price {\n    font-weight: bold;\n    font-size: 1.2rem;\n  }\n\n  .remove-btn {\n    background-color: transparent;\n    border: none;\n    font-size: 1rem;\n    cursor: pointer;\n    color: #ff6b00;\n\n    &:hover {\n      text-decoration: underline;\n    }\n  }\n}\n\n.total-section {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 20px;\n  font-size: 1.2rem;\n  font-weight: bold;\n\n  .checkout-btn {\n    background-color: #dcd9d9;\n    color: white;\n    border: none;\n    margin: 0.3rem;\n    padding: 10px 20px;\n    border-radius: 5px;\n    cursor: pointer;\n\n    &:hover {\n      background-color: #FFDA1A;\n      color: #007bff;\n      font-weight: bold;\n    }\n  }\n}\n\n.emptyCart {\n  text-align: center;\n  font-size: 1.2rem;\n  color: #000000;\n  margin-top: 40px;\n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"cart-container": `eXUO8_QXMvqk84cHmokz`,
@@ -3816,7 +3830,7 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"remove-btn": `prLP4leJ548_PNZALsoA`,
 	"total-section": `XApaR82b8LA2gSALI2ax`,
 	"checkout-btn": `LuFsUEEEJl9UTkjvdmkJ`,
-	"empty-cart": `TC593zFdhbHUzgSgM_aB`
+	"emptyCart": `fGnsyaAEMomjstkw4m80`
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
