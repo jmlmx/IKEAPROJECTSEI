@@ -1,7 +1,7 @@
 .OrderHistoryPage {
     display: flex;
     justify-content: center;
-    
+    overflow-y: scroll;
     height: 100vh; 
     padding: 20px; 
   }
