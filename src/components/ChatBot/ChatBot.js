@@ -18,7 +18,7 @@ function Chatbot() {
 				<div className={styles.chatboxContainer}>
 					<div className={styles.chatHeader}>
 						<p>Relax, How Can I Help You?:</p>
-						{/* <Music videoId="7nMsw5twDLs" /> */}
+						<Music videoId="7nMsw5twDLs" />
 					</div>
 					<div className="chatLinks">
 		
