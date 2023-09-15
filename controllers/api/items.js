@@ -45,7 +45,7 @@ async function getFavorites(req, res) {
 			user: req.user._id
 		});
 		console.log(favorites);
-		res.status(200).json(favorites[0].items);
+		res.status(200).json(favorites[0]);
 	} catch (error) {
 		res.status(400).json({ msg: error.message });
 	}

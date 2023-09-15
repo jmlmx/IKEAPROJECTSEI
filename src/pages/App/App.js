@@ -110,6 +110,16 @@ export default function App() {
 						/>
 					}
 				/>
+				<Route
+					path="/favorites"
+					element={
+						<Favorites
+							user={user}
+							handleLikeButton={handleLikeButton}
+							favorites={favorites}
+						/>
+					}
+				/>
 				<Route path="/shop" element={<Shop cart={cart} setCart={setCart} />} />
 				<Route
 					path="/checkout"
