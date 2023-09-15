@@ -9,7 +9,7 @@ export default function HomeScreen({ user, pexelsData, setPexelsData }) {
 		<div className={styles.home}>
 			<h1 className={styles.homeMessage}>What's Your Style?</h1>
 			<div className={styles.pexelsContent}>
-				{/* <PexelsContent pexelsData={pexelsData} setPexelsData={setPexelsData} /> */}
+				<PexelsContent pexelsData={pexelsData} setPexelsData={setPexelsData} />
 			</div>
 		</div>
 	);
