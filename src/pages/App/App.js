@@ -4,6 +4,7 @@ import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import styles from './App.module.scss';
 import { getUser, signUp } from '../../utilities/users-services';
 import * as ordersAPI from '../../utilities/order-api';
+import * as ItemsAPI from '../../utilities/items-api';
 
 import Footer from '../../components/Footer/Footer';
 import UserPortal from '../../components/UserPortal/UserPortal';
@@ -18,6 +19,7 @@ import AuthPage from '../../pages/AuthPage/AuthPage';
 import Favorites from '../../pages/Favorites/Favorites';
 import Checkout from '../../pages/Checkout/Checkout';
 import AboutUs from '../../pages/AboutUs/AboutUs';
+import Profile from '../../pages/Profile/profile';
 import Jobs from '../../pages/Jobs/Jobs';
 import OrderHistory from '../../pages/OrderHistoryPage/OrderHistoryPage';
 
@@ -60,6 +62,28 @@ export default function App() {
 	async function handleChangeQty(itemId, newQty) {
 		const updatedCart = await ordersAPI.setItemQtyInCart(itemId, newQty);
 		setCart(updatedCart);
+	}
+
+	async function handleLikeButton(itemId) {
+		const currentURL = window.location.href;
+		console.log('HANDLELIKEBUTTON', itemId)
+		if (currentURL.includes('/favorites')) {
+			async function removeFavorite(itemId) {
+				// const Item = await ItemsAPI.getById(itemId);
+				const updatedFavorites = await ItemsAPI.removeFromFavorites(itemId);
+				setFavorites(updatedFavorites);
+			}
+			removeFavorite(itemId);
+		} else {
+			if (currentURL.includes('/shop')) {
+				async function addFavorite(itemId) {
+					console.log("ITEMID ITEMID!", itemId)
+					const updatedFavorites = await ItemsAPI.addToFavorites(itemId);
+					setFavorites(updatedFavorites);
+				}
+				addFavorite(itemId);
+			}
+		}
 	}
 
 	return (

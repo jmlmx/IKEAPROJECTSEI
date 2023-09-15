@@ -1,9 +1,10 @@
 //import styles from the scss file
 import styles from './MenuListItem.module.scss';
+import favoriteListItem from '../../components/FavoriteListItem/FavoriteListItem'
 
 //write export function for menu list items
-export default function MenuListItem({ menuItem, handleAddToOrder }) {
-	console.log(menuItem);
+export default function MenuListItem({ menuItem, handleAddToOrder, handleLikeButton }) {
+	console.log('MENUITEM', menuItem);
 	return (
 		<div className={styles.MenuListItem}>
 			{/* img src controls the size and appearance of pictures for items */}
@@ -17,7 +18,7 @@ export default function MenuListItem({ menuItem, handleAddToOrder }) {
 				>
 					ADD TO CART
 				</button>
-				<checkbox>Like Box</checkbox>
+				<button onClick={() => handleLikeButton(menuItem._id)}>{"💛"}</button>
 			</div>
 		</div>
 	);
