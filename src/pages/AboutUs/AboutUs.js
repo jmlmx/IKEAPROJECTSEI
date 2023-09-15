@@ -27,7 +27,7 @@ export default function AboutUs() {
                                         {/* <img>Picture of team member</img> */}
                                 </ul>
                                 <ul>
-                                <h2 className={styles.nameColor}>Jorge Lopez</h2> - GitHub Manager
+                                <h2 className={styles.nameColor}>Jorge Torres Lopez</h2> - GitHub Manager
                                         {/* <img>Picture of team member</img> */}
                                 </ul>
                                 <ul>
