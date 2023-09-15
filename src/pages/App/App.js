@@ -31,7 +31,7 @@ export default function App() {
 	const [pexelsData, setPexelsData] = useState([]);
 	const [user, setUser] = useState(getUser());
 	const [cart, setCart] = useState(null);
-	const [favorites, setFavorites] = useState(null);
+	const [favorites, setFavorites] = useState([]);
 
 	// useEffect(() => {
 	// 	if (!user) {
@@ -59,6 +59,15 @@ export default function App() {
 		getCartItems();
 	}, []);
 
+	useEffect(function () {
+        // Load favorites (Boolean === true)
+        async function fetchFavoriteItems() {
+            const favorites = await ItemsAPI.getFavorites();
+            setFavorites(favorites);
+        }
+        fetchFavoriteItems();
+    }, []);
+
 	async function handleChangeQty(itemId, newQty) {
 		const updatedCart = await ordersAPI.setItemQtyInCart(itemId, newQty);
 		setCart(updatedCart);
@@ -69,9 +78,11 @@ export default function App() {
 		console.log('HANDLELIKEBUTTON', itemId);
 		if (currentURL.includes('/favorites')) {
 			async function removeFavorite(itemId) {
-				// const Item = await ItemsAPI.getById(itemId);
 				const updatedFavorites = await ItemsAPI.removeFromFavorites(itemId);
 				setFavorites(updatedFavorites);
+				const favorites = await ItemsAPI.getFavorites();
+            setFavorites(favorites);
+				
 			}
 			removeFavorite(itemId);
 		} else {
@@ -110,8 +121,19 @@ export default function App() {
 						}
 					/>
 					<Route
+						path="/favorites"
+						element={
+							<Favorites
+								user={user}
+								handleLikeButton={handleLikeButton}
+								favorites={favorites}
+								setFavorites={setFavorites}
+							/>
+						}
+					/>
+					<Route
 						path="/shop"
-						element={<Shop cart={cart} setCart={setCart} />}
+						element={<Shop cart={cart} setCart={setCart} handleLikeButton={handleLikeButton} />}
 					/>
 					<Route
 						path="/checkout"
