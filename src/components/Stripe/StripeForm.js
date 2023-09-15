@@ -4,6 +4,7 @@ import * as ordersAPI from '../../utilities/order-api';
 import { useNavigate } from 'react-router-dom';
 import styles from './StripeForm.module.scss';
 
+
 function StripeForm({ handlePayment, setCart }) {
 	const stripe = useStripe();
 	const elements = useElements();

@@ -2,7 +2,7 @@ import styles from './CategoryList.module.scss';
 
 export default function CategoryList({ categories, activeCat, setActiveCat }) {
 	const cats = categories.map((cat) => (
-		<li
+		<li 
 			key={cat}
 			className={cat === activeCat ? styles.active : ''}
 			// FYI, the below will also work, but will give a warning
