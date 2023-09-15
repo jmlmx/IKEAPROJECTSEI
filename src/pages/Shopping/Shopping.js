@@ -18,7 +18,7 @@ export default function Shop({ user, setUser, cart, setCart }) {
 				const cat = item.category.name;
 				return cats.includes(cat) ? cats : [...cats, cat];
 			}, []);
-			categoriesRef.current.unshift('Show All');
+			categoriesRef.current.unshift();
 			setMenuItems(items);
 			setActiveCat(categoriesRef.current[0]);
 		}
