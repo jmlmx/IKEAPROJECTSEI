@@ -1,4 +1,31 @@
-.Footer {
-    background-image: url <img class="room-image-lights svelte-1xs8elx on" src="https://www.ikea.com/global/en/images/footer-lights.svg" aria-hidden="true" loading="lazy" width="1950" height="320" alt="Illustration of a room with IKEA products: chairs, tables,
-    storage units, lighting and wall art">;
+.SignUpForm {
+    display: block;
+
+    .SForm {
+        display: grid;
+        gap: 6px;
+    }  
+
+    .Placeholder {
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .SignUpBtn {
+        color: rgb(162, 14, 14);
+        background-color: white;
+        font-size: 20px;
+        border-color: rgb(162, 14, 14);
+        display: block;
+        border-radius: 10%;
+        margin: 45px 387px 30px 0px;
+        padding: 5px;
+    }
+
+    .SignUpBtn:hover {
+        color: white;
+        background-color: rgb(162, 14, 14);
+        border-color: black;
+    }
+   
 }

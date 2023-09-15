@@ -3,7 +3,7 @@ import Favorites from '../../../models/favorites'
 import { useState } from 'react';
 
 //write export function for menu list items
-export default function FavoriteListItem ({favoriteItem, handleRemoveFromFavorites, handleAddToOrder}) {
+export default function FavoriteListItem ({favoriteItem, handleAddToOrder}) {
  return (
     <div className={styles.FavoriteListItem}>
         {/* img src controls the size and appearance of pictures for items */}
