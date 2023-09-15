@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 
-
 import styles from './App.module.scss';
 import { getUser, signUp } from '../../utilities/users-services';
 import * as ordersAPI from '../../utilities/order-api';
@@ -10,8 +9,8 @@ import * as ItemsAPI from '../../utilities/items-api';
 import Footer from '../../components/Footer/Footer';
 import UserPortal from '../../components/UserPortal/UserPortal';
 import NavBar from '../../components/NavBar/NavBar';
-import ChatBot from '../../components/ChatBot/ChatBot'
-import Music from '../../components/Music/Music'
+import ChatBot from '../../components/ChatBot/ChatBot';
+import Music from '../../components/Music/Music';
 
 import HomeScreen from '../HomeScreen/HomeScreen';
 import Shop from '../Shopping/Shopping';
@@ -27,8 +26,6 @@ import OrderHistory from '../../pages/OrderHistoryPage/OrderHistoryPage';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 const stripePromise = loadStripe(process.env.STRIPESPUB);
-
-
 
 export default function App() {
 	const [pexelsData, setPexelsData] = useState([]);
