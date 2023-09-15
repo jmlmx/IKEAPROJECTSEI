@@ -34,7 +34,7 @@ function StripeForm({ handlePayment, setCart }) {
 		<form onSubmit={handleSubmit}>
 			<div>
 				<label>
-					Card details
+					Payment Details
 					<CardElement className={styles.StripeElement} />
 				</label>
 			</div>
