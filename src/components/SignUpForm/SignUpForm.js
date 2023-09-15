@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { signUp, login } from '../../utilities/users-services';
 import { useNavigate } from 'react-router-dom';
+import styles from './SignUpForm.module.scss'
 
-function SignUpForm({
-	setUserLoggedIn,
-	setUser,
-}) {
+function SignUpForm({ setUserLoggedIn, setUser }) {
 	const navigate = useNavigate();
 	const [formData, setFormData] = useState({
 		username: '',
@@ -31,6 +29,12 @@ function SignUpForm({
 				password: formData.password
 			};
 
+			const usernameInUppercase = formData.username.toUpperCase();
+			setFormData({
+				...formData,
+				username: usernameInUppercase
+			  });
+
 			const newUser = await signUp(formData);
 			setUser(newUser);
 
@@ -52,48 +56,51 @@ function SignUpForm({
 	const disable = formData.password !== formData.confirm;
 
 	return (
-		<div>
-			<div>
-				<form autoComplete="off" onSubmit={handleSubmit}>
-					<label>Username</label>
-					<input
-						type="text"
-						name="username"
-						value={formData.username}
-						onChange={handleChange}
-						required
-					/>
-					<label>Email</label>
-					<input
-						type="email"
-						name="email"
-						value={formData.email}
-						onChange={handleChange}
-						required
-					/>
-					<label>Password</label>
-					<input
-						type="password"
-						name="password"
-						value={formData.password}
-						onChange={handleChange}
-						required
-					/>
-					<label>Confirm Password</label>
-					<input
-						type="password"
-						name="confirm"
-						value={formData.confirm}
-						onChange={handleChange}
-						required
-					/>
-					<button type="submit" disabled={disable}>
-						SIGN UP
-					</button>
-				</form>
-			</div>
-			<p className="error-message">&nbsp;{formData.error}</p>
-		</div>
+		<main className={styles.SignUpForm}>
+			<form className={styles.SForm} autoComplete="off" onSubmit={handleSubmit}>
+				<label>Username: </label>
+				<input className={styles.Placeholder}
+					placeholder='Username'
+					type="text"
+					name="username"
+					value={formData.username}
+					onChange={handleChange}
+					required
+				/>
+				<label>Email: </label>
+				<input className={styles.Placeholder}
+					placeholder='Email'
+					type="email"
+					name="email"
+					value={formData.email}
+					onChange={handleChange}
+					required
+				/>
+				<label>Password: </label>
+				<input className={styles.Placeholder}
+					placeholder='Password'
+					type="password"
+					name="password"
+					value={formData.password}
+					onChange={handleChange}
+					required
+				/>
+				<label>Confirm Password: </label>
+				<input className={styles.Placeholder}
+					placeholder='Confirm Password'
+					type="password"
+					name="confirm"
+					value={formData.confirm}
+					onChange={handleChange}
+					required
+				/>
+				<button className={styles.SignUpBtn} type="submit" disabled={disable}>
+					SIGN UP
+				</button>
+			</form>
+
+			<p className={styles.errorMessage}>&nbsp;{formData.error}</p>
+		</main>
 	);
 }
 

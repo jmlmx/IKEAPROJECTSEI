@@ -1,3 +1,5 @@
+
+
 const Item = require('../../models/item');
 const Favorites = require('../../models/favorites');
 const User = require('../../models/user');
@@ -43,8 +45,8 @@ async function getFavorites(req, res) {
 	try {
 		const favorites = await Favorites.find({
 			user: req.user._id
-		});
-		console.log(favorites);
+		})
+		console.log(favorites)
 		res.status(200).json(favorites[0].items);
 	} catch (error) {
 		res.status(400).json({ msg: error.message });
@@ -52,19 +54,19 @@ async function getFavorites(req, res) {
 }
 
 async function addToFavorites(req, res, next) {
-	const itemId = req.params.id;
+	const itemId = req.params.id
 	const isItemFavorite = async (itemId, favoriteItems) => {
 		const foundItem = await favoriteItems.find((item) => {
-			console.log(item.id === itemId);
-			item.id === itemId;
-		});
+			console.log(item.id === itemId)
+			item.id === itemId
+		})
 		if (foundItem) return true;
-		console.log('FOUND ITEM', foundItem);
+		console.log('FOUND ITEM', foundItem)
 		return false;
-	};
+	}
 	try {
 		const item = await Item.findById(itemId);
-		console.log('ID', req.params.id, item);
+		console.log("ID", req.params.id, item)
 		if (!item) {
 			return res.status(404).json({ msg: 'Item not found' });
 		}
@@ -73,36 +75,37 @@ async function addToFavorites(req, res, next) {
 		if (!user.favorites) {
 			const newFavorites = new Favorites({
 				user: req.user._id,
-				items: [item] // Use 'items' as per your schema
+				items: [item], // Use 'items' as per your schema
 			});
 			await newFavorites.save();
-			console.log('NEW FAVES', newFavorites);
+			console.log('NEW FAVES',newFavorites)
 			user.favorites = newFavorites;
 		} else {
 			const favorites = await Favorites.find({
 				user: req.user._id
-			});
-			const foundFavorite = await Favorites.findById(favorites[0]._id);
-			console.log('FAVORITE ITEMS', favorites);
-			console.log(itemId, favorites[0]);
+			})
+			const foundFavorite = await Favorites.findById(favorites[0]._id)
+			console.log('FAVORITE ITEMS', favorites)
+			console.log(itemId, favorites[0])
 			// Check if the item is already in the user's favorites to avoid duplicates
 			if (isItemFavorite(itemId, favorites[0].items)) {
 				favorites[0].items.push(item);
 				// const unique = [...new Set(favorites[0].items.map((item) => item))]
 				// console.log(unique)
-				foundFavorite.items = favorites[0].items;
-				await foundFavorite.save();
+				foundFavorite.items = favorites[0].items
+				await foundFavorite.save()
 				//console.log('FOUND FAVE', foundFavorite)
 				//user.favorites.items = favorites[0].items
 				//await favorites[0].save()
 			} else {
-				console.log('Item Already In Favorites');
+				console.log('Item Already In Favorites')
 				return res.status(404).json({ msg: 'Item already in favorites' });
 			}
+
 		}
 		user.populate('favorites');
 		await user.save();
-		console.log('USER FAVE ITEMS', user.favorites.items);
+		(console.log('USER FAVE ITEMS',user.favorites.items))
 		res.json(user);
 	} catch (e) {
 		console.error('Error:', e);
@@ -111,49 +114,53 @@ async function addToFavorites(req, res, next) {
 }
 
 async function removeFromFavorites(req, res, next) {
-	const itemId = req.params.id;
-	const isItemFavorite = async (itemId, favoriteItems) => {
-		const foundItem = await favoriteItems.find((item) => {
-			console.log('IS ITEM FAVE', item.id === itemId);
-			item.id === itemId;
-		});
-		if (foundItem) return true;
-		//console.log('FOUND ITEM', foundItem);
-		return false;
-	};
 	try {
-		const item = await Item.findById(itemId);
-		//console.log('ID', req.params.id, item);
-		if (!item) {
-			return res.status(404).json({ msg: 'Item not found' });
-		}
-		const user = await User.findById(req.user._id).populate('favorites');
-		//console.log('USER', user);
-		if (!user.favorites) {
-			const newFavorites = new Favorites({
-				user: req.user._id,
-				items: [item] // Use 'items' as per your schema
-			});
-			await newFavorites.save();
-			//console.log('NEW FAVES', newFavorites);
-			user.favorites = newFavorites;
-		} else {
-			const favorites = await Favorites.find({
-				user: req.user._id
-			});
-			const foundFavorite = await Favorites.findById(favorites[0]._id);
-			//console.log('FAVORITE ITEMS', favorites);
-			console.log('GIBBERISH', favorites[0]);
-			favorites[0].items.pull(item);
-			foundFavorite.items = favorites[0].items
-			await foundFavorite.save();
-		}
-		user.populate('favorites');
-		await user.save();
-		console.log('USER FAVE ITEMS', user.favorites.items);
-		res.json(user);
+	  const item = await Item.findById(req.params.id);
+	  const user = await User.findById(req.user._id).populate('favorites');
+  
+	  if (!item) {
+		return res.status(404).json({ msg: 'Item not found' });
+	  }
+  
+	  if (!user.favorites) {
+		// If the user has no favorites, there's nothing to remove from.
+		return res.status(400).json({ msg: 'User has no favorites to remove from' });
+	  }
+  
+	  // Check if the item is already in the user's favorites to avoid duplicates
+	  if (user.favorites.items.includes(item._id)) {
+		// Remove the item from the user's favorites
+		user.favorites.items.pull(item._id);
+	  } else {
+		return res.status(404).json({ msg: 'Item not found in favorites' });
+	  }
+  
+	  // Save the changes to the user
+	  await user.save();
+  
+	  res.json(user);
 	} catch (e) {
-		console.error('Error:', e);
-		res.status(500).json({ msg: 'Server error' });
+	  console.error('Error:', e);
+	  res.status(500).json({ msg: 'Server error' });
 	}
 }
+
+// Generated by CodiumAI
+
+describe('removeFromFavorites', () => {
+
+    // Returns 404 if item is not found in user's favorites
+    it('should return 404 if item is not found in user's favorites', async () => {
+      const req = { params: { id: 'item_id' }, user: { _id: 'user_id' } };
+      const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
+      const item = { _id: 'item_id' };
+      const user = { _id: 'user_id', favorites: { items: [] } };
+      Item.findById = jest.fn().mockResolvedValue(item);
+      User.findById = jest.fn().mockResolvedValue(user);
+
+      await removeFromFavorites(req, res);
+
+      expect(res.status).toHaveBeenCalledWith(404);
+      expect(res.json).toHaveBeenCalledWith({ msg: 'Item not found in favorites' });
+    });
+});
