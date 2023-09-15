@@ -22,7 +22,6 @@ import AboutUs from '../../pages/AboutUs/AboutUs';
 import Profile from '../../pages/Profile/profile';
 import Jobs from '../../pages/Jobs/Jobs';
 import OrderHistory from '../../pages/OrderHistoryPage/OrderHistoryPage';
-import Profile from '../../pages/Profile/profile';
 
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
@@ -152,7 +151,6 @@ export default function App() {
 						path="/profile"
 						element={<Profile user={user} setUser={setUser} />}
 					/>
-					<Route path="/AboutUs" element={<AboutUs />} />
 					<Route path="/orders" element={<OrderHistory />} />
 					<Route path="/Jobs" element={<Jobs />} />
 					<Route path="/AboutUs" element={<AboutUs />} />
