@@ -10,7 +10,6 @@ import Footer from '../../components/Footer/Footer';
 import UserPortal from '../../components/UserPortal/UserPortal';
 import NavBar from '../../components/NavBar/NavBar';
 import ChatBot from '../../components/ChatBot/ChatBot';
-import Music from '../../components/Music/Music';
 
 import HomeScreen from '../HomeScreen/HomeScreen';
 import Shop from '../Shopping/Shopping';
@@ -60,7 +59,6 @@ export default function App() {
 	}, []);
 
 	useEffect(function () {
-        // Load favorites (Boolean === true)
         async function fetchFavoriteItems() {
             const favorites = await ItemsAPI.getFavorites();
             setFavorites(favorites);
@@ -128,6 +126,7 @@ export default function App() {
 								handleLikeButton={handleLikeButton}
 								favorites={favorites}
 								setFavorites={setFavorites}
+								setCart={setCart}
 							/>
 						}
 					/>
@@ -174,6 +173,7 @@ export default function App() {
 						element={<Profile user={user} setUser={setUser} />}
 					/>
 					<Route path="/orders" element={<OrderHistory />} />
+					<Route path="/AboutUs" element={<AboutUs  />} />
 					<Route path="/Jobs" element={<Jobs />} />
 					<Route path="/*" element={<Navigate to="/ikea" />} />
 				</Routes>
