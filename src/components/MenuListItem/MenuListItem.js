@@ -18,7 +18,7 @@ export default function MenuListItem({ menuItem, handleAddToOrder, handleLikeBut
 				>
 					ADD TO CART
 				</button>
-				<button onClick={() => handleLikeButton(menuItem._id)}>like</button>
+				<button onClick={() => handleLikeButton(menuItem._id)}>{"💛"}</button>
 			</div>
 		</div>
 	);
