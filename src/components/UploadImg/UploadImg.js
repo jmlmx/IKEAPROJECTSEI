@@ -8,8 +8,8 @@ function ProfileImageUpload({ onImageUpload }) {
   const imgFilehandler = (e) => {
     if (e.target.files.length !== 0) {
       const newImage = URL.createObjectURL(e.target.files[0]);
-      uploadimg((prevImages) => [...prevImages, newImage]);
-      setUserProfileImage(newImage);
+      uploadimg([newImage]); // replaces the existing URL with new uploaded one
+      setUserProfileImage(newImage); // sets the profile picture with the uploaded image
       onImageUpload(newImage); // Pass the uploaded image to the parent component
     }
   };
@@ -19,11 +19,6 @@ function ProfileImageUpload({ onImageUpload }) {
       <center>
         <h4>Upload Profile Picture</h4>
         <input type="file" onChange={imgFilehandler} />
-        <hr />
-        <h4>Preview</h4>
-        {userProfileImage && (
-          <img src={userProfileImage} alt="User Profile" width="200" height="200" />
-        )}
       </center>
     </div>
   );
