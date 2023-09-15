@@ -5,11 +5,12 @@ import MenuListItem from '../MenuListItem/MenuListItem';
 
 
 //export default function for menulist
-export default function MenuList({menuItems, handleAddToOrder}) {
+export default function MenuList({menuItems, handleAddToOrder, handleLikeButton}) {
     const items = menuItems.map(item =>
         <MenuListItem
         key={item._id}
         handleAddToOrder={handleAddToOrder}
+        handleLikeButton={handleLikeButton}
         menuItem={item}
         />
         );

@@ -5,9 +5,10 @@ import CategoryList from '../../components/CategoryList/CategoryList';
 import MenuList from '../../components/MenuList/MenuList';
 import styles from './Shopping.module.scss'
 
-export default function Shop({ user, setUser, cart, setCart }) {
+export default function Shop({ user, setUser, cart, setCart, handleLikeButton }) {
 	const [menuItems, setMenuItems] = useState([]);
 	const [activeCat, setActiveCat] = useState('');
+	console.log(user)
 
 	const categoriesRef = useRef([]);
 
@@ -34,7 +35,7 @@ export default function Shop({ user, setUser, cart, setCart }) {
 	async function handleAddToOrder(itemId) {
 		const updatedCart = await ordersAPI.addItemToCart(itemId)
 		setCart(updatedCart)
-	  }
+	}
 
 	return (
 		<main className={styles.ShoppingPage}>
@@ -45,12 +46,13 @@ export default function Shop({ user, setUser, cart, setCart }) {
 					setActiveCat={setActiveCat}
 				/>
 			</div>
+
 			<div className={styles.MenuList}>
-				<MenuList className={styles.Menu}
-					menuItems={menuItems.filter((item) => item.category.name === activeCat)}
-					handleAddToOrder={handleAddToOrder}
-				/>
-			</div>
+			<MenuList
+				menuItems={menuItems.filter((item) => item.category.name === activeCat)}
+				handleAddToOrder={handleAddToOrder}
+				handleLikeButton={handleLikeButton}
+			/>
 		</main>
 	);
 }

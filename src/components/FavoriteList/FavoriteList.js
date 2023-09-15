@@ -1,26 +1,39 @@
-import FavoriteListItem from '../FavoriteListItem/FavoriteListItem'
-import styles from './FavoriteList.module.scss'
-export default function FavoriteList({ favorites, handleAddToOrder, handleFavoriteItem, user, setUser }) {
-  console.log(user)
-    const favoriteItems = favorites.map(f =>
-      <FavoriteListItem
-      key={f._id}
-      handleAddToOrder={handleAddToOrder}
-      favorite={f}
-      />
-    );
-    // Link favorites to logged in user here?
-    return (
-      <main className={styles.FavoriteList}>
-        {/* {user.isLoggedIn ?
-          {user ?
-            favoriteItems
-            :
-            <span className={styles.noFavorites}>You Have No Favorites, What's That About?</span>
-          }
-          :
-          <span className={styles.noUser}>Log In To See Your Favorites</span>
-        } */}
-      </main>
-    );
-    }
+import MenuListItem from '../MenuListItem/MenuListItem';
+import styles from './FavoriteList.module.scss';
+export default function FavoriteList({ favorites, handleLikeButton, user }) {
+	console.log(user);
+	console.log(favorites);
+
+	async function handleAddToOrder(itemId) {
+		const updatedCart = await ordersAPI.addItemToCart(itemId);
+		setCart(updatedCart);
+	}
+
+	const isUserLoggedIn = user.isLoggedIn;
+
+	//const userHasFaves = user.favorites.length > 0;
+	let favoriteItems = null;
+
+	// Link favorites to logged in user here?
+	return (
+		<main className={styles.FavoriteList}>
+			{isUserLoggedIn ? (
+				!user.favorites ? (
+					<span className={styles.noFavorites}>You Have No Favorites</span>
+				) : (
+					(favorites && favorites.map(fave => (
+						// (favoriteItems = user.favorites.items.map(fave => (
+						<MenuListItem
+							key={fave._id}
+							handleAddToOrder={handleAddToOrder}
+							handleLikeButton={handleLikeButton}
+							menuItem={fave}
+						/>
+					)))
+				)
+			) : (
+				<span className={styles.noUser}>Log In To See Or Add Favorites</span>
+			)}
+		</main>
+	);
+}
