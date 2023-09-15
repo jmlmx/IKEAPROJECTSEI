@@ -22,7 +22,7 @@ export default function AuthPage({ setUser, user, cart, setCart }) {
 			></img>
 			{user.isLoggedIn ? (
 				<div className={styles.LoggedIn}>
-					<h1>Welcome, {user.username}!</h1>
+					<h1>Welcome, {user.username}! Not to sound rude but you are already signed in DA. That stands for Doofus Almighty btw.</h1>
 				</div>
 			) : (
 				<div className={styles.GuestUser}>
