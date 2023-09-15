@@ -40,7 +40,7 @@ export default function AboutUs() {
                                         {<img src="https://imgur.com/0wlcdHi.png" width="100" height="100"></img>}
                                 </ul>
                                 <ul className={styles.members}>
-                                        <h2 className={styles.nameColor}>Jorge Lopez</h2> - GitHub Manager
+                                        <h2 className={styles.nameColor}>Jorge Torres Lopez</h2> - GitHub Manager
                                         {<img src="https://imgur.com/oMmVcpF.png" width="100" height="100" ></img>}
                                 </ul>
                                 <ul className={styles.members}>

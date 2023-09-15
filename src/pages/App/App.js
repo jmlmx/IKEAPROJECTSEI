@@ -175,7 +175,6 @@ export default function App() {
 					/>
 					<Route path="/orders" element={<OrderHistory />} />
 					<Route path="/Jobs" element={<Jobs />} />
-					<Route path="/AboutUs" element={<AboutUs />} />
 					<Route path="/*" element={<Navigate to="/ikea" />} />
 				</Routes>
 				<ChatBot />
