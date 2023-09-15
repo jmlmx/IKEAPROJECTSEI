@@ -69,13 +69,13 @@ export default function App() {
 		<Elements stripe={stripePromise}>
 			<main className={styles.App}>
 				<NavBar />
-				<UserPortal
+				{/* <UserPortal
 					user={user}
 					setUser={setUser}
 					setCart={setCart}
 					cart={cart}
 					createGuestUser={createGuestUser}
-				/>
+				/> */}
 				<Routes>
 					<Route
 						path="/ikea"
