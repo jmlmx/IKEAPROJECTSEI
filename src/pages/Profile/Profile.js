@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styles from './profile.module.scss';
+import DefaultPicture from '../../components/DefaultPicture/DefaultPicture';
+import ProfileImageUpload from '../../components/UploadImg/UploadImg';
 
 export default function Profile() {
     const [profile, setProfile] = useState({
@@ -46,11 +48,19 @@ export default function Profile() {
             // when the save button is clicked it will switch the edit mode to off
             setIsEditMode(false)
     };
+    const [userProfileImage, setUserProfileImage] = useState(null);
+
+    const handleImageUpload = (imageURL) => {
+        console.log(imageURL)
+        setUserProfileImage(imageURL);
+    };
 
     return (
         <main className={styles.profile}>
             <div>
                 <h1>Profile Page</h1>
+                <DefaultPicture />
+                <ProfileImageUpload onImageUpload={handleImageUpload} />
                 {/* Show user info in read mode */}
                 {!isEditMode ? (
                     <div>
@@ -125,4 +135,4 @@ export default function Profile() {
             </div>
         </main>
     );
-}
+};

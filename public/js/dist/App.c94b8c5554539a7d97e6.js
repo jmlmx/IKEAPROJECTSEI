@@ -102,6 +102,41 @@ function CategoryList(_ref) {
 
 /***/ }),
 
+/***/ "./src/components/DefaultPicture/DefaultPicture.js":
+/*!*********************************************************!*\
+  !*** ./src/components/DefaultPicture/DefaultPicture.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+//need default photo for profile picture/default picture
+
+const DefaultPicture = _ref => {
+  let {
+    fallBackImage
+  } = _ref;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    src: "https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg",
+    alt: "Default Profile",
+    className: "default-profile-picture",
+    style: {
+      height: '200px',
+      width: '200px'
+    },
+    onError: e => {
+      e.target.src = fallBackImage;
+    }
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DefaultPicture);
+
+/***/ }),
+
 /***/ "./src/components/FavoriteList/FavoriteList.js":
 /*!*****************************************************!*\
   !*** ./src/components/FavoriteList/FavoriteList.js ***!
@@ -991,6 +1026,49 @@ function StripeForm(_ref) {
 
 /***/ }),
 
+/***/ "./src/components/UploadImg/UploadImg.js":
+/*!***********************************************!*\
+  !*** ./src/components/UploadImg/UploadImg.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+function ProfileImageUpload(_ref) {
+  let {
+    onImageUpload
+  } = _ref;
+  const [imgfile, uploadimg] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  // stores the state of the user's image
+  const [userProfileImage, setUserProfileImage] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const imgFilehandler = e => {
+    if (e.target.files.length !== 0) {
+      const newImage = URL.createObjectURL(e.target.files[0]);
+      uploadimg(prevImages => [...prevImages, newImage]);
+      setUserProfileImage(newImage);
+      onImageUpload(newImage); // Pass the uploaded image to the parent component
+    }
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("center", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "Upload Profile Picture"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    type: "file",
+    onChange: imgFilehandler
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "Preview"), userProfileImage && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    src: userProfileImage,
+    alt: "User Profile",
+    width: "200",
+    height: "200"
+  })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProfileImageUpload);
+
+/***/ }),
+
 /***/ "./src/components/UserPortal/UserPortal.js":
 /*!*************************************************!*\
   !*** ./src/components/UserPortal/UserPortal.js ***!
@@ -1744,11 +1822,15 @@ function OrderHistoryPage(_ref) {
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _profile_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./profile.module.scss */ "./src/pages/Profile/profile.module.scss");
+/* harmony import */ var _components_DefaultPicture_DefaultPicture__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/DefaultPicture/DefaultPicture */ "./src/components/DefaultPicture/DefaultPicture.js");
+/* harmony import */ var _components_UploadImg_UploadImg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/UploadImg/UploadImg */ "./src/components/UploadImg/UploadImg.js");
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return typeof key === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (typeof input !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (typeof res !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+
 
 
 function Profile() {
@@ -1795,9 +1877,16 @@ function Profile() {
     // when the save button is clicked it will switch the edit mode to off
     setIsEditMode(false);
   };
+  const [userProfileImage, setUserProfileImage] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const handleImageUpload = imageURL => {
+    console.log(imageURL);
+    setUserProfileImage(imageURL);
+  };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("main", {
     className: _profile_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].profile
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Profile Page"), !isEditMode ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "First Name:"), " ", profile.firstName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "Last Name:"), " ", profile.lastName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "Phone Number:"), " ", profile.phoneNumber), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "Location:"), " ", profile.location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "About You:"), " ", profile.aboutYou), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Profile Page"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_DefaultPicture_DefaultPicture__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_UploadImg_UploadImg__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    onImageUpload: handleImageUpload
+  }), !isEditMode ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "First Name:"), " ", profile.firstName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "Last Name:"), " ", profile.lastName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "Phone Number:"), " ", profile.phoneNumber), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "Location:"), " ", profile.location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "About You:"), " ", profile.aboutYou), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     onClick: toggleEditMode
   }, "Edit")) :
   /*#__PURE__*/
@@ -1832,6 +1921,7 @@ function Profile() {
     onClick: saveChanges
   }, "Save"))));
 }
+;
 
 /***/ }),
 

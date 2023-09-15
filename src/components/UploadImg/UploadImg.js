@@ -1,32 +1,32 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-function App() {
-  const [imgfile, uploadimg] = useState([])
-  	console.log("Image FIles",imgfile);
+function ProfileImageUpload({ onImageUpload }) {
+  const [imgfile, uploadimg] = useState([]);
+  // stores the state of the user's image
+  const [userProfileImage, setUserProfileImage] = useState(null);
+
   const imgFilehandler = (e) => {
     if (e.target.files.length !== 0) {
-      uploadimg(imgfile => [...imgfile, URL.createObjectURL(e.target.files[0])])
+      const newImage = URL.createObjectURL(e.target.files[0]);
+      uploadimg((prevImages) => [...prevImages, newImage]);
+      setUserProfileImage(newImage);
+      onImageUpload(newImage); // Pass the uploaded image to the parent component
     }
-  }
+  };
+
   return (
-    <div className="App">
-      <div>
-        <center>
-          <h2>Upload</h2>
-          <input type="file" onChange={imgFilehandler} />
-          <hr />
-          <h2>Preview</h2>
-          {imgfile.map((elem) => {
-            return <>
-              <span key={elem}>
-                <img src={elem} height="200" width="200" alt="med1" />
-              </span>
-            </>
-          })}
-        </center>
-        <button className='Upload'>Upload Image</button>
-      </div>
+    <div>
+      <center>
+        <h4>Upload Profile Picture</h4>
+        <input type="file" onChange={imgFilehandler} />
+        <hr />
+        <h4>Preview</h4>
+        {userProfileImage && (
+          <img src={userProfileImage} alt="User Profile" width="200" height="200" />
+        )}
+      </center>
     </div>
   );
 }
-export default App;
+
+export default ProfileImageUpload;
