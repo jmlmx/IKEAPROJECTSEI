@@ -17,9 +17,6 @@ export default function OrderDetail({ order, handleChangeQty }) {
 	return (
 		<div>
 			<div>{lineItems}</div>
-			<div className={styles.OrderTotal}>
-				<p>Order Total: ${order.orderTotal.toFixed(2)}</p>
-			</div>
 		</div>
 	);
 }

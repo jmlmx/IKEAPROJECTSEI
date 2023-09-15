@@ -1,16 +1,3 @@
-//==== NEEDED COMPONENTS FOR CHECKOUT SCREEN ====//
-/*
-    Logo
-    USER PORTAL COMPONENT
-    FOOTER COMPONENT
-    NavBar
-
-    - STRIPE API
-    - ORDER DETAIL w/ Checkout Button
-    - Close Button
-    
-    */
-
 import React, { useState } from 'react';
 import styles from './Checkout.module.scss';
 import * as ordersAPI from '../../utilities/order-api';
@@ -24,9 +11,11 @@ import { loadStripe } from '@stripe/stripe-js';
 const stripePromise = loadStripe(process.env.STRIPESPUB);
 
 export default function Checkout({ user, order, cart, setCart }) {
-	console.log(user);
-	console.log(order);
 	const navigate = useNavigate();
+
+	const randomTaxRate = Math.random() * (0.1 - 0.05) + 0.05;
+	const randomTaxAmount = cart ? cart.orderTotal * randomTaxRate : 0;
+	const totalIncludingTax = cart ? cart.orderTotal + randomTaxAmount : 0;
 
 	async function handleCheckout() {
 		await ordersAPI.checkout();
@@ -35,7 +24,7 @@ export default function Checkout({ user, order, cart, setCart }) {
 	}
 
 	function handleUserButtonClick() {
-		navigate('/guestSignUp');
+		navigate('/cart');
 	}
 
 	async function handlePayment(token) {
@@ -69,19 +58,24 @@ export default function Checkout({ user, order, cart, setCart }) {
 								{`${order.totalQty} item${order.totalQty !== 1 ? 's' : ''}`}
 							</span>
 							<span className={styles.totalPrice}>
-								${order.orderTotal.toFixed(2)}
+								Order Total: ${order.orderTotal.toFixed(2)}
+							</span>
+							<span className={styles.taxPrice}>
+								Tax: ${randomTaxAmount.toFixed(2)} (
+								{(randomTaxRate * 100).toFixed(2)}%)
+							</span>
+							<span className={styles.totalIncludingTax}>
+								Total (Including Tax): ${totalIncludingTax.toFixed(2)}
 							</span>
 						</section>
 					)}
 					<div className={styles.userAction}>
-						{user.username === 'guestuser' && (
-							<button
-								className={styles.loginButton}
-								onClick={handleUserButtonClick}
-							>
-								Log In/Sign Up
-							</button>
-						)}
+						<button
+							className={styles.loginButton}
+							onClick={handleUserButtonClick}
+						>
+							Back to cart
+						</button>
 					</div>
 					<div className={styles.paymentSection}>
 						<StripeForm

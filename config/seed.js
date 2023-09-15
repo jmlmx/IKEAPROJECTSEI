@@ -54,11 +54,25 @@ const Item = require('../models/item');
 			rating: 6 / 10
 		},
 		{
+			name: 'KASKER Disco Ball',
+			emojiURL: 'https://i.imgur.com/D8Q1pSD.jpg',
+			category: categories[0],
+			price: 47.98,
+			rating: 9 / 10
+		},
+		{
 			name: 'MORABO Sofa',
 			emojiURL: 'https://i.imgur.com/VJNA2ip.jpg',
 			category: categories[1],
 			price: 1349.0,
 			rating: 6 / 10
+		},
+		{
+			name: 'LILLTRÄSK Lawn Chair',
+			emojiURL: 'https://i.imgur.com/sWdKN15.jpg',
+			category: categories[1],
+			price: 49.0,
+			rating: 4 / 10
 		},
 		{
 			name: 'GRÅSALA Table/Chair Set',
@@ -96,6 +110,13 @@ const Item = require('../models/item');
 			rating: 8 / 10
 		},
 		{
+			name: 'MÖLLEKULLA Picture Frame',
+			emojiURL: 'https://i.imgur.com/SQJhEXv.jpg',
+			category: categories[2],
+			price: 45.89,
+			rating: 4 / 10
+		},
+		{
 			name: 'BERÄKNA Glass Vase',
 			emojiURL: 'https://i.imgur.com/8tXB1G0.jpg',
 			category: categories[2],
@@ -128,6 +149,13 @@ const Item = require('../models/item');
 			emojiURL: 'https://i.imgur.com/UPjJNbQ.jpg',
 			category: categories[3],
 			price: 829.0,
+			rating: 7 / 10
+		},
+		{
+			name: 'ALMARÖD Washer & Dryer',
+			emojiURL: 'https://i.imgur.com/1E4sTQc.jpg',
+			category: categories[3],
+			price: 1429.99,
 			rating: 7 / 10
 		},
 		{
@@ -166,6 +194,13 @@ const Item = require('../models/item');
 			rating: 4 / 10
 		},
 		{
+			name: 'KLAMPENBORG Kitchen Mat',
+			emojiURL: 'https://i.imgur.com/XZdTMEN.jpg',
+			category: categories[4],
+			price: 25.99,
+			rating: 6 / 10
+		},
+		{
 			name: 'SEKTION Wall Cabinet',
 			emojiURL: 'https://i.imgur.com/37FBWSK.jpg',
 			category: categories[4],
@@ -199,6 +234,13 @@ const Item = require('../models/item');
 			category: categories[5],
 			price: 699.0,
 			rating: 9 / 10
+		},
+		{
+			name: 'KRISTRUP Alarm Clock',
+			emojiURL: 'https://i.imgur.com/K2OzkIZ.jpg',
+			category: categories[5],
+			price: 27.99,
+			rating: 1 / 10
 		},
 		{
 			name: 'LUNDTRAV Cat Pillow',
@@ -262,10 +304,15 @@ const Item = require('../models/item');
 			category: categories[6],
 			price: 19.99,
 			rating: 3 / 10
+		},
+		{
+			name: 'BJÄLVEN Bath Robe',
+			emojiURL: 'https://i.imgur.com/QkG08Bq.jpg',
+			category: categories[6],
+			price: 70.0,
+			rating: 9 / 10
 		}
 	]);
-
 	console.log(items);
-
 	process.exit();
 })();
