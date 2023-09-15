@@ -8,12 +8,12 @@ export default function MenuListItem({ menuItem, handleAddToOrder, handleLikeBut
 	return (
 		<div className={styles.MenuListItem}>
 			{/* img src controls the size and appearance of pictures for items */}
-			<img src={menuItem.emojiURL} width="200" height="200" />
-			<div className={styles.name}>{menuItem.name}</div>
-			<div className={styles.buy}>
+			<img src={menuItem.emojiURL} className={styles.Image} width="200" height="200" />
+			<div className={styles.Name}>{menuItem.name}</div>
+			<div className={styles.Price}>
 				<span>${menuItem.price.toFixed(2)}</span>
 				<button
-					className="btn-sm"
+					className={styles.AddToCartBtn}
 					onClick={() => handleAddToOrder(menuItem._id)}
 				>
 					ADD TO CART
