@@ -151,7 +151,6 @@ export default function App() {
 						path="/profile"
 						element={<Profile user={user} setUser={setUser} />}
 					/>
-					<Route path="/AboutUs" element={<AboutUs />} />
 					<Route path="/orders" element={<OrderHistory />} />
 					<Route path="/Jobs" element={<Jobs />} />
 					<Route path="/AboutUs" element={<AboutUs />} />
