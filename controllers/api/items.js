@@ -87,7 +87,7 @@ async function addToFavorites(req, res, next) {
 			console.log(itemId, favorites[0]);
 			// Check if the item is already in the user's favorites to avoid duplicates
 			if (isItemFavorite(itemId, favorites[0].items)) {
-				favorites[0].items.push(item);
+				favorites[0].items.addToSet(item);
 				// const unique = [...new Set(favorites[0].items.map((item) => item))]
 				// console.log(unique)
 				foundFavorite.items = favorites[0].items;
