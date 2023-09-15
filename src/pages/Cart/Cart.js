@@ -36,7 +36,7 @@ export default function Cart({ cart, handleChangeQty, user }) {
 						<>
 							{lineItems}
 							<section className={styles['total-section']}>
-								<span>${cart.orderTotal.toFixed(2)}</span>
+								<span>Total: ${cart.orderTotal.toFixed(2)}</span>
 								{user.username === 'guestuser' ? (
 									<>
 										<button
@@ -64,7 +64,7 @@ export default function Cart({ cart, handleChangeQty, user }) {
 							</section>
 						</>
 					) : (
-						<div className={styles['empty-cart']}>your cart is empty.</div>
+						<div className={styles['emptyCart']}>Cart Is Empty.</div>
 					)}
 				</div>
 			</div>
