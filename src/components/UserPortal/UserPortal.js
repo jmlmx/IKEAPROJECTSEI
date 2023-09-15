@@ -3,6 +3,9 @@ import { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { logOut } from '../../utilities/users-services';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart, faHeart } from '@fortawesome/free-solid-svg-icons';
+
 export default function UserPortal({
 	user,
 	setUser,
@@ -15,20 +18,25 @@ export default function UserPortal({
 		setCart(null);
 		createGuestUser();
 	}
+
 	return (
 		<div className={styles.PortalContainer}>
-			{user.isLoggedIn || !user.username === 'guestuser' ? (
-				<div >
-					<Link to="/account" >
+			{!user ? (
+				createGuestUser()
+			) : user.username !== 'guestuser' ? (
+				<div className={styles.UserPortal}>
+					<Link to="/profile" className={styles.LSBtn}>
 						Hey, {user.username}
 					</Link>
-					<Link to="/favorites" >
-						likes
+					<Link to="/favorites" className={styles.LSBtn}>
+						<FontAwesomeIcon icon={faHeart} />
 					</Link>
-					<Link to="/cart">
-						{cart ? `cart(${cart.totalQty})` : 'cart(0)'}
+					<Link to="/cart" className={styles.CBtn}>
+						<FontAwesomeIcon icon={faShoppingCart} />
+						{cart ? `(${cart.totalQty})` : '(0)'}
 					</Link>
 					<button
+						className={styles.LOBtn}
 						element={<Navigate to="/ikea" />}
 						onClick={handleLogOut}
 					>
@@ -41,11 +49,11 @@ export default function UserPortal({
 						Login / Signup
 					</Link>
 					<Link to="/cart" className={styles.CBtn}>
-						{cart ? `Cart(${cart.totalQty})` : 'Cart (0)'}
+						<FontAwesomeIcon icon={faShoppingCart} />
+						{cart ? `(${cart.totalQty})` : '(0)'}
 					</Link>
 				</div>
 			)}
 		</div>
 	);
 }
-

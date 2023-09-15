@@ -33,11 +33,11 @@ export default function App() {
 	const [cart, setCart] = useState(null);
 	const [favorites, setFavorites] = useState(null);
 
-	useEffect(() => {
-		if (!user) {
-			createGuestUser();
-		}
-	}, []);
+	// useEffect(() => {
+	// 	if (!user) {
+	// 		createGuestUser();
+	// 	}
+	// }, []);
 
 	async function createGuestUser() {
 		const guestUserData = {
@@ -66,7 +66,7 @@ export default function App() {
 
 	async function handleLikeButton(itemId) {
 		const currentURL = window.location.href;
-		console.log('HANDLELIKEBUTTON', itemId)
+		console.log('HANDLELIKEBUTTON', itemId);
 		if (currentURL.includes('/favorites')) {
 			async function removeFavorite(itemId) {
 				// const Item = await ItemsAPI.getById(itemId);
@@ -77,7 +77,7 @@ export default function App() {
 		} else {
 			if (currentURL.includes('/shop')) {
 				async function addFavorite(itemId) {
-					console.log("ITEMID ITEMID!", itemId)
+					console.log('ITEMID ITEMID!', itemId);
 					const updatedFavorites = await ItemsAPI.addToFavorites(itemId);
 					setFavorites(updatedFavorites);
 				}

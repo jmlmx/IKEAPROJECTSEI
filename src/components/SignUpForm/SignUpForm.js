@@ -29,6 +29,12 @@ function SignUpForm({ setUserLoggedIn, setUser }) {
 				password: formData.password
 			};
 
+			const usernameInUppercase = formData.username.toUpperCase();
+			setFormData({
+				...formData,
+				username: usernameInUppercase
+			  });
+
 			const newUser = await signUp(formData);
 			setUser(newUser);
 
@@ -93,7 +99,7 @@ function SignUpForm({ setUserLoggedIn, setUser }) {
 				</button>
 			</form>
 
-			<p className="error-message">&nbsp;{formData.error}</p>
+			<p className={styles.errorMessage}>&nbsp;{formData.error}</p>
 		</main>
 	);
 }
