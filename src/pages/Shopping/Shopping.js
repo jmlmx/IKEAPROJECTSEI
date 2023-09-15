@@ -3,12 +3,18 @@ import * as itemsAPI from '../../utilities/items-api';
 import * as ordersAPI from '../../utilities/order-api';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import MenuList from '../../components/MenuList/MenuList';
-import styles from './Shopping.module.scss'
+import styles from './Shopping.module.scss';
 
-export default function Shop({ user, setUser, cart, setCart, handleLikeButton }) {
+export default function Shop({
+	user,
+	setUser,
+	cart,
+	setCart,
+	handleLikeButton
+}) {
 	const [menuItems, setMenuItems] = useState([]);
 	const [activeCat, setActiveCat] = useState('');
-	console.log(user)
+	console.log(user);
 
 	const categoriesRef = useRef([]);
 
@@ -30,17 +36,16 @@ export default function Shop({ user, setUser, cart, setCart, handleLikeButton })
 		}
 		getCart();
 	}, []);
-	
 
 	async function handleAddToOrder(itemId) {
-		const updatedCart = await ordersAPI.addItemToCart(itemId)
-		setCart(updatedCart)
+		const updatedCart = await ordersAPI.addItemToCart(itemId);
+		setCart(updatedCart);
 	}
 
 	return (
 		<main className={styles.ShoppingPage}>
 			<div className={styles.ShopList}>
-				<CategoryList 
+				<CategoryList
 					categories={categoriesRef.current}
 					activeCat={activeCat}
 					setActiveCat={setActiveCat}
@@ -48,14 +53,14 @@ export default function Shop({ user, setUser, cart, setCart, handleLikeButton })
 			</div>
 
 			<div className={styles.MenuList}>
-			<MenuList
-				menuItems={menuItems.filter((item) => item.category.name === activeCat)}
-				handleAddToOrder={handleAddToOrder}
-				handleLikeButton={handleLikeButton}
-			/>
+				<MenuList
+					menuItems={menuItems.filter(
+						(item) => item.category.name === activeCat
+					)}
+					handleAddToOrder={handleAddToOrder}
+					handleLikeButton={handleLikeButton}
+				/>
+			</div>
 		</main>
 	);
 }
-
-
-

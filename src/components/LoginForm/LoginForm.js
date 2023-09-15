@@ -67,7 +67,7 @@ export default function LoginForm({ setUser }) {
 					<button className={styles.LogInBtn} type="submit">LOG IN</button>
 				</form>
 			</div>
-			<p className="error-message">{error}</p>
+			<p className={styles.errorMessage}>{error}</p>
 		</main>
 	);
 }
